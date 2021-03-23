@@ -1,3 +1,5 @@
+# IMPORTANT: I MOVED THE PROJECT. YOU CAN FIND IT [HERE](https://github.com/PrettyCoffee/fluidity).
+
 ![logo](https://github.com/PrettyCoffee/startpage/blob/main/public/logo192.png)
 
 # Fluidity - An accordion based startpage
