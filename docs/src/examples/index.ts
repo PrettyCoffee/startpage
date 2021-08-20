@@ -1,0 +1,1 @@
+export { Thing } from "./Thing"
