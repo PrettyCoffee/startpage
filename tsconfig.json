@@ -31,5 +31,15 @@
     "forceConsistentCasingInFileNames": true,
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
     "noEmit": true,
+
+    // custom configuration
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es6",
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   }
 }
