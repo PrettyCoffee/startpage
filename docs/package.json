@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "npm run clean:parcel & npm run serve",
+    "serve": "parcel src/index.html --open --port 3000",
     "build": "npm run clean && npm run compile",
     "compile": "parcel build src/index.html --dist-dir build",
-    "clean": "rimraf ./build/*"
+    "clean": "rimraf ./build/*",
+    "clean:parcel": "rimraf ./.parcel-cache/*"
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -21,7 +23,7 @@
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.8.4",
-    "parcel": "^2.0.0-nightly.802",
+    "parcel": "^v2.0.0-rc.0",
     "rimraf": "^3.0.2",
     "typescript": "^3.4.5"
   }
