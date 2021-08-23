@@ -1,3 +1,4 @@
+export * from "./createLocalStorageContext"
 export * from "./StringHistoryContext"
 export * from "./useKey"
 export * from "./useKeyboard"
