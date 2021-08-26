@@ -1,6 +1,6 @@
 import React from "react"
 
-import { useLocalStorage } from ".."
+import { useLocalStorage } from "../useStorage"
 import { StringHistoryContext } from "./StringHistoryContext"
 
 export type StringHistoryProviderProps = {

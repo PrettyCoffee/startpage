@@ -1,6 +1,6 @@
 import { useContext } from "react"
 
-import { StringHistoryContext } from "."
+import { StringHistoryContext } from "./StringHistoryContext"
 
 /** Hook for accessing the `StringHistoryContext`.
  * Can only be used if an `StringHistoryProvider` is a Parent component.
