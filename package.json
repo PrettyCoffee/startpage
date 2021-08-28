@@ -18,14 +18,15 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run build -- watch",
-    "prebuild": "rimraf dist && npm run test:all && npm run lint",
+    "prebuild": "rimraf dist",
     "build": "microbundle --no-compress --sourcemap false --jsx React.createElement --name react-startpage",
     "test": "jest --watch",
     "test:all": "jest",
     "lint": "eslint src docs/src",
     "lint:fix": "npm run lint -- --fix",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "validate": "npm run lint && npm run test:all && npm run build && npm run size"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -80,7 +81,7 @@
     ]
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "husky": {
     "hooks": {
