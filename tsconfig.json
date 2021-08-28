@@ -1,8 +1,7 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["src", "types"],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "ESNext",
     "lib": ["dom", "esnext"],
     "importHelpers": true,
     // output .d.ts declaration files for consumers
@@ -37,7 +36,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es6",
+    "target": "ESNext",
     "allowJs": false,
     "resolveJsonModule": true,
     "isolatedModules": true
