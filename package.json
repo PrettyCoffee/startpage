@@ -21,7 +21,8 @@
     "start": "npm run build -- watch",
     "prebuild": "rimraf dist",
     "build": "microbundle --no-compress --sourcemap false --jsx React.createElement --name react-startpage",
-    "test": "tsdx test --passWithNoTests",
+    "test": "jest --watch",
+    "test:all": "jest",
     "lint": "tsdx lint src docs/src",
     "lint:fix": "npm run lint -- --fix",
     "size": "size-limit",
@@ -42,6 +43,7 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^7.0.1",
     "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
@@ -59,15 +61,18 @@
     "eslint-plugin-testing-library": "^4.6.0",
     "eslint-plugin-unused-imports": "^1.1.1",
     "husky": "^7.0.1",
+    "jest": "^27.1.0",
     "microbundle": "^0.13.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "size-limit": "^5.0.3",
+    "ts-jest": "^27.0.5",
     "tslib": "^2.3.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.2"
   },
   "jest": {
+    "preset": "ts-jest",
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
