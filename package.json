@@ -14,16 +14,15 @@
     "react-hooks",
     "hooks"
   ],
-  "type": "module",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run build -- watch",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist && npm run test:all && npm run lint",
     "build": "microbundle --no-compress --sourcemap false --jsx React.createElement --name react-startpage",
     "test": "jest --watch",
     "test:all": "jest",
-    "lint": "tsdx lint src docs/src",
+    "lint": "eslint src docs/src",
     "lint:fix": "npm run lint -- --fix",
     "size": "size-limit",
     "analyze": "size-limit --why"
@@ -46,8 +45,9 @@
     "@types/jest": "^27.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.29.2",
-    "@typescript-eslint/parser": "^4.29.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.4-alpha.1",
+    "@typescript-eslint/parser": "^4.29.4-alpha.1",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-config-standard-react": "^11.0.1",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -63,6 +63,7 @@
     "husky": "^7.0.1",
     "jest": "^27.1.0",
     "microbundle": "^0.13.3",
+    "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
@@ -83,7 +84,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "npm run lint"
     }
   },
   "size-limit": [
