@@ -11,10 +11,10 @@ export const useKey = (key: string) => {
   const [keyState, setKeyState] = React.useState<boolean>(false)
   const pressedKeys = useKeyboard()
 
-  React.useEffect(() => setKeyState(pressedKeys.includes(key)), [
-    pressedKeys,
-    key,
-  ])
+  React.useEffect(
+    () => setKeyState(pressedKeys.includes(key)),
+    [pressedKeys, key]
+  )
 
   return keyState
 }

@@ -1,3 +1,23 @@
+const baseConfigs = [
+  "eslint:recommended",
+  "standard-react",
+  "plugin:@typescript-eslint/eslint-recommended",
+  "plugin:import/recommended",
+  "plugin:import/typescript",
+  "plugin:jest/recommended",
+  "plugin:react-hooks/recommended",
+  "plugin:prettier/recommended",
+]
+
+const plugins = [
+  "@emotion",
+  "@typescript-eslint",
+  "import",
+  "jest",
+  "testing-library",
+  "unused-imports",
+]
+
 const prettierRules = {
   tabWidth: 2,
   singleQuote: false,
@@ -39,23 +59,8 @@ module.exports = {
       jsx: true,
     },
   },
-  extends: [
-    "eslint:recommended",
-    "standard-react",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:jest/recommended",
-  ],
-  plugins: [
-    "@emotion",
-    "@typescript-eslint",
-    "import",
-    "jest",
-    "prettier",
-    "testing-library",
-    "unused-imports",
-  ],
+  extends: baseConfigs,
+  plugins: plugins,
   rules: {
     "@emotion/syntax-preference": [2, "string"],
     "unused-imports/no-unused-imports": "error",
