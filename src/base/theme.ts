@@ -32,11 +32,21 @@ const breakpoints = {
   laptop: "@media only screen and (max-width: 1440px)",
 }
 
-const getColorScheme = (name?: string) =>
-  colorSchemes.find(scheme => scheme.name === name) || colorSchemes[0]
+const getColorScheme = (name?: string, inverted?: boolean): ColorScheme => {
+  const colors =
+    colorSchemes.find(scheme => scheme.name === name) || colorSchemes[0]
+  return {
+    ...colors,
+    bg: inverted ? colors.fg : colors.bg,
+    fg: inverted ? colors.bg : colors.fg,
+  }
+}
 
-export const getTheme = (colorScheme?: ColorSchemeName): Theme => ({
-  color: getColorScheme(colorScheme),
+export const getTheme = (
+  colorScheme?: ColorSchemeName,
+  inverted?: boolean
+): Theme => ({
+  color: getColorScheme(colorScheme, inverted),
   space: space,
   breakpoints: breakpoints,
 })
