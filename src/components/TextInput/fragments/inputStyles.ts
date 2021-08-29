@@ -12,7 +12,7 @@ export const inputStyles = css`
   display: flex;
   height: ${space.largest};
   align-items: center;
-  background-color: ${color.base.darkest};
+  background-color: ${color.bg.base};
   margin: ${space.large};
   width: 20rem;
   border-radius: ${space.large};
@@ -41,7 +41,7 @@ export const inputStyles = css`
     bottom: ${space.smallest};
     right: ${space.largest};
     font: 500 ${space.small} Arial;
-    color: ${color.base.lightest};
+    color: ${color.fg.base};
   }
   > input {
     flex: 1;
@@ -50,7 +50,7 @@ export const inputStyles = css`
     box-sizing: border-box;
 
     font-size: ${space.large};
-    color: ${color.base.lightest};
+    color: ${color.fg.base};
     background-color: transparent;
 
     border: none;
@@ -58,7 +58,7 @@ export const inputStyles = css`
     width: 100%;
 
     ::placeholder {
-      color: ${color.base.basic};
+      color: ${color.fg.base};
     }
   }
 `

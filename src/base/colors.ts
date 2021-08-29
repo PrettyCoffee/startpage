@@ -3,24 +3,31 @@
 export const colorSchemes: ColorScheme[] = [
   {
     name: "atom",
-    base: {
-      lightest: "#DCDFE4",
-      light: "#bec1c7",
-      basic: "#82858c",
-      dark: "#464a51",
-      darkest: "#282C34",
+
+    bg: {
+      shade: "#17191e",
+      base: "#282c34",
+      surface: "#393f4a",
+      highlight: "#4a5260",
+    },
+
+    fg: {
+      shade: "#bbc1ca",
+      base: "#d1d5db", //original: "#dcdfe4",
+      surface: "#e7e9ed",
+      highlight: "#fdfdfe",
     },
 
     primary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#bddffb",
+      base: "#61afef",
+      dark: "#197fd4",
     },
 
     secondary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#fcc7cb",
+      base: "#E06C75",
+      dark: "#992029",
     },
 
     palette: {
@@ -37,24 +44,31 @@ export const colorSchemes: ColorScheme[] = [
   // https://github.com/dracula/dracula-theme
   {
     name: "dracula",
-    base: {
-      lightest: "#f8f8f2",
-      light: "#d5d6d3",
-      basic: "#909194",
-      dark: "#4b4c55",
-      darkest: "#282a36",
+
+    bg: {
+      shade: "#17181f",
+      base: "#282a36",
+      surface: "#393c4d",
+      highlight: "#494d63",
+    },
+
+    fg: {
+      shade: "#bdbdbb",
+      base: "#d0d0cf", //original: "#dadad9"
+      surface: "#e4e4e3",
+      highlight: "#f7f7f7",
     },
 
     primary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#ffeef8",
+      base: "#ff79c6",
+      dark: "#fd209d",
     },
 
     secondary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#b1fdc5",
+      base: "#50fa7b",
+      dark: "#00ee3f",
     },
 
     palette: {
@@ -71,24 +85,31 @@ export const colorSchemes: ColorScheme[] = [
   //https://github.com/arcticicestudio/nord
   {
     name: "nord",
-    base: {
-      lightest: "#ECEFF4",
-      light: "#ccd0d6",
-      basic: "#8d929b",
-      dark: "#4e545f",
-      darkest: "#2E3541",
+
+    bg: {
+      shade: "#1e2129",
+      base: "#2E3440",
+      surface: "#3e4757",
+      highlight: "#4f596e",
+    },
+
+    fg: {
+      shade: "#b2bed4",
+      base: "#cbd3e2", //original: "#D8DEE9",
+      surface: "#e5e9f0",
+      highlight: "#fefefe",
     },
 
     primary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#dde8f2",
+      base: "#81A1C1",
+      dark: "#39628b",
     },
 
     secondary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#e7f1f1",
+      base: "#8FBCBB",
+      dark: "#39807d",
     },
 
     palette: {
@@ -105,24 +126,31 @@ export const colorSchemes: ColorScheme[] = [
   //https://material.io/design/color/the-color-system.html#tools-for-picking-colors
   {
     name: "material",
-    base: {
-      lightest: "#eceff1",
-      light: "#bac0c3",
-      basic: "#899194",
-      dark: "#475157",
-      darkest: "#263238",
+
+    bg: {
+      shade: "#080808",
+      base: "#212121",
+      surface: "#424242",
+      highlight: "#616161",
+    },
+
+    fg: {
+      shade: "#BDBDBD",
+      base: "#E0E0E0",
+      surface: "#EEEEEE",
+      highlight: "#F5F5F5",
     },
 
     primary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#C8E6C9",
+      base: "#4CAF50",
+      dark: "#2E7D32",
     },
 
     secondary: {
-      light: "",
-      basic: "",
-      dark: "",
+      light: "#F48FB1",
+      base: "#E91E63",
+      dark: "#AD1457",
     },
 
     palette: {
@@ -142,23 +170,29 @@ export type ColorSchemeName = "atom" | "dracula" | "nord" | "material"
 export interface ColorScheme {
   name: ColorSchemeName
 
-  base: {
-    lightest: string
-    light: string
-    basic: string
-    dark: string
-    darkest: string
+  bg: {
+    shade: string
+    base: string
+    surface: string
+    highlight: string
+  }
+
+  fg: {
+    shade: string
+    base: string
+    surface: string
+    highlight: string
   }
 
   primary: {
     light: string
-    basic: string
+    base: string
     dark: string
   }
 
   secondary: {
     light: string
-    basic: string
+    base: string
     dark: string
   }
 
