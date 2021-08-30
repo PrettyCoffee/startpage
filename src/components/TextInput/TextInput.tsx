@@ -4,6 +4,17 @@ import { BaseInputProps } from "../../base"
 import { defaultStyles } from "./fragments/defaultStyles"
 
 export type TextInputProps = BaseInputProps<string> & {
+  /** Current value */
+  value?: string
+  /** Placeholder which is shown if value is undefined */
+  placeholder?: string
+  /** Callback fired when a key is pressed while the input is focused */
+  onKeyPress?: (
+    key: string,
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => void
+  /** Enables HTML basic autocomplete, pass a boolean for on / off or a string with the (HTML) type of the autocomplete. */
+  autocomplete?: boolean | string
   /** Input will be focused on load if set to true */
   autofocus?: boolean
   /** Type of the input element, defaults to "text" */

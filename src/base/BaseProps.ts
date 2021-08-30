@@ -6,30 +6,19 @@ export type ClassNameProp = {
 }
 
 export type BaseInputProps<ValueType> = ClassNameProp & {
-  /** Current value */
-  value?: ValueType
-  /** Placeholder which is shown if value is undefined */
-  placeholder?: string
-  /** Callback fired when the inputs value changes */
+  /** Callback fired when the elements value changes */
   onChange?: (
     value: ValueType,
     event: React.ChangeEvent<HTMLInputElement>
   ) => void
-  /** Callback fired when a key is pressed while the input is focused */
-  onKeyPress?: (
-    key: string,
-    event: React.KeyboardEvent<HTMLInputElement>
-  ) => void
-  /** Label text for the input */
+  /** Label text for the element */
   label?: string
-  /** Disables the input */
+  /** Disables the element */
   disabled?: boolean
   /** Indicates focusability and position in keyboard navigation */
   tabIndex?: number
-  /** Callback fired when the input gains focus */
+  /** Callback fired when the element gains focus */
   onFocus?: React.FocusEventHandler<HTMLInputElement>
-  /** Callback fired when the input looses focus */
+  /** Callback fired when the element looses focus */
   onBlur?: React.FocusEventHandler<HTMLInputElement>
-  /** Enables HTML basic autocomplete, pass a boolean for on / off or a string with the (HTML) type of the autocomplete. */
-  autocomplete?: boolean | string
 }
