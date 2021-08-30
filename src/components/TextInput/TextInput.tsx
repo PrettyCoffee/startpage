@@ -1,7 +1,7 @@
 import React from "react"
 
 import { BaseInputProps } from "../../base"
-import { inputStyles } from "./fragments/inputStyles"
+import { defaultStyles } from "./fragments/defaultStyles"
 
 export type TextInputProps = BaseInputProps<string> & {
   /** Input will be focused on load if set to true */
@@ -23,7 +23,7 @@ export const TextInput = ({
   onChange,
   onKeyPress,
   type = "text",
-  className,
+  className = defaultStyles,
   ...inputProps
 }: TextInputProps) => {
   const handleChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) =>
@@ -33,16 +33,16 @@ export const TextInput = ({
     onKeyPress?.(keyEvent.key, keyEvent)
 
   return (
-    <div className={className || inputStyles}>
+    <div className={className}>
       {label && <label>{label}</label>}
-      {leftExtra && <span>{leftExtra}</span>}
+      {leftExtra && <span className="input-extra">{leftExtra}</span>}
       <input
         type={type}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
         {...inputProps}
       />
-      {rightExtra && <span>{rightExtra}</span>}
+      {rightExtra && <span className="input-extra">{rightExtra}</span>}
     </div>
   )
 }
