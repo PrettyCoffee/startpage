@@ -3,12 +3,19 @@ import React from "react"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { getTheme } from "../../../src"
+import { getTheme, Toggle } from "../../../src"
 import { ColorSchemeName } from "../../../src/base/colors"
 import { Button } from "../components"
-import { Toggle } from "../components/Toggle"
 import { ColorPanel } from "./ColorPanel"
+
+const Icon = styled(FontAwesomeIcon)`
+  ${({ theme: { space } }) => css`
+    height: ${space.medium};
+    width: ${space.medium};
+  `}
+`
 
 const ButtonPanel = styled.div`
   ${({ theme: { space } }) => css`
@@ -16,7 +23,7 @@ const ButtonPanel = styled.div`
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    margin: ${space.small} 0;
+    margin: ${space.medium} 0;
   `}
 `
 const ThemeButtons = styled.div`
@@ -52,7 +59,12 @@ export const ColorPreview = () => {
             </Button>
           ))}
         </ThemeButtons>
-        <Toggle leftIcon={faSun} rightIcon={faMoon} onChange={setInverted} />
+        <Toggle
+          checked={inverted}
+          onChange={setInverted}
+          leftExtra={<Icon icon={faSun} />}
+          rightExtra={<Icon icon={faMoon} />}
+        />
       </ButtonPanel>
       <ColorPanel theme={getTheme(currentTheme, inverted)} />
     </div>
