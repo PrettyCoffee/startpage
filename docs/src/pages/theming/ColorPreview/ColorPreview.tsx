@@ -3,10 +3,10 @@ import React from "react"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
-import { getTheme } from "../../../src"
-import { ColorSchemeName } from "../../../src/base/colors"
-import { Button } from "../components"
-import { ThemeToggle } from "../components/ThemeToggle"
+import { getTheme } from "../../../../../src"
+import { ColorSchemeName } from "../../../../../src/base/colors"
+import { Button } from "../../../components"
+import { ThemeToggle } from "../../../components/ThemeToggle"
 import { ColorPanel } from "./ColorPanel"
 
 const Container = styled.div`

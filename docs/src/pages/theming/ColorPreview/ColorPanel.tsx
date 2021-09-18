@@ -3,7 +3,7 @@ import React from "react"
 import { css, ThemeProvider as EmotionThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
 
-import { Theme } from "../../../src"
+import { Theme } from "../../../../../src"
 
 const ThemeContainer = styled.div`
   ${({ theme: { color, space } }) => css`
