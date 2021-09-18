@@ -15,21 +15,15 @@ const Icon = styled(FontAwesomeIcon)`
 `
 
 type ThemeToggleProps = {
+  inverted: boolean
   onChange?: (checked: boolean) => void
 }
 
-export const ThemeToggle = ({ onChange }: ThemeToggleProps) => {
-  const [inverted, setInverted] = React.useState(false)
-  const handleToggle = () => {
-    setInverted(!inverted)
-    onChange?.(!inverted)
-  }
-  return (
-    <Toggle
-      checked={inverted}
-      onChange={handleToggle}
-      leftExtra={<Icon icon={faSun} />}
-      rightExtra={<Icon icon={faMoon} />}
-    />
-  )
-}
+export const ThemeToggle = ({ onChange, inverted }: ThemeToggleProps) => (
+  <Toggle
+    checked={inverted}
+    onChange={onChange}
+    leftExtra={<Icon icon={faSun} />}
+    rightExtra={<Icon icon={faMoon} />}
+  />
+)

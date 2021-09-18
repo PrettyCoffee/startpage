@@ -1,6 +1,7 @@
 import { ColorScheme, ColorSchemeName, colorSchemes } from "./colors"
 
 export interface Theme {
+  inverted: boolean
   color: ColorScheme
   space: {
     smallest: string
@@ -46,6 +47,7 @@ export const getTheme = (
   colorScheme?: ColorSchemeName,
   inverted?: boolean
 ): Theme => ({
+  inverted: inverted || false,
   color: getColorScheme(colorScheme, inverted),
   space: space,
   breakpoints: breakpoints,

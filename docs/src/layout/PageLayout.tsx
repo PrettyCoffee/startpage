@@ -17,7 +17,6 @@ const Content = styled.div`
     max-width: 1600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: ${space.largest};
   `}
 `

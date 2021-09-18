@@ -43,17 +43,14 @@ const Logo = styled.img`
 
 export const Header = () => {
   const [theme, setTheme] = useTheme()
-  const [logo, setLogo] = React.useState(logoDark)
 
-  const handleToggle = (inverted: boolean) => {
-    setTheme(getTheme(theme.color.name, inverted))
-    setLogo(inverted ? logoLight : logoDark)
-  }
+  const handleToggle = () =>
+    setTheme(getTheme(theme.color.name, !theme.inverted))
 
   return (
     <Container>
-      <Logo src={logo} />
-      <ThemeToggle onChange={handleToggle} />
+      <Logo src={theme.inverted ? logoLight : logoDark} />
+      <ThemeToggle inverted={theme.inverted} onChange={handleToggle} />
     </Container>
   )
 }

@@ -55,7 +55,7 @@ export const ColorPreview = () => {
             </Button>
           ))}
         </ThemeButtons>
-        <ThemeToggle onChange={setInverted} />
+        <ThemeToggle inverted={inverted} onChange={setInverted} />
       </ButtonPanel>
       <ColorPanel theme={getTheme(currentTheme, inverted)} />
     </Container>
