@@ -10,7 +10,6 @@ const ThemeContainer = styled.div`
     background-color: ${color.bg.base};
     box-shadow: 0 0 ${space.medium} ${color.bg.shade};
     color: ${color.fg.base};
-    font-family: Calibri;
     box-sizing: border-box;
     border-radius: ${space.small};
     padding: ${space.large};
@@ -20,8 +19,6 @@ const ThemeContainer = styled.div`
       margin: 0;
     }
     h3 {
-      font-size: ${space.medium};
-      font-weight: 400;
       margin-top: 0;
     }
   `}

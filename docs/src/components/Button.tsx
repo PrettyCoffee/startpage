@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 export const Button = styled.button<{ active?: boolean }>`
   ${({ theme: { color, space }, active }) => css`
     background-color: ${active ? color.bg.highlight : color.bg.surface};
-    box-shadow: 0 0 ${space.medium} ${color.bg.shade};
+    box-shadow: 0 4px 0 ${color.bg.shade};
     color: ${color.fg.surface};
     border: none;
     border-radius: ${space.small};
