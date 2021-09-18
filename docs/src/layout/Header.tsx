@@ -6,12 +6,9 @@ import styled from "@emotion/styled"
 import { getTheme, useTheme } from "../../../src"
 import { ThemeToggle } from "../components/ThemeToggle"
 
-const logoDark = new URL("../../../static/logo-dark-base.svg", import.meta.url)
+const logoLight = new URL("../../../static/logo-light.svg", import.meta.url)
   .href
-const logoLight = new URL(
-  "../../../static/logo-light-base.svg",
-  import.meta.url
-).href
+const logoDark = new URL("../../../static/logo-dark.svg", import.meta.url).href
 
 const Container = styled.header`
   ${({ theme: { color, space } }) => css`
@@ -49,7 +46,7 @@ export const Header = () => {
 
   return (
     <Container>
-      <Logo src={theme.inverted ? logoLight : logoDark} />
+      <Logo src={theme.inverted ? logoDark : logoLight} />
       <ThemeToggle inverted={theme.inverted} onChange={handleToggle} />
     </Container>
   )
