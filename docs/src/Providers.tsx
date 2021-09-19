@@ -23,13 +23,15 @@ const globalStyles = (theme: Theme) => css`
     border-radius: 10px;
   }
   * {
-    font: normal 400 1rem Quicksand;
+    font-family: Quicksand;
+    font-weight: 500;
   }
   body {
     margin: 0;
     overflow: overlay;
     background-color: ${theme.color.bg.base};
     color: ${theme.color.fg.base};
+    font-size: ${theme.space.medium};
   }
 `
 

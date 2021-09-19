@@ -11,6 +11,7 @@ import { ColorPanel } from "./ColorPanel"
 
 const Container = styled.div`
   width: fit-content;
+  margin: 0 auto;
 `
 
 const ButtonPanel = styled.div`
