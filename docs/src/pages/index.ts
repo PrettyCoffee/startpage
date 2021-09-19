@@ -1,3 +1,6 @@
-/** Will be inserted by the export order */
-export { config as Intro } from "./intro"
-export { config as Theming } from "./theming"
+// @ts-ignore
+import Intro from "./intro.mdx"
+// @ts-ignore
+import Theming from "./theming/theming.mdx"
+
+export default [Intro, Theming]
