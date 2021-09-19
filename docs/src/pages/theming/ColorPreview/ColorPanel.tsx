@@ -8,7 +8,7 @@ import { Theme } from "../../../../../src"
 const ThemeContainer = styled.div`
   ${({ theme: { color, space } }) => css`
     background-color: ${color.bg.base};
-    box-shadow: 0 0 ${space.medium} ${color.bg.shade};
+    box-shadow: 0 4px 0 ${color.bg.shade};
     color: ${color.fg.base};
     box-sizing: border-box;
     border-radius: ${space.small};
@@ -18,7 +18,7 @@ const ThemeContainer = styled.div`
     h2 {
       margin: 0;
     }
-    h3 {
+    p {
       margin-top: 0;
     }
   `}
@@ -86,7 +86,7 @@ const Layout = styled.div`
   grid-gap: 1rem;
   grid-template-columns: 10rem 10rem 10rem;
   grid-template-areas:
-    ". header ."
+    "header header header"
     "surface surface accents"
     "palette palette palette";
 `
@@ -112,7 +112,7 @@ export const ColorPanel = ({ theme }: { theme: Theme }) => {
             <h2>{theme.color.name} theme</h2>
           </Header>
           <Surface>
-            <h3>Surface</h3>
+            <p>Surface</p>
             <GreyScale>
               {Object.values(color.bg).map(color => (
                 <Color key={color} color={color} />
@@ -124,20 +124,20 @@ export const ColorPanel = ({ theme }: { theme: Theme }) => {
           </Surface>
           <Accents>
             <div>
-              <h3>Primary</h3>
-              {Object.values(color.primary).map(color => (
-                <Color key={color} color={color} />
-              ))}
+              <p>Primary</p>
+              <Color key={color.primary.bg} color={color.primary.bg} />
+              <Color key={color.primary.base} color={color.primary.base} />
+              <Color key={color.primary.fg} color={color.primary.fg} />
             </div>
             <div>
-              <h3>Secondary</h3>
-              {Object.values(color.secondary).map(color => (
-                <Color key={color} color={color} />
-              ))}
+              <p>Secondary</p>
+              <Color key={color.secondary.bg} color={color.secondary.bg} />
+              <Color key={color.secondary.base} color={color.secondary.base} />
+              <Color key={color.secondary.fg} color={color.secondary.fg} />
             </div>
           </Accents>
           <Palette>
-            <h3>Palette</h3>
+            <p>Palette</p>
             <div>
               {Object.values(color.palette).map(color => (
                 <Color key={color} color={color} />
