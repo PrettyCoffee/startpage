@@ -1,4 +1,4 @@
 export type PageConfig = {
-  headline: string
-  content: React.ReactFragment
+  content: string
+  demo?: React.ReactFragment
 }
