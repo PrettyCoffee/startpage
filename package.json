@@ -1,7 +1,7 @@
 {
   "name": "react-startpage",
   "version": "0.1.0",
-  "description": "A React library which provides components that help creating browser startpages in react.",
+  "description": "A React library that provides tools and components to facilitate the process of creating a browser start page.",
   "author": "PrettyCoffee",
   "license": "MIT",
   "repository": "PrettyCoffee/react-startpage",
