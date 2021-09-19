@@ -3,9 +3,9 @@ import React from "react"
 import styled from "@emotion/styled"
 import { render } from "react-dom"
 
-import { Markdown } from "./components/Markdown"
+import { MDX } from "./components/"
 import { PageLayout } from "./layout/PageLayout"
-import * as Examples from "./pages"
+import Pages from "./pages"
 import { Providers } from "./Providers"
 
 const Section = styled.section``
@@ -13,10 +13,11 @@ const Section = styled.section``
 const App = () => (
   <Providers>
     <PageLayout>
-      {Object.values(Examples).map(config => (
-        <Section>
-          <Markdown>{config.content || ""}</Markdown>
-          {config.demo}
+      {Pages.map((Page, index) => (
+        <Section key={index}>
+          <MDX>
+            <Page />
+          </MDX>
         </Section>
       ))}
     </PageLayout>
