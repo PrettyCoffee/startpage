@@ -6,18 +6,21 @@ import styled from "@emotion/styled"
 import { Header } from "./Header"
 
 const Layout = styled.main`
-  display: grid;
-  grid-template-areas: ". main .";
-  grid-template-columns: auto auto auto;
+  ${({ theme: { space } }) => css`
+    display: grid;
+    grid-template-areas: ". main .";
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 ${space.largest};
+  `}
 `
 
 const Content = styled.div`
   ${({ theme: { space } }) => css`
     grid-area: main;
-    max-width: 1600px;
+    max-width: 1024px;
     display: flex;
     flex-direction: column;
-    gap: ${space.largest};
+    margin-bottom: calc(${space.largest} * 2);
   `}
 `
 
