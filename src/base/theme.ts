@@ -36,10 +36,21 @@ const breakpoints = {
 const getColorScheme = (name?: string, inverted?: boolean): ColorScheme => {
   const colors =
     colorSchemes.find(scheme => scheme.name === name) || colorSchemes[0]
+  const { bg, fg, primary, secondary } = colors
   return {
     ...colors,
-    bg: inverted ? colors.fg : colors.bg,
-    fg: inverted ? colors.bg : colors.fg,
+    bg: inverted ? fg : bg,
+    fg: inverted ? bg : fg,
+    primary: {
+      bg: inverted ? primary.fg : primary.bg,
+      fg: inverted ? primary.bg : primary.fg,
+      base: primary.base,
+    },
+    secondary: {
+      bg: inverted ? secondary.fg : secondary.bg,
+      fg: inverted ? secondary.bg : secondary.fg,
+      base: secondary.base,
+    },
   }
 }
 

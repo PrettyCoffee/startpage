@@ -19,15 +19,15 @@ export const colorSchemes: ColorScheme[] = [
     },
 
     primary: {
-      light: "#bddffb",
+      bg: "#197fd4",
       base: "#61afef",
-      dark: "#197fd4",
+      fg: "#bddffb",
     },
 
     secondary: {
-      light: "#fcc7cb",
+      bg: "#992029",
       base: "#E06C75",
-      dark: "#992029",
+      fg: "#fcc7cb",
     },
 
     palette: {
@@ -60,15 +60,15 @@ export const colorSchemes: ColorScheme[] = [
     },
 
     primary: {
-      light: "#ffeef8",
+      bg: "#fd209d",
       base: "#ff79c6",
-      dark: "#fd209d",
+      fg: "#ffeef8",
     },
 
     secondary: {
-      light: "#b1fdc5",
+      bg: "#00ee3f",
       base: "#50fa7b",
-      dark: "#00ee3f",
+      fg: "#b1fdc5",
     },
 
     palette: {
@@ -101,15 +101,15 @@ export const colorSchemes: ColorScheme[] = [
     },
 
     primary: {
-      light: "#dde8f2",
+      bg: "#39628b",
       base: "#81A1C1",
-      dark: "#39628b",
+      fg: "#dde8f2",
     },
 
     secondary: {
-      light: "#e7f1f1",
+      bg: "#39807d",
       base: "#8FBCBB",
-      dark: "#39807d",
+      fg: "#e7f1f1",
     },
 
     palette: {
@@ -142,15 +142,15 @@ export const colorSchemes: ColorScheme[] = [
     },
 
     primary: {
-      light: "#C8E6C9",
+      bg: "#2E7D32",
       base: "#4CAF50",
-      dark: "#2E7D32",
+      fg: "#C8E6C9",
     },
 
     secondary: {
-      light: "#F48FB1",
+      bg: "#AD1457",
       base: "#E91E63",
-      dark: "#AD1457",
+      fg: "#F48FB1",
     },
 
     palette: {
@@ -185,15 +185,15 @@ export interface ColorScheme {
   }
 
   primary: {
-    light: string
+    bg: string
     base: string
-    dark: string
+    fg: string
   }
 
   secondary: {
-    light: string
+    bg: string
     base: string
-    dark: string
+    fg: string
   }
 
   palette: {
