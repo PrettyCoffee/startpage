@@ -2,10 +2,12 @@
   "name": "docs",
   "version": "1.0.0",
   "license": "MIT",
+  "homepage": "https://prettycoffee.github.io/react-startpage/",
   "scripts": {
     "start": "npm run clean:parcel & npm run serve",
     "serve": "parcel src/index.html --open --port 3000",
     "build": "npm run clean && npm run compile",
+    "deploy": "npm run build && gh-pages -d build",
     "compile": "parcel build src/index.html --dist-dir build",
     "clean": "rimraf ./build/*",
     "clean:parcel": "rimraf ./.parcel-cache/*"
@@ -17,6 +19,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
+    "gh-pages": "^3.2.3",
     "prism-react-renderer": "^1.2.1"
   },
   "alias": {
