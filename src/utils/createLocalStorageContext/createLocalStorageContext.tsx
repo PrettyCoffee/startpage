@@ -2,32 +2,29 @@ import React from "react"
 
 import { useLocalStorage } from "../useStorage"
 
-type StorageState<StorageType> = [StorageType, (value: StorageType) => void]
+type StorageState<ValueType> = [ValueType, (value: ValueType) => void]
 
 /** Factory for creating local storage contexts.
  * You have to use the returned provider as wrapper for your application.
  * The hook will return a setter and getter for the local storage values IF it is used while one parent component is the provider.
  * Note: Only use one provider at a time since its bound to one local storage key.
  *
- * @param StorageType the type of the storage you are creating
+ * @param ValueType the type of the local storage value
  * @param key the key you want to use in the local storage
- * @param initialValue the initial value for the context. Will be used if the hook is called without a provider.
+ * @param initialValue the default value you want to assign. Will also be used if the hook is called without a provider.
  *
- * @returns an object with the provider and the context hook
+ * @returns an object with the context, provider and context hook
  */
-export const createLocalStorageContext = <StorageType extends unknown>(
+export const createLocalStorageContext = <ValueType extends unknown>(
   key: string,
-  initialValue: StorageType
+  initialValue: ValueType
 ) => {
-  const initialState: StorageState<StorageType> = [initialValue, () => null]
+  const initialState: StorageState<ValueType> = [initialValue, () => null]
 
   const StorageContext = React.createContext(initialState)
 
   const StorageProvider = ({ children }: React.PropsWithChildren<unknown>) => {
-    const [storage, setStorage] = useLocalStorage<StorageType>(
-      key,
-      initialValue
-    )
+    const [storage, setStorage] = useLocalStorage<ValueType>(key, initialValue)
 
     return (
       <StorageContext.Provider value={[storage, setStorage]}>
