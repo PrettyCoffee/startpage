@@ -2,6 +2,8 @@
 
 react-startpage is a library that provides tools and components to facilitate the process of creating a browser start page.
 
+Take a look at the [documentation](https://prettycoffee.github.io/react-startpage/) for more details.
+
 ## Getting Started
 
 ### Installation
@@ -14,10 +16,8 @@ npm i react-startpage
 
 Before you start working with react-startpage, you should be aware of the following core concepts the library uses:
 
-- How to use [React hooks](https://reactjs.org/docs/hooks-intro.html)
-- How to use [React context](https://reactjs.org/docs/context.html)
-- Theming - Take a look at the `Theming` section of the documentation
-- UI components - Take a look at the `How to use the UI components` section of the documentation
+- [React hooks](https://reactjs.org/docs/hooks-intro.html)
+- [React context](https://reactjs.org/docs/context.html)
 
 ### Note
 
