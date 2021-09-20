@@ -25,8 +25,7 @@ const initiateStorage = <ValueType>(
 export const useStorage = <ValueType>(
   storage: Storage,
   key: string,
-  initialValue: ValueType,
-  callback?: (value: ValueType) => void
+  initialValue: ValueType
 ): [ValueType, (value: ValueType) => void] => {
   const [value, setValue] = useState(
     initiateStorage(storage, key, initialValue)
@@ -36,9 +35,8 @@ export const useStorage = <ValueType>(
     (value: ValueType) => {
       storage.setItem(key, JSON.stringify(value))
       setValue(value)
-      callback?.(value)
     },
-    [callback, key, storage]
+    [key, storage]
   )
 
   return [value, setStorage]
