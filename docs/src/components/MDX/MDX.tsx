@@ -86,6 +86,7 @@ const table = styled.table`
     border-collapse: collapse;
     th,
     td {
+      text-align: left;
       border-bottom: 2px solid ${color.bg.shade};
       padding: ${space.small} ${space.medium};
     }

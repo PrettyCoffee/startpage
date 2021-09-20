@@ -4,6 +4,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import { Header } from "./Header"
+import { NavigationProps } from "./Navigation"
 
 const Layout = styled.main`
   ${({ theme: { space } }) => css`
@@ -11,6 +12,9 @@ const Layout = styled.main`
     grid-template-areas: ". main .";
     grid-template-columns: 1fr auto 1fr;
     padding: 0 ${space.largest};
+    overflow-y: scroll;
+    box-sizing: border-box;
+    height: calc(100vh - calc(${space.large} * 3));
   `}
 `
 
@@ -24,9 +28,12 @@ const Content = styled.div`
   `}
 `
 
-export const PageLayout = ({ children }: React.PropsWithChildren<unknown>) => (
+export const PageLayout = ({
+  children,
+  ...headerProps
+}: React.PropsWithChildren<NavigationProps>) => (
   <>
-    <Header />
+    <Header {...headerProps} />
     <Layout>
       <Content>{children}</Content>
     </Layout>

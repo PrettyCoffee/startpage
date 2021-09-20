@@ -1,6 +1,10 @@
 // @ts-ignore
-import Intro from "./intro.mdx"
+import Intro from "./intro"
 // @ts-ignore
-import Theming from "./theming/theming.mdx"
+import LocalStorage from "./local-storage"
+// @ts-ignore
+import Theming from "./theming"
+// @ts-ignore
+import UIComponents from "./ui-components"
 
-export default [Intro, Theming]
+export default [Intro, Theming, LocalStorage, UIComponents]

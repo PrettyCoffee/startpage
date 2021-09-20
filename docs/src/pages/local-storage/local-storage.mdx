@@ -1,0 +1,111 @@
+import { HookDemo, Parent } from "./LocalStorage"
+
+# Local storage
+
+
+## useLocalStorage
+
+Hook for managing your local storage.
+
+### API
+
+|name|type|description|
+|--- |--- |---        |
+|ValueType|  |The type of the local storage value|
+|key|string|The key you want to use in the local storage|
+|initialValue|ValueType|The default value you want to assign. Will be used if the hook is called without a provider.|
+
+-> Returns an array with the value and setter function, defaults to initialValue if content cannot be parsed or is unset.
+
+### Usage
+
+### Example
+
+<HookDemo />
+
+```
+const HookDemo = () => {
+  const [value, setValue] = useLocalStorage("hook-demo", "")
+
+  return (
+    <Wrapper>
+      <TextInput
+        placeholder="🤖 beep boop, type!"
+        value={value}
+        onChange={setValue}
+      />
+      Value in local storage: {value}
+    </Wrapper>
+  )
+}
+```
+
+## createLocalStorageContext
+
+Factory for creating local storage contexts.
+You have to use the returned provider as wrapper for your application.
+The hook will return a setter and getter for the local storage values IF it is used while one parent component is the provider.
+Note: Only use one provider at a time since its bound to one local storage key.
+
+### API
+
+|name|type|description|
+|--- |--- |---        |
+|ValueType|  |The type of the local storage value|
+|key|string|The key you want to use in the local storage|
+|initialValue|ValueType|The default value you want to assign. Will also be used if the hook is called without a provider.|
+
+-> Returns an object with the context, provider and context hook
+
+### Usage
+
+### Example
+
+<Parent />
+
+```
+// StorageContext.ts
+
+import { createLocalStorageContext } from "react-startpage"
+
+export const { StorageProvider, useStorage } = createLocalStorageContext(
+  "context-demo",
+  ""
+)
+```
+```
+// Parent.tsx
+
+import { StorageProvider } from "./StorageContext"
+
+export const Parent = () => (
+  <StorageProvider>
+    <Child />
+  </StorageProvider>
+)
+```
+```
+// Child.tsx
+
+import { Parent } from "./Parent"
+import { useStorage } from "./StorageContext"
+
+export const Child = () => {
+  const [value, setValue] = useStorage()
+
+  return (
+    <Wrapper>
+      <TextInput
+        placeholder="Contexts are great!"
+        value={value}
+        onChange={setValue}
+      />
+      Value in local storage: {value}
+    </Wrapper>
+  )
+}
+```
+### Note
+
+Never use more than one instance of one storage key at the same time to prevent inconsistency.
+Furthermore I recommend either using `useLocalStorage` or `createLocalStorageContext` to stay consistent in your app.

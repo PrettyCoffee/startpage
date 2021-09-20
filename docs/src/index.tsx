@@ -10,18 +10,24 @@ import { Providers } from "./Providers"
 
 const Section = styled.section``
 
-const App = () => (
-  <Providers>
-    <PageLayout>
-      {Pages.map((Page, index) => (
-        <Section key={index}>
+const App = () => {
+  const [Page, setPage] = React.useState(Pages[0])
+
+  const pageIcons = Pages.map(page => page.icon)
+
+  const changePage = (index: number) => setPage(Pages[index])
+
+  return (
+    <Providers>
+      <PageLayout pageIcons={pageIcons} changePage={changePage}>
+        <Section>
           <MDX>
-            <Page />
+            <Page.content />
           </MDX>
         </Section>
-      ))}
-    </PageLayout>
-  </Providers>
-)
+      </PageLayout>
+    </Providers>
+  )
+}
 
 render(<App />, document.getElementById("root"))
