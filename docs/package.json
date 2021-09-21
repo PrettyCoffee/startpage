@@ -2,13 +2,14 @@
   "name": "docs",
   "version": "1.0.0",
   "license": "MIT",
-  "homepage": "https://prettycoffee.github.io/react-startpage/",
+  "homepage": "/react-startpage/",
   "scripts": {
     "start": "npm run clean:parcel & npm run serve",
     "serve": "parcel src/index.html --open --port 3000",
     "build": "npm run clean && npm run compile",
-    "deploy": "npm run build && gh-pages -d build",
     "compile": "parcel build src/index.html --dist-dir build",
+    "predeploy": "npm run compile -- --public-url https://prettycoffee.github.io/react-startpage/",
+    "deploy": "gh-pages -d build",
     "clean": "rimraf ./build/*",
     "clean:parcel": "rimraf ./.parcel-cache/*"
   },
@@ -24,17 +25,16 @@
   },
   "alias": {
     "react": "../node_modules/react",
-    "react-dom": "../node_modules/react-dom/profiling",
-    "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
+    "react-dom": "../node_modules/react-dom",
+    "typescript": "../node_modules/typescript"
   },
   "devDependencies": {
-    "@mdx-js/react": "^1.0.0",
+    "@mdx-js/react": "^1.6.22",
     "@parcel/transformer-mdx": "^2.0.0-rc.0",
     "@types/mdx-js__react": "^1.5.4",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.8.4",
+    "@types/react": "^17.0.23",
+    "@types/react-dom": "^17.0.9",
     "parcel": "^v2.0.0-rc.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.4.5"
+    "rimraf": "^3.0.2"
   }
 }
