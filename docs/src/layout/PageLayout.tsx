@@ -4,7 +4,6 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import { Header } from "./Header"
-import { NavigationProps } from "./Navigation"
 
 const Layout = styled.main`
   ${({ theme: { space } }) => css`
@@ -28,12 +27,9 @@ const Content = styled.div`
   `}
 `
 
-export const PageLayout = ({
-  children,
-  ...headerProps
-}: React.PropsWithChildren<NavigationProps>) => (
+export const PageLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <>
-    <Header {...headerProps} />
+    <Header />
     <Layout>
       <Content>{children}</Content>
     </Layout>

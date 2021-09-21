@@ -5,8 +5,7 @@ import styled from "@emotion/styled"
 
 import { getTheme, useTheme } from "../../../src"
 import { ThemeToggle } from "../components/ThemeToggle"
-import { Navigation, NavigationProps } from "./Navigation"
-import { Icon } from "@fortawesome/fontawesome-svg-core"
+import { Navigation } from "./Navigation"
 
 const logoLight = new URL("../../../static/logo-light.svg", import.meta.url)
   .href
@@ -40,7 +39,7 @@ const Logo = styled.img`
   `}
 `
 
-export const Header = ({...props}: NavigationProps) => {
+export const Header = () => {
   const [theme, setTheme] = useTheme()
 
   const handleToggle = () =>
@@ -49,7 +48,7 @@ export const Header = ({...props}: NavigationProps) => {
   return (
     <Container>
       <Logo src={theme.inverted ? logoDark : logoLight} />
-      <Navigation {...props} />
+      <Navigation />
       <ThemeToggle inverted={theme.inverted} onChange={handleToggle} />
     </Container>
   )
