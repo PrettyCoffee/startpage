@@ -5,7 +5,6 @@ import styled from "@emotion/styled"
 
 import { getTheme, useTheme } from "../../../src"
 import { ThemeToggle } from "../components/ThemeToggle"
-import { Navigation } from "./Navigation"
 
 const logoLight = new URL("../../../static/logo-light.svg", import.meta.url)
   .href
@@ -48,7 +47,6 @@ export const Header = () => {
   return (
     <Container>
       <Logo src={theme.inverted ? logoDark : logoLight} />
-      <Navigation />
       <ThemeToggle inverted={theme.inverted} onChange={handleToggle} />
     </Container>
   )

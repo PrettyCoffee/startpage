@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import { getTheme } from "../../../../../src"
-import { ColorSchemeName } from "../../../../../src/base/colors"
+import { ColorSchemeName } from "../../../../../src/base/theme/colors"
 import { Button } from "../../../components"
 import { ThemeToggle } from "../../../components/ThemeToggle"
 import { ColorPanel } from "./ColorPanel"
