@@ -54,6 +54,15 @@ const getColorScheme = (name?: string, inverted?: boolean): ColorScheme => {
   }
 }
 
+/**
+ * Used to read the predefined themes
+ * Available color schemes: atom, dracula, nord, material
+ *
+ * @param colorScheme the name of the predefined color scheme you want to use
+ * @param inverted if set to true, the color scheme will be inverted
+ *
+ * @returns a theme
+ */
 export const getTheme = (
   colorScheme?: ColorSchemeName,
   inverted?: boolean

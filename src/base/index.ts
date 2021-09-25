@@ -1,2 +1,4 @@
 export * from "./BaseProps"
-export * from "./theme"
+export { Theme, getTheme } from "./theme"
+export { createColorScheme } from "./createColorScheme"
+export type { BaseColors } from "./createColorScheme"
