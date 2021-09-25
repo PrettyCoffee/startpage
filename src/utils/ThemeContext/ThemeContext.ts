@@ -1,6 +1,6 @@
 import { createContext } from "react"
 
-import { getTheme, Theme } from "../../base/theme"
+import { getTheme, Theme } from "../../base/theme/theme"
 
 export type ThemeState = [Theme, (theme: Theme) => void]
 

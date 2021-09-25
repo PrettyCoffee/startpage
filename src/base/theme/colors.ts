@@ -1,6 +1,42 @@
 // for greyscale: https://www.colorhexa.com/282a36-to-f8f8f2 -> 4th from light
 
-import { createColorScheme } from "../createColorScheme"
+import { createColorScheme } from "./createColorScheme"
+
+export type ColorSchemeName = string
+
+export type ColorPalette = {
+  red: string
+  green: string
+  yellow: string
+  blue: string
+  purple: string
+  cyan: string
+  orange: string
+}
+
+export type GreyScale = {
+  shade: string
+  base: string
+  surface: string
+  highlight: string
+}
+
+export type ColorGradient = {
+  bg: string
+  base: string
+  fg: string
+}
+
+export interface ColorScheme {
+  name: ColorSchemeName
+
+  bg: GreyScale
+  fg: GreyScale
+
+  primary: ColorGradient
+  secondary: ColorGradient
+  palette: ColorPalette
+}
 
 export const colorSchemes: ColorScheme[] = [
   createColorScheme(
@@ -80,39 +116,3 @@ export const colorSchemes: ColorScheme[] = [
     }
   ),
 ]
-
-export type ColorSchemeName = string
-
-export type ColorPalette = {
-  red: string
-  green: string
-  yellow: string
-  blue: string
-  purple: string
-  cyan: string
-  orange: string
-}
-
-export type GreyScale = {
-  shade: string
-  base: string
-  surface: string
-  highlight: string
-}
-
-export type ColorGradient = {
-  bg: string
-  base: string
-  fg: string
-}
-
-export interface ColorScheme {
-  name: ColorSchemeName
-
-  bg: GreyScale
-  fg: GreyScale
-
-  primary: ColorGradient
-  secondary: ColorGradient
-  palette: ColorPalette
-}

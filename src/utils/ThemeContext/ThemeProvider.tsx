@@ -1,6 +1,6 @@
 import React from "react"
 
-import { getTheme, Theme } from "../../base/theme"
+import { getTheme, Theme } from "../../base/theme/theme"
 import { useLocalStorage } from "../useStorage"
 import { ThemeContext, ThemeState } from "./ThemeContext"
 
