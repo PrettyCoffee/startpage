@@ -1,4 +1,5 @@
 import { ColorScheme, ColorSchemeName, colorSchemes } from "./colors"
+import { getInvertedColorScheme } from "./getInvertedColorScheme"
 
 export interface Theme {
   inverted: boolean
@@ -36,22 +37,7 @@ const breakpoints = {
 const getColorScheme = (name?: string, inverted?: boolean): ColorScheme => {
   const colors =
     colorSchemes.find(scheme => scheme.name === name) || colorSchemes[0]
-  const { bg, fg, primary, secondary } = colors
-  return {
-    ...colors,
-    bg: inverted ? fg : bg,
-    fg: inverted ? bg : fg,
-    primary: {
-      bg: inverted ? primary.fg : primary.bg,
-      fg: inverted ? primary.bg : primary.fg,
-      base: primary.base,
-    },
-    secondary: {
-      bg: inverted ? secondary.fg : secondary.bg,
-      fg: inverted ? secondary.bg : secondary.fg,
-      base: secondary.base,
-    },
-  }
+  return inverted ? getInvertedColorScheme(colors) : colors
 }
 
 /**
