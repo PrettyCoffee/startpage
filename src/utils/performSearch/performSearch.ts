@@ -25,12 +25,11 @@ export type SearchOptions = {
   forwardingLookup?: Record<string, string>
 }
 
-/**
- * Function to perform a web search
+/** Function to perform a web search
  *
- * @param query Query of the search
- * @param engine Engine which will be used to search
- * @param options Search options regarding the redirection
+ * @param query query of the search
+ * @param engine engine which will be used to search
+ * @param options search options regarding the redirection
  */
 
 export const performSearch = (
