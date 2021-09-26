@@ -27,13 +27,17 @@ const Wrapper = styled.aside`
   `}
 `
 
-const NavList = styled.ul`
+const Nav = styled.nav`
   ${({ theme: { space } }) => css`
     position: sticky;
     top: calc(${space.largest} * 2);
-    text-align: end;
-    padding: 0;
   `}
+`
+
+const NavList = styled.ul`
+  text-align: end;
+  padding: 0;
+  margin: 0;
 `
 
 const NavItem = styled.li`
@@ -87,24 +91,26 @@ export const Navigation = () => {
 
   return (
     <Wrapper>
-      <NavList>
-        {Pages.map(({ icon, route, title }) => (
-          <NavItem key={route}>
-            <NavLink activeClassName="active" key={route} to={route}>
-              {title}
-              <Icon icon={icon} />
-            </NavLink>
-          </NavItem>
-        ))}
-        {links.map(({ href, title, icon }) => (
-          <NavItem key={href}>
-            <a tabIndex={0} href={href} target="_blank">
-              {title}
-              <ExternalLinkIcon icon={icon} />
-            </a>
-          </NavItem>
-        ))}
-      </NavList>
+      <Nav>
+        <NavList>
+          {Pages.map(({ icon, route, title }) => (
+            <NavItem key={route}>
+              <NavLink activeClassName="active" key={route} to={route}>
+                {title}
+                <Icon icon={icon} />
+              </NavLink>
+            </NavItem>
+          ))}
+          {links.map(({ href, title, icon }) => (
+            <NavItem key={href}>
+              <a tabIndex={0} href={href} target="_blank">
+                {title}
+                <ExternalLinkIcon icon={icon} />
+              </a>
+            </NavItem>
+          ))}
+        </NavList>
+      </Nav>
     </Wrapper>
   )
 }
