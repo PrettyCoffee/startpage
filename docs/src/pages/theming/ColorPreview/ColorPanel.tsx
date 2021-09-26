@@ -75,10 +75,13 @@ const Palette = styled.div`
   `}
 `
 
-const Header = styled.div`
-  grid-area: header;
-  display: flex;
-  justify-content: center;
+const Header = styled.p`
+  ${({ theme: { space } }) => css`
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    font-size: ${space.large};
+  `}
 `
 
 const Layout = styled.div`
@@ -108,9 +111,7 @@ export const ColorPanel = ({ theme }: { theme: Theme }) => {
     <EmotionThemeProvider theme={theme}>
       <ThemeContainer>
         <Layout>
-          <Header>
-            <h2>{theme.color.name} theme</h2>
-          </Header>
+          <Header>{theme.color.name} theme</Header>
           <Surface>
             <p>Surface</p>
             <GreyScale>
