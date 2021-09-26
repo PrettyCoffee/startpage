@@ -1,3 +1,4 @@
 export * from "./createLocalStorageContext"
-export * from "./useStorage"
+export * from "./performSearch"
 export * from "./ThemeContext"
+export * from "./useStorage"
