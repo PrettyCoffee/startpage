@@ -13,9 +13,9 @@ type StorageState<ValueType> = [ValueType, (value: ValueType) => void]
  * @param key the key you want to use in the local storage
  * @param initialValue the default value you want to assign. Will also be used if the hook is called without a provider.
  *
- * @returns an object with the context, provider and context hook
+ * @returns an object with the consumer, provider and hook
  */
-export const createLocalStorageContext = <ValueType extends unknown>(
+export const createStorageContext = <ValueType extends unknown>(
   key: string,
   initialValue: ValueType
 ) => {
@@ -37,20 +37,20 @@ export const createLocalStorageContext = <ValueType extends unknown>(
 
   return {
     /**
-     * Context for your storage.
-     * This was created by the createLocalStorage function.
+     * Consumer for the storage context.
+     * This was created by the createStorageContext function.
      */
-    StorageContext,
+    StorageConsumer: StorageContext.Consumer,
 
     /**
      * Provider for your storage context.
-     * This was created by the createLocalStorage function.
+     * This was created by the createStorageContext function.
      */
     StorageProvider,
 
     /**
      * Hook for accessing your storage context.
-     * This was created by the createLocalStorage function.
+     * This was created by the createStorageContext function.
      */
     useStorage,
   }
