@@ -7,8 +7,8 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { NavLink } from "react-router-dom"
 
-import { Pages } from "../pages"
-import { ExternalLinkIcon } from "./fragments/ExternalIcon"
+import { Pages } from "../../pages"
+import { ExternalLinkIcon } from "./ExternalIcon"
 
 const Icon = styled(FontAwesomeIcon)`
   ${({ theme: { space } }) => css`
@@ -30,7 +30,7 @@ const Wrapper = styled.aside`
 const NavList = styled.ul`
   ${({ theme: { space } }) => css`
     position: sticky;
-    top: calc(${space.largest});
+    top: calc(${space.largest} * 2);
     text-align: end;
     padding: 0;
   `}
@@ -89,7 +89,7 @@ export const Navigation = () => {
     <Wrapper>
       <NavList>
         {Pages.map(({ icon, route, title }) => (
-          <NavItem>
+          <NavItem key={route}>
             <NavLink activeClassName="active" key={route} to={route}>
               {title}
               <Icon icon={icon} />
@@ -97,7 +97,7 @@ export const Navigation = () => {
           </NavItem>
         ))}
         {links.map(({ href, title, icon }) => (
-          <NavItem>
+          <NavItem key={href}>
             <a tabIndex={0} href={href} target="_blank">
               {title}
               <ExternalLinkIcon icon={icon} />

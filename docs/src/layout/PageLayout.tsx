@@ -4,17 +4,16 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import { Header } from "./Header"
-import { Navigation } from "./Navigation"
+import { Navigation } from "./Navigation/Navigation"
+import { Scrollspy } from "./Scrollspy/Scrollspy"
 
 const Layout = styled.main`
   ${({ theme: { space } }) => css`
     display: grid;
-    grid-template-areas: "sidenav main .";
+    grid-template-areas: "sidenav main scrollspy";
     grid-template-columns: 1fr 2fr 1fr;
     padding: 0 ${space.largest};
-    overflow-y: scroll;
     box-sizing: border-box;
-    height: calc(100vh - calc(${space.large} * 3));
   `}
 `
 
@@ -34,6 +33,7 @@ export const PageLayout = ({ children }: React.PropsWithChildren<unknown>) => (
     <Layout>
       <Navigation />
       <Content>{children}</Content>
+      <Scrollspy />
     </Layout>
   </>
 )
