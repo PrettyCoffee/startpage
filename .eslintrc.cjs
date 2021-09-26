@@ -27,7 +27,6 @@ const prettierRules = {
   arrowParens: "avoid",
   endOfLine: "auto",
   jsxSingleQuote: false,
-  jsxBracketSameLine: false,
 }
 
 const importOrderRules = {

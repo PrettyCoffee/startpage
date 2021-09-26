@@ -9,6 +9,6 @@ import { useStorage } from "./useStorage"
  */
 export const useLocalStorage = <ValueType>(
   key: string,
-  initialValue: ValueType,
+  initialValue: ValueType
 ): [ValueType, (value: ValueType) => void] =>
   useStorage(window.localStorage, key, initialValue)

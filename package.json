@@ -23,6 +23,7 @@
     "test": "jest --watch",
     "test:all": "jest",
     "lint": "eslint src docs/src",
+    "lint:lib": "eslint src",
     "lint:fix": "npm run lint -- --fix",
     "validate": "npm run lint && npm run test:all && npm run build"
   },
