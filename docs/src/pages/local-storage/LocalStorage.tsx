@@ -6,7 +6,7 @@ import styled from "@emotion/styled"
 import {
   useStorage as useLocalStorage,
   TextInput,
-  createLocalStorageContext,
+  createStorageContext,
 } from "../../../../src"
 
 const Wrapper = styled.div`
@@ -33,10 +33,7 @@ export const HookDemo = () => {
   )
 }
 
-const { StorageProvider, useStorage } = createLocalStorageContext(
-  "context-demo",
-  ""
-)
+const { StorageProvider, useStorage } = createStorageContext("context-demo", "")
 
 const Child = () => {
   const [value, setValue] = useStorage()

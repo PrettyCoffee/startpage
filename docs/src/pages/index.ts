@@ -4,15 +4,14 @@ import {
   faDatabase,
   faHome,
   faPaintBrush,
+  faToolbox,
 } from "@fortawesome/free-solid-svg-icons"
 
 import Intro from "./intro"
-// @ts-ignore
 import LocalStorage from "./local-storage"
-// @ts-ignore
 import Theming from "./theming"
-// @ts-ignore
 import Components from "./ui-components"
+import utilities from "./utilities"
 
 type PageConfig = {
   route: string
@@ -29,6 +28,12 @@ export const Pages: PageConfig[] = [
     title: "Local storage",
     content: LocalStorage,
     icon: faDatabase,
+  },
+  {
+    route: "/utilities",
+    title: "Utilities",
+    content: utilities,
+    icon: faToolbox,
   },
   {
     route: "/components",

@@ -3,7 +3,7 @@ import { HookDemo, Parent } from "./LocalStorage"
 # Local storage
 
 
-## useLocalStorage
+## useStorage
 
 Hook for managing your local storage.
 
@@ -17,15 +17,13 @@ Hook for managing your local storage.
 
 -> Returns an array with the value and setter function, defaults to initialValue if content cannot be parsed or is unset.
 
-### Usage
-
 ### Example
 
 <HookDemo />
 
 ```
 const HookDemo = () => {
-  const [value, setValue] = useLocalStorage("hook-demo", "")
+  const [value, setValue] = useStorage("hook-demo", "")
 
   return (
     <Wrapper>
@@ -40,7 +38,7 @@ const HookDemo = () => {
 }
 ```
 
-## createLocalStorageContext
+## createStorageContext
 
 Factory for creating local storage contexts.
 You have to use the returned provider as wrapper for your application.
@@ -55,9 +53,7 @@ Note: Only use one provider at a time since its bound to one local storage key.
 |key|string|The key you want to use in the local storage|
 |initialValue|ValueType|The default value you want to assign. Will also be used if the hook is called without a provider.|
 
--> Returns an object with the context, provider and context hook
-
-### Usage
+-> Returns an object with the consumer, provider and context hook
 
 ### Example
 
@@ -66,9 +62,9 @@ Note: Only use one provider at a time since its bound to one local storage key.
 ```
 // StorageContext.ts
 
-import { createLocalStorageContext } from "react-startpage"
+import { createStorageContext } from "react-startpage"
 
-export const { StorageProvider, useStorage } = createLocalStorageContext(
+export const { StorageProvider, useStorage } = createStorageContext(
   "context-demo",
   ""
 )
@@ -105,7 +101,12 @@ export const Child = () => {
   )
 }
 ```
+
+## storageBackup
+### API
+### Example
+
 ## Note
 
 Never use more than one instance of one storage key at the same time to prevent inconsistency.
-Furthermore I recommend either using `useLocalStorage` or `createLocalStorageContext` to stay consistent in your app.
+Furthermore I recommend either using `useStorage` or `createStorageContext` to stay consistent in your app.
