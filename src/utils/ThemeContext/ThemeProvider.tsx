@@ -1,7 +1,7 @@
 import React from "react"
 
 import { getTheme, Theme } from "../../base/theme/theme"
-import { useLocalStorage } from "../useStorage"
+import { useStorage } from "../useStorage"
 import { ThemeContext, ThemeState } from "./ThemeContext"
 
 export type ThemeProviderProps = {
@@ -27,7 +27,7 @@ export const ThemeProvider = ({
 
   const [theme, setTheme]: ThemeState = ENABLE_LOCAL_STORAGE
     ? // eslint-disable-next-line react-hooks/rules-of-hooks
-      useLocalStorage("theme", initialTheme)
+      useStorage("theme", initialTheme)
     : // eslint-disable-next-line react-hooks/rules-of-hooks
       React.useState(initialTheme)
 

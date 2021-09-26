@@ -1,6 +1,6 @@
 import React from "react"
 
-import { useLocalStorage } from "../useStorage"
+import { useStorage as useLocalStorage } from "../useStorage"
 
 type StorageState<ValueType> = [ValueType, (value: ValueType) => void]
 

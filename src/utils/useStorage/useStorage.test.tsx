@@ -1,15 +1,11 @@
 import { renderHook, act } from "@testing-library/react-hooks"
 
-import { useLocalStorage, useSessionStorage } from "./"
 import { useStorage } from "./useStorage"
 
-const testStorage = window.localStorage
+const STORAGE = window.localStorage
 
-const expectStorageValue = (
-  key: string,
-  value: unknown,
-  storage = testStorage
-) => expect(storage.getItem(key)).toBe(JSON.stringify(value))
+const expectStorageValue = (key: string, value: unknown) =>
+  expect(STORAGE.getItem(key)).toBe(JSON.stringify(value))
 
 type Data = {
   key: string
@@ -27,24 +23,6 @@ const storageKey = "storageKey"
 
 describe("Test useStorage", () => {
   test.each`
-    name         | storage                  | storageHook
-    ${"local"}   | ${window.localStorage}   | ${useLocalStorage}
-    ${"session"} | ${window.sessionStorage} | ${useSessionStorage}
-  `("uses $name storage correctly", ({ storage, storageHook }) => {
-    const initialValue = "i am testing"
-    const nextValue = "i am still testing"
-    const { result } = renderHook(() => storageHook(storageKey, initialValue))
-
-    expectStorageValue(storageKey, initialValue, storage)
-    expect(result.current[0]).toBe(initialValue)
-
-    act(() => result.current[1](nextValue))
-
-    expectStorageValue(storageKey, nextValue, storage)
-    expect(result.current[0]).toBe(nextValue)
-  })
-
-  test.each`
     type         | initialValue         | nextValue
     ${"null"}    | ${null}              | ${null}
     ${"number"}  | ${42}                | ${42}
@@ -53,9 +31,7 @@ describe("Test useStorage", () => {
     ${"object"}  | ${objectDataCats[0]} | ${objectDataCats[1]}
     ${"array"}   | ${arrayData[0]}      | ${arrayData[1]}
   `("sets $type values correctly", ({ initialValue, nextValue }: TestData) => {
-    const { result } = renderHook(() =>
-      useStorage(testStorage, storageKey, initialValue)
-    )
+    const { result } = renderHook(() => useStorage(storageKey, initialValue))
 
     expectStorageValue(storageKey, initialValue)
     expect(result.current[0]).toBe(initialValue)
@@ -72,8 +48,8 @@ describe("Test useStorage", () => {
     const nextData = [objectDataCats[1], objectDataDogs[1]]
 
     const results = [
-      renderHook(() => useStorage(testStorage, keys[0], initialData[0])).result,
-      renderHook(() => useStorage(testStorage, keys[1], initialData[1])).result,
+      renderHook(() => useStorage(keys[0], initialData[0])).result,
+      renderHook(() => useStorage(keys[1], initialData[1])).result,
     ]
 
     // Expect both to have their initial value
@@ -96,17 +72,15 @@ describe("Test useStorage", () => {
   it("reads existing data correctly", () => {
     // prepare local storage
     const existingValue = "i am testing"
-    testStorage.setItem(storageKey, JSON.stringify(existingValue))
+    STORAGE.setItem(storageKey, JSON.stringify(existingValue))
 
-    const { result } = renderHook(() =>
-      useStorage(testStorage, storageKey, objectDataCats)
-    )
+    const { result } = renderHook(() => useStorage(storageKey, objectDataCats))
 
     expectStorageValue(storageKey, existingValue)
     expect(result.current[0]).toBe(existingValue)
   })
 
   afterEach(() => {
-    testStorage.clear()
+    STORAGE.clear()
   })
 })

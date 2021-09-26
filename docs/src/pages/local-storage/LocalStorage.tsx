@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
 import {
-  useLocalStorage,
+  useStorage as useLocalStorage,
   TextInput,
   createLocalStorageContext,
 } from "../../../../src"
