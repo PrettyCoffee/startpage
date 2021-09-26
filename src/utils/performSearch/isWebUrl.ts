@@ -3,7 +3,7 @@ export const isWebUrl = (value: string) => {
 
   try {
     url = new URL(value)
-  } catch (_) {
+  } catch {
     return false
   }
 
