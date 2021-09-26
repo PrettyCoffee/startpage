@@ -1,23 +1,18 @@
 import { useState, useCallback } from "react"
 
+import { parseStorageItem } from "../fragments/parseStorageItem"
+
 const STORAGE = window.localStorage
 
 const initiateStorage = <ValueType>(key: string, initialValue: ValueType) => {
-  if (!STORAGE) return initialValue
+  const value = parseStorageItem<ValueType>(key)
 
-  try {
-    const stringValue = STORAGE.getItem(key)
-    if (stringValue) {
-      return JSON.parse(stringValue) as ValueType
-    }
-  } catch {
-    console.error(
-      `The ${key} value from your storage seems to be corrupted, it will be replaced by using the initial value`
-    )
+  if (value === null) {
+    STORAGE.setItem(key, JSON.stringify(initialValue))
+    return initialValue
   }
 
-  STORAGE.setItem(key, JSON.stringify(initialValue))
-  return initialValue
+  return value
 }
 
 /**Hook for managing your local storage

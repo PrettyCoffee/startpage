@@ -7,12 +7,9 @@ const STORAGE = window.localStorage
 const expectStorageValue = (key: string, value: unknown) =>
   expect(STORAGE.getItem(key)).toBe(JSON.stringify(value))
 
-type Data = {
-  key: string
-}
-const objectDataCats: Data[] = [{ key: "cats" }, { key: "moreCats!" }]
-const objectDataDogs: Data[] = [{ key: "dogs" }, { key: "moreDogs!" }]
-const arrayData: Data[][] = [objectDataCats, objectDataDogs]
+const objectDataCats = [{ key: "cats" }, { key: "moreCats!" }]
+const objectDataDogs = [{ key: "dogs" }, { key: "moreDogs!" }]
+const arrayData = [objectDataCats, objectDataDogs]
 
 type TestData = {
   type: string
@@ -25,9 +22,9 @@ describe("Test useStorage", () => {
   test.each`
     type         | initialValue         | nextValue
     ${"null"}    | ${null}              | ${null}
-    ${"number"}  | ${42}                | ${42}
-    ${"string"}  | ${"value"}           | ${"newValue"}
     ${"boolean"} | ${true}              | ${false}
+    ${"number"}  | ${42}                | ${69}
+    ${"string"}  | ${"value"}           | ${"newValue"}
     ${"object"}  | ${objectDataCats[0]} | ${objectDataCats[1]}
     ${"array"}   | ${arrayData[0]}      | ${arrayData[1]}
   `("sets $type values correctly", ({ initialValue, nextValue }: TestData) => {
@@ -42,34 +39,32 @@ describe("Test useStorage", () => {
     expect(result.current[0]).toBe(nextValue)
   })
 
-  it("sets multiple values correctly", () => {
+  it("sets multiple values correctly", async () => {
     const keys = ["firstKey", "secondKey"]
     const initialData = [objectDataCats[0], objectDataDogs[0]]
     const nextData = [objectDataCats[1], objectDataDogs[1]]
 
-    const results = [
+    const hooks = [
       renderHook(() => useStorage(keys[0], initialData[0])).result,
       renderHook(() => useStorage(keys[1], initialData[1])).result,
     ]
 
-    // Expect both to have their initial value
-    expectStorageValue(keys[0], initialData[0])
-    expect(results[0].current[0]).toBe(initialData[0])
-    expectStorageValue(keys[1], initialData[1])
-    expect(results[1].current[0]).toBe(initialData[1])
+    hooks.forEach((hook, index) => {
+      const key = keys[index]
+      const initial = initialData[index]
+      const next = nextData[index]
 
-    // Set new values
-    act(() => results[0].current[1](nextData[0]))
-    act(() => results[1].current[1](nextData[1]))
+      expectStorageValue(key, initial)
+      expect(hook.current[0]).toBe(initial)
 
-    // Expect both to have their new value
-    expectStorageValue(keys[0], nextData[0])
-    expect(results[0].current[0]).toBe(nextData[0])
-    expectStorageValue(keys[1], nextData[1])
-    expect(results[1].current[0]).toBe(nextData[1])
+      act(() => hook.current[1](next))
+
+      expectStorageValue(key, next)
+      expect(hook.current[0]).toBe(next)
+    })
   })
 
-  it("reads existing data correctly", () => {
+  it("reads existing data correctly", async () => {
     // prepare local storage
     const existingValue = "i am testing"
     STORAGE.setItem(storageKey, JSON.stringify(existingValue))
