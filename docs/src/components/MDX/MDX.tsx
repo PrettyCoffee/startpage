@@ -25,7 +25,7 @@ const h1 = styled.h1`
   ${({ theme: { color, space } }) => css`
     font-size: ${space.largest};
     font-weight: 500;
-    color: ${color.fg.base};
+    color: ${color.fg.surface};
   `}
 `
 
@@ -33,9 +33,9 @@ const h2 = styled.h2`
   ${({ theme: { color, space } }) => css`
     font-size: calc(${space.medium} * 2);
     font-weight: 500;
-    color: ${color.fg.base};
+    color: ${color.fg.surface};
     margin-top: ${space.largest};
-    border-bottom: 2px solid ${color.bg.surface};
+    border-bottom: 2px solid ${color.bg.highlight};
   `}
 `
 
@@ -43,7 +43,22 @@ const h3 = styled.h3`
   ${({ theme: { color, space } }) => css`
     font-size: ${space.large};
     font-weight: 500;
-    color: ${color.fg.base};
+    color: ${color.fg.surface};
+  `}
+`
+
+const h4 = styled.h4`
+  ${({ theme: { color, space } }) => css`
+    font-size: ${space.medium};
+    font-weight: 700;
+    color: ${color.fg.surface};
+  `}
+`
+
+const p = styled.p`
+  ${({ theme: { space } }) => css`
+    padding-left: ${space.medium};
+    margin: ${space.small} 0;
   `}
 `
 
@@ -51,8 +66,10 @@ const a = styled.a`
   ${({ theme: { color } }) => css`
     font-weight: 700;
     color: ${color.primary.fg};
+    text-decoration: none;
     :hover {
       color: ${color.primary.base};
+      text-decoration: underline;
     }
   `}
 `
@@ -84,6 +101,7 @@ const blockquote = styled.blockquote`
 const table = styled.table`
   ${({ theme: { color, space } }) => css`
     border-collapse: collapse;
+    margin: ${space.small} 0;
     th,
     td {
       text-align: left;
@@ -106,7 +124,9 @@ const components = {
   h1,
   h2,
   h3,
+  h4,
   a,
+  p,
   pre,
   strong,
   table,

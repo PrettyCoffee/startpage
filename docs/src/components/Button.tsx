@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 
 export const Button = styled.button<{ active?: boolean }>`
   ${({ theme: { color, space }, active }) => css`
+    font-size: ${space.medium};
     background-color: ${active ? color.bg.highlight : color.bg.surface};
     box-shadow: 0 4px 0 ${color.bg.shade};
     color: ${color.fg.surface};
