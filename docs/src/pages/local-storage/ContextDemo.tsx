@@ -3,11 +3,7 @@ import React from "react"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
-import {
-  useStorage as useLocalStorage,
-  TextInput,
-  createStorageContext,
-} from "../../../../src"
+import { TextInput, createStorageContext } from "../../../../src"
 
 const Wrapper = styled.div`
   ${({ theme: { space } }) => css`
@@ -17,21 +13,6 @@ const Wrapper = styled.div`
     gap: ${space.large};
   `}
 `
-
-export const HookDemo = () => {
-  const [text, setText] = useLocalStorage("hook-demo", "")
-
-  return (
-    <Wrapper>
-      <TextInput
-        placeholder="🤖 beep boop, type!"
-        value={text}
-        onChange={setText}
-      />
-      Value in local storage: {text}
-    </Wrapper>
-  )
-}
 
 const { StorageProvider, useStorage } = createStorageContext("context-demo", "")
 

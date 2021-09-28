@@ -1,4 +1,6 @@
-import { HookDemo, Parent } from "./LocalStorage"
+import { BlobLinkDemo, DownloadDemo, ImportDemo } from "./BackupDemo"
+import { Parent } from "./ContextDemo"
+import { HookDemo } from "./HookDemo"
 
 # Local storage
 
@@ -43,7 +45,8 @@ const HookDemo = () => {
 Factory for creating local storage contexts.
 You have to use the returned provider as wrapper for your application.
 The hook will return a setter and getter for the local storage values IF it is used while one parent component is the provider.
-Note: Only use one provider at a time since its bound to one local storage key.
+
+Note: Only use one provider of the returned object at a time since its bound to one local storage key.
 
 ### API
 
@@ -103,10 +106,100 @@ export const Child = () => {
 ```
 
 ## storageBackup
+
+Provides functions to create, download and restore backups of the local storage.
+
 ### API
+
+|name|type|description|
+|--- |--- |---        |
+|keys| string[] |The keys of the storage which should be backed up|
+
+-> Returns an object which contains the following functions
+
+#### Backup.createBlobUrl
+
+Creates an url which can be used to access a backup from the storage
+
+-> Returns the url to a blob file which contains the storage
+
+#### Backup.download
+
+Starts a download for the backup file
+
+|name|type|description|
+|--- |--- |---        |
+|fileName| string |The name of the downloaded file, the extension should be .json|
+
+#### Backup.restore
+
+Function to restore a backup into the storage
+
+|name|type|description|
+|--- |--- |---        |
+|backupFile| File |[File](https://developer.mozilla.org/en-US/docs/Web/API/File) object of the backup file|
+
+-> Returns a promise which resolves to a success boolean
+
 ### Example
+```
+// Backup.ts
+
+import { storageBackup } from "react-startpage"
+
+const Backup = storageBackup(["theme", "hook-demo", "context-demo"])
+```
+
+<BlobLinkDemo />
+
+```
+// BlobLinkDemo.tsx
+
+import { Backup } from "./Backup"
+
+const BlobLinkDemo = () => (
+  <a href={Backup.createBlobUrl()}>Open blob file</a>
+)
+```
+
+<DownloadDemo />
+
+```
+// DownloadDemo.tsx
+
+import { Backup } from "./Backup"
+
+const DownloadDemo = () => (
+  <button onClick={() => Backup.download("demo-backup.json")}>
+    Export Storage <FontAwesomeIcon icon={faFileDownload} />
+  </button>
+)
+```
+
+<ImportDemo />
+
+```
+// ImportDemo.tsx
+
+import { Backup } from "./Backup"
+
+const ImportDemo = () => (
+  <div>
+    <input
+      type="file"
+      id="backup-demo"
+      onChange={({ target: { files } }) =>
+        files?.[0] && Backup.restore(files[0])
+      }
+    />
+    <label htmlFor="backup-demo">
+      Import Storage <FontAwesomeIcon icon={faFileUpload} />
+    </label>
+  </div>
+)
+```
 
 ## Note
 
 Never use more than one instance of one storage key at the same time to prevent inconsistency.
-Furthermore I recommend either using `useStorage` or `createStorageContext` to stay consistent in your app.
+Furthermore its recommended either using `useStorage` or `createStorageContext` to stay consistent in your app.
