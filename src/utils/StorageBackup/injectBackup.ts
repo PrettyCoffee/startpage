@@ -6,10 +6,16 @@ const writeBackupIntoStorage = (backup: Record<string, unknown>) => {
   )
 }
 
-export const injectBackup = (backupFile: File) =>
+const keysAreValid = (keys: string[], allowedKeys: string[]) =>
+  !keys.map(key => allowedKeys.includes(key)).includes(false)
+
+export const injectBackup = (backupFile: File, allowedKeys: string[]) =>
   backupFile.text().then(content => {
     try {
       const backup = JSON.parse(content) as Record<string, unknown>
+
+      if (!keysAreValid(Object.keys(backup), allowedKeys)) return false
+
       writeBackupIntoStorage(backup)
       return true
     } catch {

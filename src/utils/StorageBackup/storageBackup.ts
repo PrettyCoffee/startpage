@@ -11,7 +11,7 @@ import { injectBackup } from "./injectBackup"
 export const storageBackup = (keys: string[]) => {
   /**Creates an url which can be used to access a backup from the storage
    *
-   * @returns the url
+   * @returns the url to a blob file which contains the storage
    */
   const createBlobUrl = () => createStorageBlob(keys)
 
@@ -22,13 +22,13 @@ export const storageBackup = (keys: string[]) => {
   const download = (fileName = "ls-backup.json") =>
     downloadBlob(createBlobUrl(), fileName)
 
-  /**Function to inject a backup into the store
+  /**Function to restore a backup into the storage
    *
-   * @param backupFile File object of the backup file
+   * @param backupFile [File](https://developer.mozilla.org/en-US/docs/Web/API/File) object of the backup file
    *
-   * @returns a promise with a success boolean
+   * @returns a promise which resolves to a success boolean
    */
-  const restore = (backupFile: File) => injectBackup(backupFile)
+  const restore = (backupFile: File) => injectBackup(backupFile, keys)
 
   return {
     createBlobUrl,
