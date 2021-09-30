@@ -1,6 +1,6 @@
 {
   "name": "local-storage",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
   "description": "Local storage management for your startpage",
   "keywords": [
     "react",
