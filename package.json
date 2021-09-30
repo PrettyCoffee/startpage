@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "lerna run build",
+    "publish": "npm run build && lerna publish",
     "lint": "eslint packages/**/src docs/src",
     "lint:lib": "eslint packages/**/src",
     "lint:docs": "eslint docs/src",
