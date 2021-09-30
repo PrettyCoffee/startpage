@@ -7,7 +7,7 @@ const baseConfigs = [
   "plugin:jest/recommended",
   "plugin:react-hooks/recommended",
   "plugin:prettier/recommended",
-];
+]
 
 const plugins = [
   "@emotion",
@@ -16,7 +16,7 @@ const plugins = [
   "jest",
   "testing-library",
   "unused-imports",
-];
+]
 
 const prettierRules = {
   tabWidth: 2,
@@ -27,7 +27,7 @@ const prettierRules = {
   arrowParens: "avoid",
   endOfLine: "auto",
   jsxSingleQuote: false,
-};
+}
 
 const importOrderRules = {
   groups: ["builtin", "external", "internal"],
@@ -44,7 +44,7 @@ const importOrderRules = {
     order: "asc",
     caseInsensitive: true,
   },
-};
+}
 
 module.exports = {
   parser: "@typescript-eslint/parser",
@@ -78,8 +78,8 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["src/**/*.test.ts?(x)"],
+      files: ["packages/**/*.test.ts?(x)"],
       extends: ["plugin:testing-library/react"],
     },
   ],
-};
+}
