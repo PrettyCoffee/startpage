@@ -1,3 +1,5 @@
+const ignoredFiles = ["**/*.html"];
+
 const baseConfigs = [
   "eslint:recommended",
   "standard-react",
@@ -59,6 +61,7 @@ module.exports = {
     },
   },
   extends: baseConfigs,
+  ignorePatterns: ignoredFiles,
   plugins: plugins,
   rules: {
     "@emotion/syntax-preference": [2, "string"],
@@ -78,7 +81,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["src/**/*.test.ts?(x)"],
+      files: ["packages/**/*.test.ts?(x)"],
       extends: ["plugin:testing-library/react"],
     },
   ],

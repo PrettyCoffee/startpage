@@ -2,11 +2,11 @@
   "name": "startpage",
   "private": true,
   "scripts": {
+    "prebuild": "rimraf packages/*/lib",
     "build": "lerna run build",
     "publish": "npm run build && lerna publish",
-    "lint": "eslint packages/*/src docs/src",
-    "lint:lib": "eslint packages/*/src",
-    "lint:docs": "eslint docs/src",
+    "lint": "eslint packages/*/src/** docs/src/**",
+    "lint:lib": "eslint packages/*/src/**",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
@@ -19,18 +19,32 @@
     "eslint-config-standard-react": "^11.0.1",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jest": "^24.4.2",
+    "eslint-plugin-jest": "^24.5.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.26.0",
+    "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-testing-library": "^4.12.3",
-    "eslint-plugin-unused-imports": "^1.1.4",
+    "eslint-plugin-testing-library": "^4.12.4",
+    "eslint-plugin-unused-imports": "^1.1.5",
     "lerna": "^4.0.0",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.4.3"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.3",
+    "jest": "^27.2.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "dist",
+      "lib",
+      "node_modules"
+    ],
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ]
   }
 }
