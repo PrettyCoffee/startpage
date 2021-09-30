@@ -1,6 +1,6 @@
 {
   "name": "@startpage/search",
-  "version": "0.0.1-alpha.1",
+  "version": "0.1.0-alpha.0",
   "description": "Function to search the web",
   "keywords": [
     "react",
