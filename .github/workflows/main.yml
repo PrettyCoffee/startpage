@@ -1,0 +1,26 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    name: Build, lint, and test
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install deps and build (with cache)
+        uses: bahmutov/npm-install@v1
+
+      - name: Lint
+        run: npm run lint:lib
+
+      - name: Test
+        run: npm run test -- --coverage --ci
+
+      - name: Build
+        run: npm run build
