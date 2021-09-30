@@ -2,4 +2,3 @@ node_modules/
 *.log
 packages/*/lib
 .vscode
-package-lock.json
