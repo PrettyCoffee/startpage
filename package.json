@@ -2,6 +2,7 @@
   "name": "startpage",
   "private": true,
   "scripts": {
+    "build": "lerna run build",
     "lint": "eslint packages/**/src docs/src",
     "lint:lib": "eslint packages/**/src",
     "lint:docs": "eslint docs/src",

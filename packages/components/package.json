@@ -1,0 +1,38 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "description": "Headless ui react components for your startpage",
+  "keywords": [
+    "react",
+    "startpage",
+    "components",
+    "ui",
+    "headless",
+    "unstyled",
+    "customizable"
+  ],
+  "author": "PrettyCoffee <jonathan-holz@outlook.com>",
+  "homepage": "https://prettycoffee.github.io/startpage",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrettyCoffee/startpage.git"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/PrettyCoffee/startpage/issues"
+  }
+}
