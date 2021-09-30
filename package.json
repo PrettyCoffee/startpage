@@ -8,7 +8,8 @@
     "lint:lib": "eslint packages/*/src/**",
     "lint:fix": "npm run lint -- --fix",
     "test": "jest",
-    "publish": "npm run build && lerna publish"
+    "publish": "npm run build && lerna publish",
+    "validate": "npm run lint:lib && npm run test && npm run build"
   },
   "devDependencies": {
     "@emotion/css": "^11.1.3",
