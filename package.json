@@ -4,8 +4,8 @@
   "scripts": {
     "build": "lerna run build",
     "publish": "npm run build && lerna publish",
-    "lint": "eslint packages/**/src docs/src",
-    "lint:lib": "eslint packages/**/src",
+    "lint": "eslint packages/*/src docs/src",
+    "lint:lib": "eslint packages/*/src",
     "lint:docs": "eslint docs/src",
     "lint:fix": "npm run lint -- --fix"
   },
