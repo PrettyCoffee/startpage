@@ -32,5 +32,12 @@
   },
   "bugs": {
     "url": "https://github.com/PrettyCoffee/startpage/issues"
+  },
+  "dependencies": {
+    "@startpage/local-storage": "file:../local-storage",
+    "color": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.2"
   }
 }
