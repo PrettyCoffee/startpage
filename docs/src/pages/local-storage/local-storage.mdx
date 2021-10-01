@@ -4,18 +4,17 @@ import { HookDemo } from "./HookDemo"
 
 # Local storage
 
-
 ## useStorage
 
 Hook for managing your local storage.
 
 ### API
 
-|name|type|description|
-|--- |--- |---        |
-|ValueType|  |The type of the local storage value|
-|key|string|The key you want to use in the local storage|
-|initialValue|ValueType|The default value you want to assign. Will be used if the hook is called without a provider.|
+| name         | type      | description                                                                                  |
+| ------------ | --------- | -------------------------------------------------------------------------------------------- |
+| ValueType    |           | The type of the local storage value                                                          |
+| key          | string    | The key you want to use in the local storage                                                 |
+| initialValue | ValueType | The default value you want to assign. Will be used if the hook is called without a provider. |
 
 -> Returns an array with the value and setter function, defaults to initialValue if content cannot be parsed or is unset.
 
@@ -50,11 +49,11 @@ Note: Only use one provider of the returned object at a time since its bound to 
 
 ### API
 
-|name|type|description|
-|--- |--- |---        |
-|ValueType|  |The type of the local storage value|
-|key|string|The key you want to use in the local storage|
-|initialValue|ValueType|The default value you want to assign. Will also be used if the hook is called without a provider.|
+| name         | type      | description                                                                                       |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------- |
+| ValueType    |           | The type of the local storage value                                                               |
+| key          | string    | The key you want to use in the local storage                                                      |
+| initialValue | ValueType | The default value you want to assign. Will also be used if the hook is called without a provider. |
 
 -> Returns an object with the consumer, provider and context hook
 
@@ -72,6 +71,7 @@ export const { StorageProvider, useStorage } = createStorageContext(
   ""
 )
 ```
+
 ```
 // Parent.tsx
 
@@ -83,6 +83,7 @@ export const Parent = () => (
   </StorageProvider>
 )
 ```
+
 ```
 // Child.tsx
 
@@ -111,9 +112,9 @@ Provides functions to create, download and restore backups of the local storage.
 
 ### API
 
-|name|type|description|
-|--- |--- |---        |
-|keys| string[] |The keys of the storage which should be backed up|
+| name | type     | description                                       |
+| ---- | -------- | ------------------------------------------------- |
+| keys | string[] | The keys of the storage which should be backed up |
 
 -> Returns an object which contains the following functions
 
@@ -127,21 +128,22 @@ Creates an url which can be used to access a backup from the storage
 
 Starts a download for the backup file
 
-|name|type|description|
-|--- |--- |---        |
-|fileName| string<br/>\| undefined |The name of the downloaded file, the extension should be .json|
+| name     | type                    | description                                                    |
+| -------- | ----------------------- | -------------------------------------------------------------- |
+| fileName | string<br/>\| undefined | The name of the downloaded file, the extension should be .json |
 
 #### Backup.restore
 
 Function to restore a backup into the storage
 
-|name|type|description|
-|--- |--- |---        |
-|backupFile| File |[File](https://developer.mozilla.org/en-US/docs/Web/API/File) object of the backup file|
+| name       | type | description                                                                             |
+| ---------- | ---- | --------------------------------------------------------------------------------------- |
+| backupFile | File | [File](https://developer.mozilla.org/en-US/docs/Web/API/File) object of the backup file |
 
 -> Returns a promise which resolves to a success boolean
 
 ### Example
+
 ```
 // Backup.ts
 
