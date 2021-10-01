@@ -1,9 +1,5 @@
-export { ThemeContext } from "./ThemeContext"
-// eslint-disable-next-line prettier/prettier
-export type { ThemeState } from "./ThemeContext"
-
+export { ThemeConsumer } from "./ThemeConsumer"
 export { ThemeProvider } from "./ThemeProvider"
-// eslint-disable-next-line prettier/prettier
 export type { ThemeProviderProps } from "./ThemeProvider"
-
+export type { ThemeState } from "./ThemeContext"
 export { useTheme } from "./useTheme"
