@@ -1,7 +1,9 @@
 # Utilities
 
 ## BookmarkContext
+
 ### API
+
 ### Example
 
 ## performSearch
@@ -12,18 +14,18 @@ Function to perform a web search
 
 #### Args
 
-|name|type|description|
-|--- |--- |---        |
-|query| string | Query of the search |
-|engine| "deepl"<br/>\| "duckduckgo"<br/>\| "ecosia"<br/>\| "google"<br/>\| "startpage"<br/>\| "youtube" | Engine which will be used to search |
-|options| object<br/>\| undefined | Search options regarding the redirection |
+| name    | type                                                                                            | description                              |
+| ------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| query   | string                                                                                          | Query of the search                      |
+| engine  | "deepl"<br/>\| "duckduckgo"<br/>\| "ecosia"<br/>\| "google"<br/>\| "startpage"<br/>\| "youtube" | Engine which will be used to search      |
+| options | object<br/>\| undefined                                                                         | Search options regarding the redirection |
 
 #### options
 
-|name|type|description|
-|--- |--- |---        |
-|newTab| boolean | Query will get opened in new tab |
-|directLink| boolean | If the query is an url, the url will be opened directly |
-|forwardingLookup| Record<string, string> | Lookup which specifies forwarding for defined queries |
+| name             | type                   | description                                             |
+| ---------------- | ---------------------- | ------------------------------------------------------- |
+| newTab           | boolean                | Query will get opened in new tab                        |
+| directLink       | boolean                | If the query is an url, the url will be opened directly |
+| forwardingLookup | Record<string, string> | Lookup which specifies forwarding for defined queries   |
 
 ### Example
