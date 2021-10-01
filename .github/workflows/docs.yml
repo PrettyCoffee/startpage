@@ -2,8 +2,12 @@ name: CI
 on: [push]
 jobs:
   build:
-    name: Build, lint, and test
+    name: Build and lint
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: ./docs
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -17,10 +21,7 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Lint
-        run: npm run lint:lib
-
-      - name: Test
-        run: npm run test -- --coverage --ci
+        run: npm run lint
 
       - name: Build
         run: npm run build
