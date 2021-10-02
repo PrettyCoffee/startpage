@@ -1,11 +1,10 @@
-# `components`
+# @startpage/components
 
-> TODO: description
+Headless ui react components for your startpage.
+For more information, take a look at the [documentation](https://prettycoffee.github.io/startpage/#/components).
 
-## Usage
+## Installation
 
 ```
-const components = require('components');
-
-// TODO: DEMONSTRATE API
+npm i @startpage/components
 ```

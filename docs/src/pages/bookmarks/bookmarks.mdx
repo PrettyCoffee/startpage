@@ -44,7 +44,6 @@ Can only be used if the `BookmarkProvider` is a Parent component.
 // Child.tsx
 
 import { useBookmarks } from "@startpage/bookmarks"
-import { Button } from "@startpage/components"
 
 export const Child = () => {
   const bookmarkState = useBookmarks()
@@ -52,9 +51,9 @@ export const Child = () => {
   /* Use the bookmarkState here */
 
   return (
-    <Button onClick={() => console.log(bookmarkState)}>
+    <button onClick={() => console.log(bookmarkState)}>
       Log bookmark state
-    </Button>
+    </button>
   )
 }
 ```

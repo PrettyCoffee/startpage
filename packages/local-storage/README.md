@@ -1,11 +1,10 @@
-# `local-storage`
+# @startpage/local-storage
 
-> TODO: description
+Local storage management for your startpage.
+For more information, take a look at the [documentation](https://prettycoffee.github.io/startpage/#/local-storage).
 
-## Usage
+## Installation
 
 ```
-const localStorage = require('local-storage');
-
-// TODO: DEMONSTRATE API
+npm i @startpage/local-storage
 ```

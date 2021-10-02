@@ -1,11 +1,10 @@
-# `bookmarks`
+# @startpage/bookmarks
 
-> TODO: description
+Bookmark management for your startpage.
+For more information, take a look at the [documentation](https://prettycoffee.github.io/startpage/#/bookmarks).
 
-## Usage
+## Installation
 
 ```
-const bookmarks = require('bookmarks');
-
-// TODO: DEMONSTRATE API
+npm i @startpage/bookmarks
 ```

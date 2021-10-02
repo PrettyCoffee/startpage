@@ -29,14 +29,15 @@ const HookDemo = () => {
   const [value, setValue] = useStorage("hook-demo", "")
 
   return (
-    <Wrapper>
-      <TextInput
-        placeholder="🤖 beep boop, type!"
+    <div>
+      <input
+        type="text"
+        placeholder="Write into the storage!"
         value={value}
         onChange={setValue}
       />
       Value in local storage: {value}
-    </Wrapper>
+    </div>
   )
 }
 ```
@@ -77,22 +78,21 @@ export const { StorageProvider, useStorage } = createStorageContext(
 ```
 // Child.tsx
 
-import { TextInput } from "@startpage/components"
-
 import { useStorage } from "./StorageContext"
 
 export const Child = () => {
   const [value, setValue] = useStorage()
 
   return (
-    <Wrapper>
-      <TextInput
+    <div>
+      <input
+        type="text"
         placeholder="Contexts are great!"
         value={value}
         onChange={setValue}
       />
       Value in local storage: {value}
-    </Wrapper>
+    </div>
   )
 }
 ```

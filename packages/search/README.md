@@ -1,11 +1,10 @@
-# `search`
+# @startpage/search
 
-> TODO: description
+Provides a function to search the web.
+For more information, take a look at the [documentation](https://prettycoffee.github.io/startpage/#/search).
 
-## Usage
+## Installation
 
 ```
-const search = require('search');
-
-// TODO: DEMONSTRATE API
+npm i @startpage/search
 ```

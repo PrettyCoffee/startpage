@@ -2,7 +2,7 @@ import React from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons"
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { NavLink } from "react-router-dom"
@@ -90,6 +90,11 @@ export const Navigation = () => {
       title: "github",
       icon: faGithub,
       href: "https://github.com/PrettyCoffee/startpage",
+    },
+    {
+      title: "npm",
+      icon: faNpm,
+      href: "https://www.npmjs.com/org/startpage",
     },
     {
       title: "author",
