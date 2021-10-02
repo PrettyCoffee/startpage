@@ -3,7 +3,7 @@ import React from "react"
 import {
   BookmarkProvider,
   useBookmarks,
-  BookmarkGroup
+  BookmarkGroup,
 } from "@startpage/bookmarks"
 
 import { Button } from "../../components"
@@ -27,8 +27,8 @@ const initialState: BookmarkGroup[] = [
       { label: "r/startpages", url: "https://www.reddit.com/r/startpages/" },
       { label: "r/reactjs", url: "https://www.reddit.com/r/reactjs/" },
       { label: "r/typescript", url: "https://www.reddit.com/r/typescript/" },
-    ]
-  }
+    ],
+  },
 ]
 
 export const Parent = () => (
@@ -36,4 +36,3 @@ export const Parent = () => (
     <Child />
   </BookmarkProvider>
 )
-

@@ -4,10 +4,9 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { useTheme } from "@startpage/theming"
 
-const logoLight = new URL("../../../../static/logo-light.svg", import.meta.url)
+const logoLight = new URL("../../../static/logo-light.svg", import.meta.url)
   .href
-const logoDark = new URL("../../../../static/logo-dark.svg", import.meta.url)
-  .href
+const logoDark = new URL("../../../static/logo-dark.svg", import.meta.url).href
 
 const Logo2 = styled.img`
   ${({ theme: { space } }) => css`

@@ -6,9 +6,8 @@ import { getTheme, useTheme } from "@startpage/theming"
 
 import { ThemeToggle } from "../components/ThemeToggle"
 
-const logoLight = new URL("../../../static/logo-light.svg", import.meta.url)
-  .href
-const logoDark = new URL("../../../static/logo-dark.svg", import.meta.url).href
+const logoLight = new URL("../../static/logo-light.svg", import.meta.url).href
+const logoDark = new URL("../../static/logo-dark.svg", import.meta.url).href
 
 const Container = styled.header`
   ${({ theme: { color, space } }) => css`
