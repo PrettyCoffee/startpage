@@ -6,7 +6,7 @@ import {
   Theme,
   ThemeProvider as EmotionTheme,
 } from "@emotion/react"
-import { getTheme, ThemeContext, ThemeProvider } from "@startpage/theming"
+import { getTheme, ThemeConsumer, ThemeProvider } from "@startpage/theming"
 
 const globalStyles = (theme: Theme) => css`
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
@@ -37,13 +37,13 @@ const globalStyles = (theme: Theme) => css`
 
 export const Providers = ({ children }: React.PropsWithChildren<unknown>) => (
   <ThemeProvider initialTheme={getTheme("nord")} persistTheme={true}>
-    <ThemeContext.Consumer>
+    <ThemeConsumer>
       {([theme]) => (
         <EmotionTheme theme={theme}>
           <Global styles={globalStyles(theme)} />
           {children}
         </EmotionTheme>
       )}
-    </ThemeContext.Consumer>
+    </ThemeConsumer>
   </ThemeProvider>
 )

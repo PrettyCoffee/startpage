@@ -1,4 +1,4 @@
 // @ts-ignore
-import Docs from "./utilities.mdx"
+import Docs from "./search.mdx"
 
 export default Docs as React.FC

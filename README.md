@@ -16,6 +16,7 @@ npm i @startpage/<package>
 
 | name          | description                                     |                                                                  |
 | ------------- | ----------------------------------------------- | ---------------------------------------------------------------- |
+| bookmarks     | Bookmark management for your startpage          | [docs](https://prettycoffee.github.io/startpage/#/bookmarks)     |
 | components    | Headless ui react components for your startpage | [docs](https://prettycoffee.github.io/startpage/#/components)    |
 | local-storage | Local storage management for your startpage     | [docs](https://prettycoffee.github.io/startpage/#/local-storage) |
 | search        | Function to search the web                      | [docs](https://prettycoffee.github.io/startpage/#/search)        |

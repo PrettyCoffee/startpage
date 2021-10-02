@@ -10,7 +10,7 @@ import { Providers } from "./Providers"
 
 const App = () => (
   <Providers>
-    <BrowserRouter basename="/startpage/#/">
+    <BrowserRouter basename="/startpage/#">
       <PageLayout>
         <Switch>
           {Pages.map(Page => (

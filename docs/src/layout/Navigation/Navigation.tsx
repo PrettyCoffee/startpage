@@ -50,7 +50,7 @@ const NavItem = styled.li`
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      height: ${space.largest};
+      height: calc(${space.medium} + ${space.large});
       color: ${color.fg.surface};
       transition: 0.3s cubic-bezier(0.65, -0.85, 0.35, 1.85) 0s;
 
@@ -75,6 +75,15 @@ const NavItem = styled.li`
   `}
 `
 
+const Divider = styled.div`
+  ${({ theme: { color, space } }) => css`
+    text-align: right;
+    margin: ${space.large} ${space.large} ${space.small} 0;
+    border-bottom: ${space.smallest} solid ${color.bg.shade};
+    width: calc(${space.largest} * 4);
+  `}
+`
+
 export const Navigation = () => {
   const links = [
     {
@@ -89,18 +98,28 @@ export const Navigation = () => {
     },
   ]
 
+  const Start = Pages[0]
+  const Packages = Pages.slice(1)
+
   return (
     <Wrapper>
       <Nav>
         <NavList>
-          {Pages.map(({ icon, route, title }) => (
+          <NavItem key={Start.route}>
+            <NavLink activeClassName="active" to={Start.route}>
+              {Start.title}
+            </NavLink>
+          </NavItem>
+          <Divider>Packages</Divider>
+          {Packages.map(({ icon, title, route }) => (
             <NavItem key={route}>
-              <NavLink activeClassName="active" key={route} to={route}>
+              <NavLink activeClassName="active" to={route}>
                 {title}
-                <Icon icon={icon} />
+                {icon && <Icon icon={icon} />}
               </NavLink>
             </NavItem>
           ))}
+          <Divider>External Links</Divider>
           {links.map(({ href, title, icon }) => (
             <NavItem key={href}>
               <a tabIndex={0} href={href} target="_blank">

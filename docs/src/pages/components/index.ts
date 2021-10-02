@@ -1,4 +1,4 @@
 // @ts-ignore
-import Docs from "./ui-components.mdx"
+import Docs from "./components.mdx"
 
 export default Docs as React.FC
