@@ -1,3 +1,5 @@
+import { SearchDemo } from "./SearchDemo"
+
 # @startpage/search
 
 Provides a function to search the web.
@@ -25,3 +27,35 @@ Function to perform a web search.
 | forwardingLookup | Record<string, string> | Lookup which specifies forwarding for defined queries   |
 
 ### Example
+
+<SearchDemo />
+
+```
+import { performSearch } from "@startpage/search"
+
+const settings = {
+  newTab: true,
+  directLink: true,
+  forwardingLookup: {
+    "absolute bangers":
+      "https://www.youtube.com/playlist?list=PL0YDkBQVcBrrTJfTApkmx3L_19QNS4nC8"
+  }
+}
+
+export const SearchDemo = () => {
+  const defaultSearch = () =>
+    performSearch("cute cats", "duckduckgo", settings)
+  
+  const directLinkSearch = () =>
+    performSearch("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "duckduckgo", settings)
+  
+  const forwardedSearch = () => performSearch("absolute bangers", "duckduckgo", settings)  
+
+  return <div>
+    <button onClick={defaultSearch}>Search for something</button>
+    <button onClick={directLinkSearch}>Open a link directly</button>
+    <button onClick={forwardedSearch}>Use a forwarding lookup</button>
+  </div>
+}
+
+```
