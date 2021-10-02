@@ -75,21 +75,10 @@ export const { StorageProvider, useStorage } = createStorageContext(
 ```
 
 ```
-// Parent.tsx
-
-import { StorageProvider } from "./StorageContext"
-
-export const Parent = () => (
-  <StorageProvider>
-    <Child />
-  </StorageProvider>
-)
-```
-
-```
 // Child.tsx
 
-import { Parent } from "./Parent"
+import { TextInput } from "@startpage/components"
+
 import { useStorage } from "./StorageContext"
 
 export const Child = () => {
@@ -106,6 +95,18 @@ export const Child = () => {
     </Wrapper>
   )
 }
+```
+
+```
+// Parent.tsx
+
+import { StorageProvider } from "./StorageContext"
+
+export const Parent = () => (
+  <StorageProvider>
+    <Child />
+  </StorageProvider>
+)
 ```
 
 ## storageBackup
