@@ -8,12 +8,12 @@ const getGroup = (bookmarks: BookmarkGroup[], label: string) =>
   bookmarks.find(group => group.label === label)
 
 export type BookmarkProviderProps = {
-  /** Initial Bookmark which will be used until you change it with the setter */
+  /** Initial bookmarks which will be used until you change it with the setter */
   initialBookmarks?: BookmarkGroup[]
 }
 
 /** Provider for bookmarks.
- * The Bookmark can be accessed by using the `useBookmarks` hook.
+ * The bookmarks can be accessed by using the `useBookmarks` hook.
  */
 export const BookmarkProvider = ({
   initialBookmarks = [],

@@ -28,6 +28,7 @@
     "react": "../node_modules/react",
     "react-dom": "../node_modules/react-dom",
     "typescript": "../node_modules/typescript",
+    "@startpage/bookmarks": "../packages/bookmarks",
     "@startpage/components": "../packages/components",
     "@startpage/local-storage": "../packages/local-storage",
     "@startpage/search": "../packages/search",

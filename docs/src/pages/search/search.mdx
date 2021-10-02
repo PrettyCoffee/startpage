@@ -10,13 +10,13 @@ Function to perform a web search.
 
 #### Args
 
-| name    | type                                                                                            | description                              |
-| ------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| query   | string                                                                                          | Query of the search                      |
-| engine  | "deepl"<br/>\| "duckduckgo"<br/>\| "ecosia"<br/>\| "google"<br/>\| "startpage"<br/>\| "youtube" | Engine which will be used to search      |
-| options | object<br/>\| undefined                                                                         | Search options regarding the redirection |
+| name    | type                           | description                                                                                                                                       |
+| ------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| query   | string                         | Query of the search                                                                                                                               |
+| engine  | SearchEngineName               | Engine which will be used to search. Can be one of the following:<br/>"deepl" \| "duckduckgo" \| "ecosia" \| "google" \| "startpage" \| "youtube" |
+| options | SearchOptions<br/>\| undefined | Search options regarding the redirection                                                                                                          |
 
-#### options
+#### SearchOptions
 
 | name             | type                   | description                                             |
 | ---------------- | ---------------------- | ------------------------------------------------------- |
