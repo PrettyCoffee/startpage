@@ -12,12 +12,10 @@ import {
 const StyledTextInput = styled(StpgTextInput)`
   ${({ theme: { color, space } }) => css`
     background-color: ${color.bg.surface};
-    transition: 0.2s;
     border-radius: ${space.small};
     box-shadow: 0 4px 0 ${color.bg.shade};
-    opacity: 0.7;
     :hover {
-      opacity: 1;
+      background-color: ${color.bg.highlight};
     }
     > span {
       padding-left: ${space.medium};
@@ -38,7 +36,7 @@ const StyledTextInput = styled(StpgTextInput)`
 
 type TextInputProps = Pick<
   StpgTextInputProps,
-  "value" | "onChange" | "placeholder"
+  "value" | "onChange" | "placeholder" | "onKeyPress"
 > & {
   leftIcon?: IconProp
   rightIcon?: IconProp

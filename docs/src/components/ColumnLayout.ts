@@ -1,10 +1,10 @@
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
-export const RowLayout = styled.div`
+export const ColumnLayout = styled.div`
   ${({ theme: { space } }) => css`
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: ${space.large};
   `}
 `

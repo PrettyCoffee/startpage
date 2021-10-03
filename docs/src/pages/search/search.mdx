@@ -42,20 +42,21 @@ const settings = {
   }
 }
 
-const SearchDemo = () => {
-  const defaultSearch = () =>
-    performSearch("cute cats", "duckduckgo", settings)
-  
-  const directLinkSearch = () =>
-    performSearch("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "duckduckgo", settings)
-  
-  const forwardedSearch = () => performSearch("absolute bangers", "duckduckgo", settings)  
+export const SearchDemo = () => {
+  const [value, setValue] = useState("")
 
-  return <div>
-    <button onClick={defaultSearch}>Search for something</button>
-    <button onClick={directLinkSearch}>Open a link directly</button>
-    <button onClick={forwardedSearch}>Use a forwarding lookup</button>
-  </div>
+  const search = () => performSearch(value, "duckduckgo", settings)
+
+  return <RowLayout>
+    <input
+      type="text"
+      placeholder="Search the web"
+      value={value}
+      onChange={setValue}
+    />
+    <button onClick={search}>
+      <FontAwesomeIcon icon={faSearch} />
+    </button>
+  </RowLayout>
 }
-
 ```
