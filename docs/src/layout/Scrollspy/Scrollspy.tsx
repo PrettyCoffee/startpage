@@ -72,6 +72,7 @@ export const Scrollspy = () => {
 
   React.useEffect(() => {
     setTimeout(() => setSections(getSections()), 100)
+    window.scrollTo(0, 0)
   }, [loc])
 
   const currentSection = React.useMemo(
