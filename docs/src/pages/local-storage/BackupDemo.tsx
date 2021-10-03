@@ -7,12 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { storageBackup } from "@startpage/local-storage"
 
 import { Button } from "../../components/Button"
+import { RowLayout } from "../../components/RowLayout"
 
-const Wrapper = styled.div`
+const Wrapper = styled(RowLayout)`
   ${({ theme: { space } }) => css`
-    display: flex;
-    align-items: center;
-    gap: ${space.large};
     margin: ${space.large} 0 0 ${space.medium};
     svg {
       margin-left: ${space.small};

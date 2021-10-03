@@ -1,18 +1,9 @@
 import React from "react"
 
-import { css } from "@emotion/react"
-import styled from "@emotion/styled"
 import { performSearch } from "@startpage/search"
 
 import { Button } from "../../components"
-
-const Wrapper = styled.div`
-  ${({ theme: { space } }) => css`
-    display: flex;
-    align-items: center;
-    gap: ${space.large};
-  `}
-`
+import { RowLayout } from "../../components/RowLayout"
 
 const settings = {
   newTab: true,
@@ -31,9 +22,9 @@ export const SearchDemo = () => {
   
   const forwardedSearch = () => performSearch("absolute bangers", "duckduckgo", settings)  
 
-  return <Wrapper>
+  return <RowLayout>
     <Button onClick={defaultSearch}>Search for something</Button>
     <Button onClick={directLinkSearch}>Open a link directly</Button>
     <Button onClick={forwardedSearch}>Use a forwarding lookup</Button>
-  </Wrapper>
+  </RowLayout>
 }
