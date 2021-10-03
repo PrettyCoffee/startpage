@@ -1,7 +1,6 @@
 import React from "react"
 
 import { BaseInputProps } from "../fragments/BaseProps"
-import { defaultStyles } from "./fragments/defaultStyles"
 import { Extra, Input, Wrapper } from "./styles"
 
 export type TextInputProps = BaseInputProps<string> & {
@@ -34,7 +33,7 @@ export const TextInput = ({
   onChange,
   onKeyPress,
   type = "text",
-  className = defaultStyles,
+  className = "",
   ...inputProps
 }: TextInputProps) => {
   const handleChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) =>
