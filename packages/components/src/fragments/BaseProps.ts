@@ -11,8 +11,6 @@ export type BaseInputProps<ValueType> = ClassNameProp & {
     value: ValueType,
     event: React.ChangeEvent<HTMLInputElement>
   ) => void
-  /** Label text for the element */
-  label?: string
   /** Disables the element */
   disabled?: boolean
   /** Indicates focusability and position in keyboard navigation */

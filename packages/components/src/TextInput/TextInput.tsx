@@ -2,6 +2,7 @@ import React from "react"
 
 import { BaseInputProps } from "../fragments/BaseProps"
 import { defaultStyles } from "./fragments/defaultStyles"
+import { Extra, Input, Wrapper } from "./styles"
 
 export type TextInputProps = BaseInputProps<string> & {
   /** Current value */
@@ -28,7 +29,6 @@ export type TextInputProps = BaseInputProps<string> & {
 /** A text input element.
  */
 export const TextInput = ({
-  label,
   leftExtra,
   rightExtra,
   onChange,
@@ -44,16 +44,16 @@ export const TextInput = ({
     onKeyPress?.(keyEvent.key, keyEvent)
 
   return (
-    <div className={className}>
-      {label && <label>{label}</label>}
-      {leftExtra && <span className="input-extra">{leftExtra}</span>}
+    <div className={`${className} ${Wrapper}`}>
+      {leftExtra && <span className={Extra}>{leftExtra}</span>}
       <input
         type={type}
+        className={Input}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
         {...inputProps}
       />
-      {rightExtra && <span className="input-extra">{rightExtra}</span>}
+      {rightExtra && <span className={Extra}>{rightExtra}</span>}
     </div>
   )
 }
