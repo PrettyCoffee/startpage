@@ -1,6 +1,6 @@
 import React from "react"
 
-import { css } from "@emotion/react"
+import { css, ThemeProvider as EmotionThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
 import { getTheme, ColorSchemeName } from "@startpage/theming"
 
@@ -42,22 +42,24 @@ export const ColorPreview = () => {
   const [currentTheme, setCurrentTheme] = React.useState(availableThemes[0])
   const [inverted, setInverted] = React.useState(false)
   return (
-    <Container>
-      <ButtonPanel>
-        <ThemeButtons>
-          {availableThemes.map(theme => (
-            <Button
-              key={theme}
-              active={currentTheme === theme}
-              onClick={() => setCurrentTheme(theme)}
-            >
-              {theme}
-            </Button>
-          ))}
-        </ThemeButtons>
-        <ThemeToggle inverted={inverted} onChange={setInverted} />
-      </ButtonPanel>
-      <ColorPanel theme={getTheme(currentTheme, inverted)} />
-    </Container>
+    <EmotionThemeProvider theme={getTheme(currentTheme, inverted)}>
+      <Container>
+        <ButtonPanel>
+          <ThemeButtons>
+            {availableThemes.map(theme => (
+              <Button
+                key={theme}
+                active={currentTheme === theme}
+                onClick={() => setCurrentTheme(theme)}
+              >
+                {theme}
+              </Button>
+            ))}
+          </ThemeButtons>
+          <ThemeToggle inverted={inverted} onChange={setInverted} />
+        </ButtonPanel>
+        <ColorPanel theme={getTheme(currentTheme, inverted)} />
+      </Container>
+    </EmotionThemeProvider>
   )
 }

@@ -3,7 +3,6 @@ import React from "react"
 import { css, cx } from "@emotion/css"
 
 import { BaseInputProps } from "../fragments/BaseProps"
-import { defaultStyles } from "./fragments/defaultStyles"
 
 const height = "2rem"
 const width = "4rem"
@@ -53,7 +52,6 @@ const Wrapper = cx(
     width: ${width};
     height: ${height};
     border-radius: calc(${height} / 2);
-    transition: 0.5s;
   `,
   "toggle"
 )
@@ -74,7 +72,7 @@ export const Toggle = ({
   leftExtra,
   rightExtra,
   checked,
-  className = defaultStyles,
+  className = "",
   ...inputProps
 }: ToggleProps) => {
   const handleChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) => {
