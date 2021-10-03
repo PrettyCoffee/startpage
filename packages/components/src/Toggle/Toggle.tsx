@@ -1,16 +1,13 @@
 import React from "react"
 
-import { BaseInputProps } from "../fragments/BaseProps"
+import { BaseInputProps, ExtraProps } from "../fragments/BaseProps"
 import { Extra, Input, Knob, Wrapper } from "./styles"
 
-export type ToggleProps = BaseInputProps<boolean> & {
-  /** Component which is displayed in the left corner of the toggle  */
-  leftExtra?: React.ReactFragment
-  /** Component which is displayed in the right corner of the toggle  */
-  rightExtra?: React.ReactFragment
-  /** Checked state of the toggle */
-  checked: boolean
-}
+export type ToggleProps = BaseInputProps<boolean> &
+  ExtraProps & {
+    /** Checked state of the toggle */
+    checked: boolean
+  }
 
 /** A checkbox with the toggle type of style.
  */

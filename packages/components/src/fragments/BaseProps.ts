@@ -1,7 +1,14 @@
 import React from "react"
 
+export type ExtraProps = {
+  /** Component which is displayed on the left side */
+  leftExtra?: React.ReactFragment
+  /** Component which is displayed on the right side */
+  rightExtra?: React.ReactFragment
+}
+
 export type ClassNameProp = {
-  /** Pass your own css classes for unique styling. Removes the libraries styling. */
+  /** Pass your own css classes for unique styling. */
   className?: string
 }
 
