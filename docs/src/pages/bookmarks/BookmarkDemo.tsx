@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import {
   BookmarkProvider,
@@ -7,16 +7,23 @@ import {
 } from "@startpage/bookmarks"
 
 import { Button } from "../../components"
+import { RowLayout } from "../../components/RowLayout"
 
 export const Child = () => {
   const bookmarkState = useBookmarks()
+  const [clicked, setClicked] = useState(false)
 
   /* Use the bookmarkState here */
+  const handleClick = () => {
+    console.log(bookmarkState)
+    setClicked(true)
+  }
 
   return (
-    <Button onClick={() => console.log(bookmarkState)}>
-      Log bookmark state
-    </Button>
+    <RowLayout>
+      <Button onClick={handleClick}>Log bookmark state</Button>
+      {clicked && "Now take a look into the browser console!"}
+    </RowLayout>
   )
 }
 

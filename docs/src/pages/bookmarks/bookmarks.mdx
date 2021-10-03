@@ -47,13 +47,22 @@ import { useBookmarks } from "@startpage/bookmarks"
 
 export const Child = () => {
   const bookmarkState = useBookmarks()
+  const [clicked, setClicked] = useState(false)
 
   /* Use the bookmarkState here */
 
+  const handleClick = () => {
+    console.log(bookmarkState)
+    setClicked(true)
+  }
+
   return (
-    <button onClick={() => console.log(bookmarkState)}>
-      Log bookmark state
-    </button>
+    <div>
+      <button onClick={handleClick}>
+        Log bookmark state
+      </button>
+      {clicked && "Now take a look into the browser console!"}
+    </div>
   )
 }
 ```
