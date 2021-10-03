@@ -36,6 +36,7 @@ export const FileInput = styled.div`
     > label {
       content: "Restore your backup";
       display: flex;
+      gap: ${space.small};
       justify-content: center;
       align-items: center;
       color: ${color.fg.surface};
@@ -68,8 +69,11 @@ export const BlobLinkDemo = () => (
 )
 export const DownloadDemo = () => (
   <Wrapper>
-    <Button onClick={() => Backup.download("demo-backup.json")}>
-      Export Storage <FontAwesomeIcon icon={faFileDownload} />
+    <Button
+      onClick={() => Backup.download("demo-backup.json")}
+      rightIcon={faFileDownload}
+    >
+      Export Storage
     </Button>
   </Wrapper>
 )

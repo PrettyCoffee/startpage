@@ -14,11 +14,11 @@ const StyledTextInput = styled(StpgTextInput)`
     background-color: ${color.bg.surface};
     border-radius: ${space.small};
     box-shadow: 0 4px 0 ${color.bg.shade};
+    gap: ${space.small};
     :hover {
       background-color: ${color.bg.highlight};
     }
     > span {
-      padding-left: ${space.medium};
       color: ${color.fg.highlight};
     }
     > input {
