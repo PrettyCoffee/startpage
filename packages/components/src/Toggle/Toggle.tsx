@@ -22,7 +22,7 @@ export const Toggle = ({
   const handleChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(!checked, changeEvent)
   }
-  const checkedCSS = checked ? "active" : ""
+  const checkedCSS = checked ? "checked" : ""
   return (
     <div className={`${className} ${Wrapper} ${checkedCSS}`}>
       <span className={Extra}>{leftExtra}</span>

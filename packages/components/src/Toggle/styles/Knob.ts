@@ -11,7 +11,7 @@ export const Knob = cx(
     border-radius: 50%;
     transition: 0.5s;
     transform: translateX(-1rem);
-    &.active {
+    &.checked {
       transform: translateX(1rem);
     }
   `,
