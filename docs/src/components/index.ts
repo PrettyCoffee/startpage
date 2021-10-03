@@ -1,3 +1,6 @@
 export { Button } from "./Button"
+export { RowLayout } from "./RowLayout"
+export { ColumnLayout } from "./ColumnLayout"
 export { TextInput } from "./TextInput"
+export { ThemeToggle } from "./ThemeToggle"
 export { MDX } from "./MDX/MDX"

@@ -4,9 +4,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { performSearch } from "@startpage/search"
 
-import { Button, TextInput } from "../../components"
-import { ColumnLayout } from "../../components/ColumnLayout"
-import { RowLayout } from "../../components/RowLayout"
+import { Button, TextInput, ColumnLayout, RowLayout } from "../../components"
 
 const settings = {
   newTab: true,

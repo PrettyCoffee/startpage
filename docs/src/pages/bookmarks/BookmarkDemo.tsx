@@ -6,8 +6,7 @@ import {
   BookmarkGroup,
 } from "@startpage/bookmarks"
 
-import { Button } from "../../components"
-import { RowLayout } from "../../components/RowLayout"
+import { Button, RowLayout } from "../../components"
 
 export const Child = () => {
   const bookmarkState = useBookmarks()

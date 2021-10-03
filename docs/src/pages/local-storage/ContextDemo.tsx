@@ -2,8 +2,7 @@ import React from "react"
 
 import { createStorageContext } from "@startpage/local-storage"
 
-import { RowLayout } from "../../components/RowLayout"
-import { TextInput } from "../../components/TextInput"
+import { RowLayout, TextInput } from "../../components"
 
 const { StorageProvider, useStorage } = createStorageContext("context-demo", "")
 

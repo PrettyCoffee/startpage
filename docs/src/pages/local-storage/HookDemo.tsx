@@ -2,8 +2,7 @@ import React from "react"
 
 import { useStorage } from "@startpage/local-storage"
 
-import { RowLayout } from "../../components/RowLayout"
-import { TextInput } from "../../components/TextInput"
+import { RowLayout, TextInput } from "../../components"
 
 export const HookDemo = () => {
   const [value, setValue] = useStorage("hook-demo", "")

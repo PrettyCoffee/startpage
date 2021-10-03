@@ -6,8 +6,7 @@ import { faFileDownload, faFileUpload } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { storageBackup } from "@startpage/local-storage"
 
-import { Button } from "../../components/Button"
-import { RowLayout } from "../../components/RowLayout"
+import { Button, RowLayout } from "../../components"
 
 const Wrapper = styled(RowLayout)`
   ${({ theme: { space } }) => css`
