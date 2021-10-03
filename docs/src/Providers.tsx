@@ -23,7 +23,7 @@ const globalStyles = (theme: Theme) => css`
     border-radius: 10px;
   }
   * {
-    font-family: Quicksand;
+    font-family: Quicksand, sans-serif;
     font-weight: 500;
   }
   body {
