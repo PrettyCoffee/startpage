@@ -3,7 +3,7 @@ import React from "react"
 import { BaseInputProps, ExtraProps } from "../fragments/BaseProps"
 import { Extra, Input, Knob, Wrapper } from "./styles"
 
-export type ToggleProps = BaseInputProps<boolean> &
+export type ToggleProps = BaseInputProps<HTMLInputElement, boolean> &
   ExtraProps & {
     /** Checked state of the toggle */
     checked: boolean

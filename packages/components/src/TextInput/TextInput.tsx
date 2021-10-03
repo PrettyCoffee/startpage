@@ -3,9 +3,9 @@ import React from "react"
 import { BaseInputProps, ExtraProps } from "../fragments/BaseProps"
 import { Extra, Input, Wrapper } from "./styles"
 
-export type TextInputProps = BaseInputProps<string> &
+export type TextInputProps = BaseInputProps<HTMLInputElement, string> &
   ExtraProps & {
-    /** Current value */
+    /** Current value of the element */
     value?: string
     /** Placeholder which is shown if value is undefined */
     placeholder?: string
@@ -17,7 +17,7 @@ export type TextInputProps = BaseInputProps<string> &
     /** Enables HTML basic autocomplete, pass a boolean for on / off or a string with the (HTML) type of the autocomplete. */
     autocomplete?: boolean | string
     /** Input will be focused on load if set to true */
-    autofocus?: boolean
+    autoFocus?: boolean
     /** Type of the input element, defaults to "text" */
     type?: "email" | "number" | "password" | "search" | "tel" | "text" | "url"
   }
@@ -40,7 +40,7 @@ export const TextInput = ({
     onKeyPress?.(keyEvent.key, keyEvent)
 
   return (
-    <div className={`${className} ${Wrapper}`}>
+    <div className={`${Wrapper} ${className}`}>
       {leftExtra && <span className={Extra}>{leftExtra}</span>}
       <input
         type={type}
