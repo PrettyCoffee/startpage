@@ -12,18 +12,22 @@ export type ClassNameProp = {
   className?: string
 }
 
-export type BaseInputProps<ValueType> = ClassNameProp & {
-  /** Callback fired when the elements value changes */
-  onChange?: (
-    value: ValueType,
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => void
+export type DisableProp = {
   /** Disables the element */
   disabled?: boolean
-  /** Indicates focusability and position in keyboard navigation */
-  tabIndex?: number
-  /** Callback fired when the element gains focus */
-  onFocus?: React.FocusEventHandler<HTMLInputElement>
-  /** Callback fired when the element looses focus */
-  onBlur?: React.FocusEventHandler<HTMLInputElement>
 }
+
+export type BaseInputProps<ValueType> = ClassNameProp &
+  DisableProp & {
+    /** Callback fired when the elements value changes */
+    onChange?: (
+      value: ValueType,
+      event: React.ChangeEvent<HTMLInputElement>
+    ) => void
+    /** Indicates focusability and position in keyboard navigation */
+    tabIndex?: number
+    /** Callback fired when the element gains focus */
+    onFocus?: React.FocusEventHandler<HTMLInputElement>
+    /** Callback fired when the element looses focus */
+    onBlur?: React.FocusEventHandler<HTMLInputElement>
+  }
