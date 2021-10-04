@@ -17,6 +17,7 @@ const StyledSelect = styled(StpgSelect)`
     padding: 0 ${space.medium};
     color: ${color.fg.surface};
     background-color: ${color.bg.surface};
+    min-width: 12rem;
     > .placeholder {
       color: ${color.fg.shade};
     }
@@ -25,7 +26,6 @@ const StyledSelect = styled(StpgSelect)`
       border: none;
       outline: none;
       > option {
-        font-family: inherit;
         color: ${color.fg.surface};
         background-color: ${color.bg.surface};
       }
