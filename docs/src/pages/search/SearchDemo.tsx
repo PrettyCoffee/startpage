@@ -48,6 +48,7 @@ export const SearchDemo = () => {
       <RowLayout>
         <TextInput
           value={value}
+          placeholder="Search the web"
           onChange={setValue}
           onKeyPress={(key: string) => key === "Enter" && search()}
         />
