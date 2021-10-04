@@ -18,9 +18,17 @@ const StyledButton = styled(StpgButton)`
     border-radius: ${space.small};
     padding: 0 ${space.medium};
     gap: ${space.small};
+    outline: none;
     :hover {
       background-color: ${color.bg.highlight};
       color: ${color.fg.surface};
+    }
+    :active {
+      background-color: ${color.bg.surface};
+    }
+    :focus-visible {
+      box-shadow: 0 4px 0 ${color.fg.shade};
+      outline: ${color.fg.shade} solid 2px;
     }
     &.active {
       background-color: ${color.bg.highlight};
