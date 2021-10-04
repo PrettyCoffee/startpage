@@ -5,15 +5,10 @@ import { height } from "./dimensions"
 export const Knob = cx(
   css`
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     width: calc(${height} - 8px);
     height: calc(${height} - 8px);
-    border-radius: 50%;
-    transition: 0.5s;
-    transform: translateX(-1rem);
-    &.checked {
-      transform: translateX(1rem);
-    }
+    background-color: white;
   `,
-  "toggle-knob"
+  "stpg-switch-knob"
 )

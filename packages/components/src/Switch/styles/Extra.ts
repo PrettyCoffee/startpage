@@ -1,14 +1,14 @@
 import { css, cx } from "@emotion/css"
 
-import { height } from "./dimensions"
-
 export const Extra = cx(
   css`
-    height: ${height};
-    width: ${height};
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
   `,
-  "toggle-extra"
+  "stpg-switch-extra"
 )

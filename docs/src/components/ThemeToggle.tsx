@@ -3,28 +3,24 @@ import React from "react"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Toggle } from "@startpage/components"
 
-const Icon = styled(FontAwesomeIcon)`
-  ${({ theme: { space } }) => css`
-    height: ${space.medium};
-    width: ${space.medium};
-  `}
-`
+import { Switch } from "./Switch"
 
-const StyledToggle = styled(Toggle)`
+const StyledSwitch = styled(Switch)`
   ${({ theme: { color, inverted } }) => {
     const fgLight = inverted ? color.bg.highlight : color.fg.highlight
     const fgDark = inverted ? color.fg.highlight : color.bg.highlight
     return css`
-      transition: 0.5s;
-      box-shadow: 0 4px 0 ${color.bg.shade};
-      background-color: ${color.bg.surface};
-      > .toggle-knob {
-        background-color: ${color.fg.highlight};
+      &[aria-checked="true"] {
+        > .stpg-switch-track {
+          background-color: ${color.bg.surface};
+        }
+        > .stpg-switch-knob {
+          background-color: ${color.fg.surface};
+        }
       }
-      > .toggle-extra {
+      > .stpg-switch-extra {
+        font-size: 1rem;
         :first-of-type {
           color: ${fgDark};
         }
@@ -42,10 +38,10 @@ type ThemeToggleProps = {
 }
 
 export const ThemeToggle = ({ onChange, inverted }: ThemeToggleProps) => (
-  <StyledToggle
+  <StyledSwitch
     checked={inverted}
     onChange={onChange}
-    leftExtra={<Icon icon={faSun} />}
-    rightExtra={<Icon icon={faMoon} />}
+    leftIcon={faSun}
+    rightIcon={faMoon}
   />
 )
