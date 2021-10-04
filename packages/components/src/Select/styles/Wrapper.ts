@@ -10,6 +10,8 @@ export const Wrapper = cx(
     box-sizing: border-box;
     height: ${height};
     font-size: ${fontSize};
+    gap: ${fontSize};
+    padding: 0 ${fontSize};
   `,
   "select"
 )

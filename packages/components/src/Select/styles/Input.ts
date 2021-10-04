@@ -14,6 +14,10 @@ export const Input = cx(
     width: 100%;
     right: 0;
     left: 0;
+
+    > option {
+      color: initial;
+    }
   `,
   "select-input"
 )

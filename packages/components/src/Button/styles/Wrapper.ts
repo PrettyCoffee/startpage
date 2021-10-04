@@ -10,6 +10,8 @@ export const Wrapper = cx(
     box-sizing: border-box;
     cursor: pointer;
     font-size: ${fontSize};
+    gap: ${fontSize};
+    padding: 0 ${fontSize};
   `,
   "button"
 )
