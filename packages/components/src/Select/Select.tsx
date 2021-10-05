@@ -2,7 +2,7 @@ import React from "react"
 
 import { ExtraProps, BaseInputProps } from "../fragments/BaseProps"
 import { Arrow } from "./fragments/Arrow"
-import { Extra, Wrapper, Input, Text } from "./styles"
+import { Extra, Wrapper, Input, Text, Header } from "./styles"
 
 export type Option = {
   value?: string
@@ -54,12 +54,6 @@ export const Select = ({
 
   return (
     <div className={`${Wrapper} ${className}`}>
-      {leftExtra && <span className={Extra}>{leftExtra}</span>}
-      <span className={`${Text} ${placeholderCSS}`}>
-        {label || placeholder}
-      </span>
-      {rightExtra && <span className={Extra}>{rightExtra}</span>}
-
       <select
         className={Input}
         value={value}
@@ -73,6 +67,14 @@ export const Select = ({
           </option>
         ))}
       </select>
+
+      <div className={`${Header}`}>
+        {leftExtra && <span className={Extra}>{leftExtra}</span>}
+        <span className={`${Text} ${placeholderCSS}`}>
+          {label || placeholder}
+        </span>
+        {rightExtra && <span className={Extra}>{rightExtra}</span>}
+      </div>
     </div>
   )
 }

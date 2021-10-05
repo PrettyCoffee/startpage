@@ -11,17 +11,9 @@ import {
 
 const StyledSelect = styled(StpgSelect)`
   ${({ theme: { color, space } }) => css`
-    border-radius: ${space.small};
-    box-shadow: 0 4px 0 ${color.bg.shade};
-    gap: ${space.medium};
-    padding: 0 ${space.medium};
-    color: ${color.fg.surface};
-    background-color: ${color.bg.surface};
-    min-width: 12rem;
-    > .placeholder {
-      color: ${color.fg.shade};
-    }
-    > .select-input {
+    > select {
+      border: none;
+      outline: none;
       padding: 0 ${space.medium};
       border: none;
       outline: none;
@@ -29,9 +21,25 @@ const StyledSelect = styled(StpgSelect)`
         color: ${color.fg.surface};
         background-color: ${color.bg.surface};
       }
+      :focus-visible + .stpg-select-header {
+        box-shadow: 0 4px 0 ${color.fg.shade};
+        outline: ${color.fg.shade} solid 2px;
+      }
     }
-    :hover {
-      background-color: ${color.bg.highlight};
+    > .stpg-select-header {
+      border-radius: ${space.small};
+      box-shadow: 0 4px 0 ${color.bg.shade};
+      gap: ${space.medium};
+      padding: 0 ${space.medium};
+      color: ${color.fg.surface};
+      background-color: ${color.bg.surface};
+      min-width: 12rem;
+      > .placeholder {
+        color: ${color.fg.shade};
+      }
+      :hover {
+        background-color: ${color.bg.highlight};
+      }
     }
   `}
 `

@@ -4,5 +4,5 @@ export const Text = cx(
   css`
     flex: 1;
   `,
-  "select-text"
+  "stpg-select-text"
 )

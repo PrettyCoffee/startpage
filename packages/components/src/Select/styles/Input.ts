@@ -1,23 +1,20 @@
 import { css, cx } from "@emotion/css"
 
-import { height } from "./dimensions"
-
 export const Input = cx(
   css`
-    height: ${height};
+    height: 100%;
+    width: 100%;
     appearance: none;
     position: absolute;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: inherit;
+    color: inherit;
     background-color: transparent;
     color: transparent;
-    width: 100%;
-    right: 0;
-    left: 0;
 
     > option {
       color: initial;
     }
   `,
-  "select-input"
+  "stpg-select-input"
 )
