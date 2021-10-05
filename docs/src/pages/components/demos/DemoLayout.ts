@@ -7,6 +7,7 @@ export const DemoLayout = styled(RowLayout)`
   ${({ theme: { color, space } }) => css`
     margin: ${space.large} ${space.largest};
     padding-top: ${space.large};
+    color: black;
     > * {
       position: relative;
       ::before {
