@@ -67,8 +67,6 @@ const NavItem = styled.li`
 
       :focus-visible {
         outline: none;
-        color: ${color.secondary.fg};
-        padding-right: calc(${space.large} + ${space.small});
         box-shadow: -${space.smallest} 0 0 ${color.fg.shade} inset;
       }
     }

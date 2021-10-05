@@ -8,7 +8,7 @@ export const Knob = cx(
     z-index: 2;
     width: calc(${height} - 8px);
     height: calc(${height} - 8px);
-    background-color: white;
+    background-color: black;
   `,
   "stpg-switch-knob"
 )
