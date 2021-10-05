@@ -12,5 +12,5 @@ export const Wrapper = cx(
     gap: ${fontSize};
     padding: 0 ${fontSize};
   `,
-  "text"
+  "stpg-text"
 )

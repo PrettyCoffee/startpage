@@ -1,7 +1,6 @@
 import React from "react"
 
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Option } from "@startpage/components"
 import { performSearch, SearchEngineName } from "@startpage/search"
 

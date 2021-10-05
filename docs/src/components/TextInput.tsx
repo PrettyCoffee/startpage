@@ -20,7 +20,7 @@ const StyledTextInput = styled(StpgTextInput)`
     position: relative;
     padding: 0;
     gap: 0;
-    > .text-extra {
+    > .stpg-text-extra {
       position: absolute;
       z-index: 1;
       color: ${color.fg.highlight};
@@ -33,7 +33,6 @@ const StyledTextInput = styled(StpgTextInput)`
       &.right {
         right: 0;
       }
-      
     }
     > input {
       background-color: ${color.bg.surface};

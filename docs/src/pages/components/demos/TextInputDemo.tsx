@@ -14,12 +14,16 @@ export const TextInputDemo = () => {
   const switchProps = {
     value,
     onChange: setValue,
-    placeholder: "Placeholder"
+    placeholder: "Placeholder",
   }
   return (
     <DemoLayout>
       <TextInput leftExtra={Extra} rightExtra={Extra} {...switchProps} />
-      <StyledTextInput leftIcon={faIcons} rightIcon={faIcons} {...switchProps} />
+      <StyledTextInput
+        leftIcon={faIcons}
+        rightIcon={faIcons}
+        {...switchProps}
+      />
     </DemoLayout>
   )
 }

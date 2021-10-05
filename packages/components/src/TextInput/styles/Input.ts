@@ -11,5 +11,5 @@ export const Input = cx(
     font-size: inherit;
     padding: 0 ${fontSize};
   `,
-  "text-input"
+  "stpg-text-input"
 )
