@@ -41,7 +41,7 @@ export const TextInput = ({
 
   return (
     <div className={`${Wrapper} ${className}`}>
-      {leftExtra && <span className={Extra}>{leftExtra}</span>}
+      {leftExtra && <span className={`${Extra} left`}>{leftExtra}</span>}
       <input
         type={type}
         className={Input}
@@ -49,7 +49,7 @@ export const TextInput = ({
         onKeyPress={handleKeyPress}
         {...inputProps}
       />
-      {rightExtra && <span className={Extra}>{rightExtra}</span>}
+      {rightExtra && <span className={`${Extra} right`}>{rightExtra}</span>}
     </div>
   )
 }
