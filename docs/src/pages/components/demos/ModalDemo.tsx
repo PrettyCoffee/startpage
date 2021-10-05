@@ -19,24 +19,20 @@ export const ModalDemo = () => {
   const styledOnBlur = () => setStyledVisible(false)
 
   const content = (
-    <>
-      <h2>Modal example</h2>
-      <h3>May I introduce you to some cat ipsum:</h3>
-      <p>
-        Push your water glass on the floor drink from the toilet curl up and
-        sleep on the freshly laundered towels. Curl up and sleep on the freshly
-        laundered towels. Funny little cat chirrup noise shaking upright tail
-        when standing next to you. Refuse to leave cardboard box purr purr purr
-        until owner pets why owner not pet me hiss scratch meow or head nudges ,
-        pet right here, no not there, here, no fool, right here that other cat
-        smells funny you should really give me all the treats because i smell
-        the best and omg you finally got the right spot and i love you right now
-        eat a rug and furry furry hairs everywhere oh no human coming lie on
-        counter don't get off counter yet swipe at owner's legs. Destroy house
-        in 5 seconds has closed eyes but still sees you this human feeds me, i
-        should be a god but mouse.
-      </p>
-    </>
+    <p>
+      Push your water glass on the floor drink from the toilet curl up and
+      sleep on the freshly laundered towels. Curl up and sleep on the freshly
+      laundered towels. Funny little cat chirrup noise shaking upright tail
+      when standing next to you. Refuse to leave cardboard box purr purr purr
+      until owner pets why owner not pet me hiss scratch meow or head nudges ,
+      pet right here, no not there, here, no fool, right here that other cat
+      smells funny you should really give me all the treats because i smell
+      the best and omg you finally got the right spot and i love you right now
+      eat a rug and furry furry hairs everywhere oh no human coming lie on
+      counter don't get off counter yet swipe at owner's legs. Destroy house
+      in 5 seconds has closed eyes but still sees you this human feeds me, i
+      should be a god but mouse.
+    </p>
   )
 
   return (
