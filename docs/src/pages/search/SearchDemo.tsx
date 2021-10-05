@@ -52,9 +52,7 @@ export const SearchDemo = () => {
           onChange={setValue}
           onKeyPress={(key: string) => key === "Enter" && search()}
         />
-        <Button onClick={search}>
-          <FontAwesomeIcon icon={faSearch} />
-        </Button>
+        <Button onClick={search} leftIcon={faSearch} />
       </RowLayout>
       <RowLayout>
         <Select options={searchEngines} value={engine} onChange={setEngine} />
