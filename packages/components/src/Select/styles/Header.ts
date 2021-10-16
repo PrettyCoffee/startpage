@@ -10,6 +10,7 @@ export const Header = cx(
     height: ${height};
     gap: ${fontSize};
     padding: 0 ${fontSize};
+    background-color: rgb(239, 239, 239);
   `,
   "stpg-select-header"
 )
