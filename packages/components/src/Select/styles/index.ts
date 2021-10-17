@@ -1,5 +1,5 @@
 export { Extra } from "./Extra"
 export { Header } from "./Header"
+export { Options } from "./Options"
 export { Text } from "./Text"
-export { Input } from "./Input"
 export { Wrapper } from "./Wrapper"
