@@ -22,17 +22,17 @@ const getGreyScale = (base: string): GreyScale => {
   return {
     shade: color.darken(0.2).hex(),
     base: color.hex(),
-    surface: color.lighten(0.15).hex(),
-    highlight: color.lighten(0.3).hex(),
+    surface: color.lighten(0.2).hex(),
+    highlight: color.lighten(0.4).hex(),
   }
 }
 
 const getColorGradient = (base: string): ColorGradient => {
   const color = Color(base)
   return {
-    bg: color.darken(0.4).hex(),
+    bg: color.darken(0.5).hex(),
     base: color.hex(),
-    fg: color.lighten(0.4).hex(),
+    fg: color.lighten(0.5).hex(),
   }
 }
 
