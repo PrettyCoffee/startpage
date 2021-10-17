@@ -7,10 +7,6 @@ export const Wrapper = cx(
     border: 1px solid black;
     background-color: white;
     inset: 10rem;
-    display: none;
-    &.visible {
-      display: block;
-    }
   `,
   "stpg-modal"
 )
