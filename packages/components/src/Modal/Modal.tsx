@@ -1,55 +1,55 @@
 import React from "react"
 
+import { Dialog, Transition } from "@headlessui/react"
+
 import { ClassNameProp } from "../fragments/BaseProps"
-import { useOutsideClick } from "./fragments/useOutsideClick"
-import { Wrapper } from "./styles"
+import { Backdrop, Wrapper, Window } from "./styles"
+
+export type Transition = {
+  /** CSS Classname applied during the transition */
+  transition: string
+  /** CSS Classname applied before triggering the transition */
+  from: string
+  /** CSS Classname applied to trigger the transition */
+  to: string
+}
 
 export type ModalProps = ClassNameProp & {
   /** Mounts / unmounts the modal */
-  visible?: boolean
+  open?: boolean
   /** Optional layer between modal and page content */
-  Backdrop?: React.ReactFragment
-  /** Callback fired when clicking outside of the modal */
-  onBlur?: () => void
-  /** Animation fired when modal is mounted */
-  animateIn?: string
-  /** Animation fired before modal is unmounted */
-  animateOut?: string
+  backdrop?: boolean
+  /** Callback fired when a closing event is triggered */
+  onClose: () => void
+  /** Transitioning when modal enters the screen. */
+  enterTransition?: Transition
+  /** Transitioning when modal leaves the screen. */
+  leaveTransition?: Transition
 }
 
 export const Modal = ({
-  onBlur = () => null,
-  visible = false,
+  onClose,
+  open = false,
   className = "",
-  Backdrop,
-  animateIn,
-  animateOut,
-  ...modalProps
-}: React.PropsWithChildren<ModalProps>) => {
-  const modalRef = React.useRef<HTMLDivElement>(null)
-  const [mounted, setMounted] = React.useState(visible)
-
-  React.useEffect(() => {
-    if (visible) setMounted(true)
-    if (!visible && !animateOut) setMounted(false)
-  }, [visible, animateOut])
-
-  const unmount = () => !visible && setMounted(false)
-
-  useOutsideClick(modalRef, visible, onBlur)
-
-  if (!mounted) return null
-
-  return (
-    <>
-      {Backdrop}
-      <div
-        ref={modalRef}
-        className={`${Wrapper} ${className}`}
-        style={{ animation: visible ? animateIn : animateOut }}
-        onAnimationEnd={unmount}
-        {...modalProps}
-      />
-    </>
-  )
-}
+  backdrop,
+  enterTransition,
+  leaveTransition,
+  children,
+}: React.PropsWithChildren<ModalProps>) => (
+  <Transition show={open}>
+    <Dialog className={`${Wrapper} ${className}`} onClose={onClose}>
+      {backdrop && <Dialog.Overlay className={Backdrop} />}
+      <Transition.Child
+        enter={enterTransition?.transition}
+        enterFrom={enterTransition?.from}
+        enterTo={enterTransition?.to}
+        leave={leaveTransition?.transition}
+        leaveFrom={leaveTransition?.from}
+        leaveTo={leaveTransition?.to}
+        as={React.Fragment}
+      >
+        <div className={Window}>{children}</div>
+      </Transition.Child>
+    </Dialog>
+  </Transition>
+)
