@@ -17,16 +17,16 @@ export type ExtraProps = {
   rightExtra?: React.ReactFragment
 }
 
-export type FocusProps<ElementType> = {
+export type FocusProps = {
   /** Callback fired when the element gains focus */
-  onFocus?: React.FocusEventHandler<ElementType>
+  onFocus?: () => void
   /** Callback fired when the element looses focus */
-  onBlur?: React.FocusEventHandler<ElementType>
+  onBlur?: () => void
 }
 
-export type BaseInputProps<ElementType, ValueType> = ClassNameProp &
+export type BaseInputProps<ValueType> = ClassNameProp &
   DisableProp &
-  FocusProps<ElementType> & {
+  FocusProps & {
     /** Callback fired when the elements value changes */
-    onChange?: (value: ValueType, event: React.ChangeEvent<ElementType>) => void
+    onChange: (value: ValueType) => void
   }

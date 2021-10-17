@@ -10,7 +10,7 @@ import { Extra, Knob, Track, Wrapper } from "./styles"
 
 export type SwitchProps = ClassNameProp &
   DisableProp &
-  FocusProps<HTMLButtonElement> &
+  FocusProps &
   ExtraProps & {
     /** Callback fired when the elements value changes */
     onChange?: (value: boolean) => void
