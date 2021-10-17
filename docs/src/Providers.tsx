@@ -25,6 +25,7 @@ const globalStyles = (theme: Theme) => css`
   * {
     font-family: Quicksand, sans-serif;
     font-weight: 500;
+    box-sizing: border-box;
   }
   body {
     margin: 0;
