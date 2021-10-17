@@ -8,40 +8,34 @@ import { Modal as StpgModal, ModalProps } from "@startpage/components"
 
 const StyledModal = styled(StpgModal)`
   ${({ theme: { color, space } }) => css`
-    background-color: ${color.bg.base};
-    border: 2px solid ${color.fg.shade};
-    color: ${color.fg.surface};
-    border-radius: ${space.small};
-    padding: ${space.large} ${space.largest};
-    width: 800px;
-    box-sizing: border-box;
-    z-index: 102;
-
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: unset;
-
-    @keyframes slideOut {
-      from {
-        filter: blur(0);
-        transform: translateX(0);
-      }
-      to {
-        filter: blur(8px);
-        transform: translateX(800px);
-      }
+    > .stpg-modal-window {
+      background-color: ${color.bg.base};
+      border: 2px solid ${color.fg.shade};
+      color: ${color.fg.surface};
+      border-radius: ${space.small};
+      padding: ${space.large} ${space.largest};
+      width: 800px;
+      box-sizing: border-box;
+      z-index: 102;
+      
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: unset;
+    }
+    > .stpg-modal-backdrop {
+      z-index: 101;
     }
 
-    @keyframes slideIn {
-      from {
-        filter: blur(8px);
-        transform: translateX(800px);
-      }
-      to {
-        filter: blur(0);
-        transform: translateX(0);
-      }
+
+    .transition {
+      transition: 0.5s cubic-bezier(0.75, -0.25, 0.25, 1.25);
+    }
+    .visible {
+      transform: translateX(0);
+    }
+    .hidden {
+      transform: translateX(800px);
     }
   `}
 `
@@ -67,30 +61,33 @@ const CloseButton = styled.button`
   `}
 `
 
-const Backdrop = styled.div`
-  position: fixed;
-  z-index: 101;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-`
-
 export const Modal = ({
-  visible,
+  open,
   children,
   ...props
 }: React.PropsWithChildren<ModalProps>) => {
-  const animateIn = `slideIn 0.5s cubic-bezier(0.75, -0.25, 0.25, 1.25) forwards`
-  const animateOut = `slideOut 0.5s cubic-bezier(0.75, -0.25, 0.25, 1.25) forwards`
+  
+  const enterTransition = {
+    transition: "transition",
+    from:"hidden",
+    to:"visible"
+  }
+
+  const leaveTransition = {
+    transition: "transition",
+    from:"visible",
+    to:"hidden"
+  }
 
   return (
     <StyledModal
-      visible={visible}
-      animateIn={animateIn}
-      animateOut={animateOut}
-      Backdrop={<Backdrop />}
+      open={open}
+      enterTransition={enterTransition}
+      leaveTransition={leaveTransition}
+      backdrop
       {...props}
     >
-      <CloseButton onClick={props.onBlur}>
+      <CloseButton onClick={props.onClose}>
         <FontAwesomeIcon icon={faTimes} />
       </CloseButton>
       {children}

@@ -9,14 +9,14 @@ import {
 import { DemoLayout } from "./DemoLayout"
 
 export const ModalDemo = () => {
-  const [visible, setVisible] = React.useState(false)
-  const [styledVisible, setStyledVisible] = React.useState(false)
+  const [open, setOpen] = React.useState(false)
+  const [styledOpen, setStyledOpen] = React.useState(false)
 
-  const open = () => setVisible(true)
-  const onBlur = () => setVisible(false)
+  const onOpen = () => setOpen(true)
+  const onClose = () => setOpen(false)
 
-  const styledOpen = () => setStyledVisible(true)
-  const styledOnBlur = () => setStyledVisible(false)
+  const styledOnOpen = () => setStyledOpen(true)
+  const styledOnClose = () => setStyledOpen(false)
 
   const content = (
     <p>
@@ -38,15 +38,15 @@ export const ModalDemo = () => {
   return (
     <DemoLayout>
       <div>
-        <Button onClick={open}>Click me!</Button>
-        <Modal visible={visible} onBlur={onBlur}>
+        <Button onClick={onOpen}>Click me!</Button>
+        <Modal open={open} onClose={onClose}>
           {content}
           <Button>Agree</Button>
         </Modal>
       </div>
       <div>
-        <StyledButton onClick={styledOpen}>Click me!</StyledButton>
-        <StyledModal visible={styledVisible} onBlur={styledOnBlur}>
+        <StyledButton onClick={styledOnOpen}>Click me!</StyledButton>
+        <StyledModal open={styledOpen} onClose={styledOnClose}>
           {content}
           <StyledButton>Agree</StyledButton>
         </StyledModal>
