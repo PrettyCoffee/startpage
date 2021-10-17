@@ -6,6 +6,7 @@ const baseConfigs = [
   "plugin:import/typescript",
   "plugin:jest/recommended",
   "plugin:react-hooks/recommended",
+  "plugin:jsx-a11y/recommended",
   "plugin:prettier/recommended",
 ]
 
@@ -16,6 +17,7 @@ const plugins = [
   "jest",
   "testing-library",
   "unused-imports",
+  "jsx-a11y",
 ]
 
 const prettierRules = {
@@ -64,6 +66,7 @@ module.exports = {
     "@emotion/syntax-preference": [2, "string"],
     "unused-imports/no-unused-imports": "error",
     "@typescript-eslint/no-use-before-define": ["error"],
+    "jsx-a11y/no-onchange": "off", // deprecated rule, will be deleted in a future release
 
     "import/order": ["error", importOrderRules],
     "prettier/prettier": ["error", prettierRules],
