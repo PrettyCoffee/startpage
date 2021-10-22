@@ -1,6 +1,6 @@
 import { css, cx } from "@emotion/css"
 
-import { fontSize } from "./dimensions"
+import { fontSize } from "../../fragments/dimensions"
 
 export const Input = cx(
   css`

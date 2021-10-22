@@ -1,6 +1,6 @@
 import { css, cx } from "@emotion/css"
 
-import { fontSize, height } from "./dimensions"
+import { fontSize, height, padding } from "../../fragments/dimensions"
 
 export const Wrapper = cx(
   css`
@@ -11,7 +11,7 @@ export const Wrapper = cx(
     cursor: pointer;
     font-size: ${fontSize};
     gap: ${fontSize};
-    padding: 0 ${fontSize};
+    padding: 0 ${padding};
   `,
   "stpg-button"
 )

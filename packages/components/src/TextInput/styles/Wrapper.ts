@@ -1,6 +1,8 @@
 import { css, cx } from "@emotion/css"
 
-import { fontSize, height, width } from "./dimensions"
+import { fontSize, height } from "../../fragments/dimensions"
+
+const width = "15rem"
 
 export const Wrapper = cx(
   css`
