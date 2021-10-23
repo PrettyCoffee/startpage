@@ -11,49 +11,144 @@ Unstyled react components for your startpage.
 
 ## Button
 
+A button element.
+
 <ButtonDemo />
 
-### API
+### Props
+
+| name       | type                       | description                                     |
+| ---------- | -------------------------- | ----------------------------------------------- |
+| active     | boolean \| undefined       | Applies an active css class.                    |
+| className  | string \| undefined        | Pass your own css classes for unique styling.   |
+| disabled   | boolean \| undefined       | Disables the element.                           |
+| leftExtra  | ReactFragment \| undefined | Component which is displayed on the left side.  |
+| rightExtra | ReactFragment \| undefined | Component which is displayed on the right side. |
+| onClick    | () => void \| undefined    | Callback fired when the element is clicked.     |
 
 ### Example
 
 ## Modal
 
+A popup window for e.g. settings.
+
 <ModalDemo />
 
-### API
+### Props
+
+| name            | type                    | description                                       |
+| --------------- | ----------------------- | ------------------------------------------------- |
+| backdrop        | boolean \| undefined    | Adds an layer between modal and page content.     |
+| className       | string \| undefined     | Pass your own css classes for unique styling.     |
+| enterTransition | Transition \| undefined | Transitioning when modal enters the screen.       |
+| leaveTransition | Transition \| undefined | Transitioning when modal leaves the scree.        |
+| open            | boolean \| undefined    | Mounts / unmounts the modal.                      |
+| onClose         | () => void              | Callback fired when a closing event is triggered. |
+
+** Transition **
+
+| name       | type   | description                                         |
+| ---------- | ------ | --------------------------------------------------- |
+| from       | string | CSS class applied before triggering the transition. |
+| to         | string | CSS class applied to trigger the transition.        |
+| transition | string | CSS class applied during the transition.            |
 
 ### Example
 
 ## Select
 
+Element for selecting between several options.
+
 <SelectDemo />
 
-### API
+### Props
+
+| name        | type                       | description                                                                                           |
+| ----------- | -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| className   | string \| undefined        | Pass your own css classes for unique styling.                                                         |
+| disabled    | boolean \| undefined       | Disables the element.                                                                                 |
+| options     | Option[]                   | Options of the select.                                                                                |
+| placeholder | string \| undefined        | Placeholder if no option is selected.<br/> If a placeholder is passed, an empty option will be added. |
+| value       | string \| undefined        | Current value of the element.                                                                         |
+| leftExtra   | ReactFragment \| undefined | Component which is displayed on the left side.                                                        |
+| rightExtra  | ReactFragment \| undefined | Component which is displayed on the right side.                                                       |
+| onBlur      | () => void \| undefined    | Callback fired when the element loses focus.                                                         |
+| onChange    | (value: string) => void    | Callback fired when the elements value changes.                                                       |
+| onClose     | () => void \| undefined    | Callback fired when the content is collapsed.                                                         |
+| onFocus     | () => void \| undefined    | Callback fired when the element gains focus.                                                          |
+| onOpen      | () => void \| undefined    | Callback fired when the content is expanded.                                                          |
 
 ### Example
 
 ## Switch
 
+A component to switch between two states.
+
 <SwitchDemo />
 
-### API
+### Props
+
+| name       | type                                  | description                                     |
+| ---------- | ------------------------------------- | ----------------------------------------------- |
+| checked    | boolean \| undefined                  | Checked state of the switch.                    |
+| className  | string \| undefined                   | Pass your own css classes for unique styling.   |
+| disabled   | boolean \| undefined                  | Disables the element.                           |
+| leftExtra  | ReactFragment \| undefined            | Component which is displayed on the left side.  |
+| rightExtra | ReactFragment \| undefined            | Component which is displayed on the right side. |
+| onBlur     | () => void \| undefined               | Callback fired when the element loses focus.   |
+| onChange   | (value: boolean) => void \| undefined | Callback fired when the elements value changes. |
+| onFocus    | () => void \| undefined               | Callback fired when the element gains focus.    |
 
 ### Example
 
-## Tabs
+## TabGroup & Tab
+
+Components to switch between different contents.
 
 <TabDemo />
 
-### API
+### Props
+
+** TabGroup **
+
+| name         | type                                 | description                                           |
+| ------------ | ------------------------------------ | ----------------------------------------------------- |
+| className    | string \| undefined                  | Pass your own css classes for unique styling.         |
+| defaultIndex | number \| undefined                  | Tab which will be active on load.                     |
+| vertical     | boolean \| undefined                 | Set this to true if you display your tabs vertically. |
+| onChange     | (index: number) => void \| undefined | Callback which is fired when the active tab changes.  |
+
+** Tab **
+
+| name  | type   | description              |
+| ----- | ------ | ------------------------ |
+| title | string | Button title of the Tab. |
 
 ### Example
 
 ## Text input
 
+A text input element.
+
 <TextInputDemo />
 
-### API
+### Props
+
+| name         | type                                                                                   | description                                                                                                        |
+| ------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| autocomplete | string \| boolean \| undefined                                                         | Enables HTML basic autocomplete, pass a boolean for on / off or a string with the (HTML) type of the autocomplete. |
+| autoFocus    | boolean \| undefined                                                                   | Input will be focused on load if set to true.                                                                       |
+| className    | string \| undefined                                                                    | Pass your own css classes for unique styling.                                                                      |
+| disabled     | boolean \| undefined                                                                   | Disables the element.                                                                                               |
+| placeholder  | string \| undefined                                                                    | Placeholder which is shown if value is undefined.                                                                   |
+| type         | "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| undefined | Type of the input element, defaults to "text".                                                                        |
+| value        | string \| undefined                                                                    | Current value of the element.                                                                                       |
+| leftExtra    | ReactFragment \| undefined                                                             | Component which is displayed on the left side.                                                                      |
+| rightExtra   | ReactFragment \| undefined                                                             | Component which is displayed on the right side.                                                                     |
+| onBlur       | () => void \| undefined                                                                | Callback fired when the element loses focus.                                                                       |
+| onChange     | (value: string) => void                                                                | Callback fired when the elements value changes.                                                                     |
+| onFocus      | () => void \| undefined                                                                | Callback fired when the element gains focus.                                                                        |
+| onKeyPress   | (key: string) => void \| undefined                                                     | Callback fired when a key is pressed while the input is focused.                                                    |
 
 ### Example
 

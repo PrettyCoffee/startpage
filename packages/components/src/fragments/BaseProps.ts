@@ -20,7 +20,7 @@ export type ExtraProps = {
 export type FocusProps = {
   /** Callback fired when the element gains focus */
   onFocus?: () => void
-  /** Callback fired when the element looses focus */
+  /** Callback fired when the element loses focus */
   onBlur?: () => void
 }
 
