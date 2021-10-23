@@ -8,8 +8,6 @@ export type ButtonProps = ExtraProps &
   DisableProp & {
     /** Callback fired when the element is clicked */
     onClick?: () => void
-    /** Applies an active css class */
-    active?: boolean
   }
 
 /** A button element.
@@ -19,15 +17,11 @@ export const Button = ({
   rightExtra,
   className = "",
   children,
-  active,
   ...buttonProps
-}: React.PropsWithChildren<ButtonProps>) => {
-  const activeCSS = active ? "active" : ""
-  return (
-    <button className={`${className} ${Wrapper} ${activeCSS}`} {...buttonProps}>
-      {leftExtra && <span className={Extra}>{leftExtra}</span>}
-      {children}
-      {rightExtra && <span className={Extra}>{rightExtra}</span>}
-    </button>
-  )
-}
+}: React.PropsWithChildren<ButtonProps>) => (
+  <button className={`${className} ${Wrapper}`} {...buttonProps}>
+    {leftExtra && <span className={Extra}>{leftExtra}</span>}
+    {children}
+    {rightExtra && <span className={Extra}>{rightExtra}</span>}
+  </button>
+)

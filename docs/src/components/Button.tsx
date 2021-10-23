@@ -30,10 +30,6 @@ const StyledButton = styled(StpgButton)`
       box-shadow: 0 4px 0 ${color.fg.shade};
       outline: ${color.fg.shade} solid 2px;
     }
-    &.active {
-      background-color: ${color.bg.highlight};
-      color: ${color.fg.surface};
-    }
   `}
 `
 
