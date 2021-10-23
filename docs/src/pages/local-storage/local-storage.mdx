@@ -100,6 +100,7 @@ export const Child = () => {
 ```
 // Parent.tsx
 
+import { Child } from "./Child"
 import { StorageProvider } from "./StorageContext"
 
 export const Parent = () => (
@@ -202,6 +203,84 @@ export const ImportDemo = () => (
     </label>
   </div>
 )
+```
+
+## StoragePrefixProvider
+
+Provider for a storage prefix.
+The prefix is used by all descendant library components which write into the local storage.
+It can be accessed by using the `useStoragePrefix` hook.
+
+### Props
+
+| name   | type   | description                 |
+| ------ | ------ | --------------------------- |
+| prefix | string | The prefix for storage keys |
+
+### Example
+
+```
+// Child.tsx
+
+import { useStoragePrefix } from "@startpage/local-storage"
+
+export const Child = () => {
+  const item = useStorage("prefix-demo", "")
+  // -> storage key will be "stpg-prefix-demo"
+
+  const prefix = useStoragePrefix()
+
+  /* Use the prefix here */
+
+  return <SomeContent />
+}
+```
+
+```
+// Parent.tsx
+
+import { StoragePrefixProvider } from "@startpage/local-storage"
+
+import { Child } from "./Child"
+
+const prefix = "stpg-"
+
+export const Parent = () => (
+  <StoragePrefixProvider prefix={prefix}>
+    <Child />
+  </StoragePrefixProvider>
+)
+```
+
+## usePrefixStorage
+
+`window.localStorage` implementation, only affecting the keys prefixed by a `StoragePrefixProvider`.
+
+** Note: Its recommended to use the `useStorage` hook or `createStorageContext` from above if possible. **
+
+### Returns
+
+| name       | type                                 | description                                   |
+| ---------- | ------------------------------------ | --------------------------------------------- |
+| clear      | () => void                           | Removes all items from the prefix storage     |
+| length     | () => number                         | Returns number of items in the prefix storage |
+| setItem    | (key: string, value: string) => void | Set an item in the prefix storage             |
+| getItem    | (key: string) => string \| null      | Get an item from the prefix storage           |
+| removeItem | (key: string) => void                | Remove an item from the prefix storage        |
+| getStorage | () => Record<string, string \| null> | Reads all elements from the prefix storage    |
+
+### Example
+
+```
+import { usePrefixStorage } from "@startpage/local-storage"
+
+export const PrefixStorageDemo = () => {
+  const storage = usePrefixStorage()
+
+  /* Use the storage functions here */
+
+  return <SomeContent />
+}
 ```
 
 ## Note

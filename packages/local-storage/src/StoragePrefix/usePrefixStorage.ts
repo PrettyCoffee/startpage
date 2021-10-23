@@ -34,13 +34,13 @@ type PrefixStorage = {
   clear: () => void
   /** Returns number of items in the prefix storage */
   length: () => number
-  /** Set an item in the prefix storage (usage not recommended) */
+  /** Set an item in the prefix storage */
   setItem: (key: string, value: string) => void
-  /** Get an item from the prefix storage (usage not recommended) */
+  /** Get an item from the prefix storage */
   getItem: (key: string) => string | null
-  /** Remove an item from the prefix storage (usage not recommended) */
+  /** Remove an item from the prefix storage */
   removeItem: (key: string) => void
-  /** Reads all elements from the prefix storage (usage not recommended) */
+  /** Reads all elements from the prefix storage */
   getStorage: () => Record<string, string | null>
 }
 

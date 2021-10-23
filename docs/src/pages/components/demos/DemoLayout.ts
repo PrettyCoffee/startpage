@@ -8,6 +8,7 @@ export const DemoLayout = styled(RowLayout)`
     margin: ${space.large} ${space.largest};
     padding-top: ${space.large};
     color: black;
+    align-items: flex-start;
     > * {
       position: relative;
       ::before {
