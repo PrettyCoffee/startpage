@@ -4,7 +4,8 @@ import { Listbox } from "@headlessui/react"
 
 import { ExtraProps, BaseInputProps } from "../fragments/BaseProps"
 import { SelectHeader } from "./fragments/SelectHeader"
-import { SelectOptions, Option } from "./fragments/SelectOptions"
+import { Option } from "./fragments/SelectOption"
+import { SelectOptions } from "./fragments/SelectOptions"
 import { Wrapper } from "./styles"
 
 const getOptionByValue = (options: Option[], value?: string) =>

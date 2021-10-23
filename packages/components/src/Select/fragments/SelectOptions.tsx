@@ -4,22 +4,7 @@ import { Listbox } from "@headlessui/react"
 
 import { SelectProps } from ".."
 import { Options } from "../styles"
-
-type GetClassesArgs = {
-  active: boolean
-  selected: boolean
-}
-const getOptionClasses = ({ active, selected }: GetClassesArgs) => {
-  const classes: string[] = []
-  if (active) classes.push("active")
-  if (selected) classes.push("selected")
-  return classes.join(" ")
-}
-
-export type Option = {
-  value: string
-  label?: string
-}
+import { SelectOption } from "./SelectOption"
 
 type OptionsProps = Pick<
   SelectProps,
@@ -42,15 +27,9 @@ export const SelectOptions = ({
 
   return (
     <Listbox.Options className={Options}>
-      {placeholder && (
-        <Listbox.Option value={""} className={getOptionClasses}>
-          {placeholder}
-        </Listbox.Option>
-      )}
+      {placeholder && <SelectOption value="" label={placeholder} />}
       {options.map(({ label, value }) => (
-        <Listbox.Option key={value} value={value} className={getOptionClasses}>
-          {label}
-        </Listbox.Option>
+        <SelectOption key={value} value={value} label={label} />
       ))}
     </Listbox.Options>
   )
