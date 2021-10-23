@@ -9,7 +9,7 @@
     "lint": "eslint ./src",
     "build": "npm run clean && npm run compile",
     "compile": "parcel build src/index.html --dist-dir build",
-    "predeploy": "npm run compile -- --public-url https://prettycoffee.github.io/startpage/",
+    "predeploy": "npm run clean && npm run compile -- --public-url https://prettycoffee.github.io/startpage/",
     "deploy": "gh-pages -d build",
     "clean": "rimraf ./build/*",
     "clean:parcel": "rimraf ./.parcel-cache/*"

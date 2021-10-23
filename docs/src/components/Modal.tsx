@@ -17,7 +17,7 @@ const StyledModal = styled(StpgModal)`
       width: 800px;
       box-sizing: border-box;
       z-index: 102;
-      
+
       top: 0;
       bottom: 0;
       right: 0;
@@ -26,7 +26,6 @@ const StyledModal = styled(StpgModal)`
     > .stpg-modal-backdrop {
       z-index: 101;
     }
-
 
     .transition {
       transition: 0.5s cubic-bezier(0.75, -0.25, 0.25, 1.25);
@@ -66,17 +65,16 @@ export const Modal = ({
   children,
   ...props
 }: React.PropsWithChildren<ModalProps>) => {
-  
   const enterTransition = {
     transition: "transition",
-    from:"hidden",
-    to:"visible"
+    from: "hidden",
+    to: "visible",
   }
 
   const leaveTransition = {
     transition: "transition",
-    from:"visible",
-    to:"hidden"
+    from: "visible",
+    to: "hidden",
   }
 
   return (
