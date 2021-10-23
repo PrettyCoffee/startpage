@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react"
 
 import { parseStorageItem } from "../fragments/parseStorageItem"
+import { useStoragePrefix } from "../StoragePrefix/StoragePrefixProvider"
 
 const STORAGE = window.localStorage
 
@@ -26,7 +27,10 @@ export const useStorage = <ValueType>(
   key: string,
   initialValue: ValueType
 ): [ValueType, (value: ValueType) => void] => {
-  const [value, setValue] = useState(initiateStorage(key, initialValue))
+  const prefix = useStoragePrefix()
+  const [value, setValue] = useState(
+    initiateStorage(prefix + key, initialValue)
+  )
 
   const setStorage = useCallback(
     (value: ValueType) => {

@@ -7,6 +7,7 @@ import {
   ThemeProvider as EmotionTheme,
 } from "@emotion/react"
 import { getTheme, ThemeConsumer, ThemeProvider } from "@startpage/theming"
+import { StoragePrefixProvider } from "@startpage/local-storage"
 
 const globalStyles = (theme: Theme) => css`
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
@@ -37,14 +38,16 @@ const globalStyles = (theme: Theme) => css`
 `
 
 export const Providers = ({ children }: React.PropsWithChildren<unknown>) => (
-  <ThemeProvider initialTheme={getTheme("nord")} persistTheme={true}>
-    <ThemeConsumer>
-      {([theme]) => (
-        <EmotionTheme theme={theme}>
-          <Global styles={globalStyles(theme)} />
-          {children}
-        </EmotionTheme>
-      )}
-    </ThemeConsumer>
-  </ThemeProvider>
+  <StoragePrefixProvider prefix="stpg-">
+    <ThemeProvider initialTheme={getTheme("nord")} persistTheme={true}>
+      <ThemeConsumer>
+        {([theme]) => (
+          <EmotionTheme theme={theme}>
+            <Global styles={globalStyles(theme)} />
+            {children}
+          </EmotionTheme>
+        )}
+      </ThemeConsumer>
+    </ThemeProvider>
+  </StoragePrefixProvider>
 )
