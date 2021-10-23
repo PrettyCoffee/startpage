@@ -14,13 +14,13 @@ export const getPrismTheme = ({ color, inverted }: Theme): PrismTheme => ({
       },
     },
     {
-      types: ["inserted", "function"],
+      types: ["inserted", "function", "selector"],
       style: {
         color: color.palette.cyan,
       },
     },
     {
-      types: ["string", "char", "selector"],
+      types: ["string", "char"],
       style: {
         color: color.palette.green,
       },

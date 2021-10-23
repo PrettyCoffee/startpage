@@ -5,14 +5,17 @@ import Highlight, { defaultProps } from "prism-react-renderer"
 
 import { getPrismTheme } from "./prism-theme"
 
-export const PrismWrapper = ({ children }: { children: string }) => {
+type Props = { children: string, className?: string }
+
+export const PrismWrapper = ({ className, ...props }: Props) => {
   const [theme] = useTheme()
+  const language = className?.replace("language-", "") as "scss"
   return (
     <Highlight
       {...defaultProps}
       theme={getPrismTheme(theme)}
-      code={children}
-      language="tsx"
+      code={props.children}
+      language={language || "tsx"}
     >
       {({ tokens, getLineProps, getTokenProps }) =>
         tokens.map((line, i) => (

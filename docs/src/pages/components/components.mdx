@@ -26,6 +26,19 @@ A button element.
 | rightExtra | ReactFragment \| undefined | Component which is displayed on the right side. |
 | onClick    | () => void \| undefined    | Callback fired when the element is clicked.     |
 
+### SCSS template
+
+```scss
+button.stpg-button {
+  > span.stpg-button-extra { }
+
+  &.active { }
+  :active { }
+  :focus-visible { }
+  :hover { }
+}
+```
+
 ### Example
 
 ## Modal
@@ -53,6 +66,20 @@ A popup window for e.g. settings.
 | to         | string | CSS class applied to trigger the transition.        |
 | transition | string | CSS class applied during the transition.            |
 
+### SCSS template
+
+```scss
+div.stpg-modal {
+  > div.stpg-modal-backdrop { }
+  > div.stpg-modal-window { }
+
+  /* Pass those into the Transition object */
+  &.hidden { }
+  &.visible { }
+  &.transition { }
+}
+```
+
 ### Example
 
 ## Select
@@ -78,6 +105,30 @@ Element for selecting between several options.
 | onFocus     | () => void \| undefined    | Callback fired when the element gains focus.                                                          |
 | onOpen      | () => void \| undefined    | Callback fired when the content is expanded.                                                          |
 
+### SCSS template
+
+```scss
+div.stpg-select {
+  > button.stpg-select-header {
+    > span.stpg-select-extra { }
+    > span.stpg-select-text {
+      &.placeholder { }
+    }
+
+    &[aria-expanded="true"] { }
+    :focus-visible { }
+    :hover { }
+  }
+
+  > ul.stpg-select-options {
+    > li {
+      &.active { }
+      &.selected { }
+    }
+  }
+}
+```
+
 ### Example
 
 ## Switch
@@ -98,6 +149,19 @@ A component to switch between two states.
 | onBlur     | () => void \| undefined               | Callback fired when the element loses focus.   |
 | onChange   | (value: boolean) => void \| undefined | Callback fired when the elements value changes. |
 | onFocus    | () => void \| undefined               | Callback fired when the element gains focus.    |
+
+### SCSS template
+
+```scss
+button.stpg-switch {
+  > span.stpg-switch-extra { }
+  > span.stpg-switch-knob { }
+  > span.stpg-switch-track { }
+
+  &[aria-checked="true"] { }
+  :focus-visible > span.stpg-switch-track { }
+}
+```
 
 ### Example
 
@@ -124,6 +188,23 @@ Components to switch between different contents.
 | ----- | ------ | ------------------------ |
 | title | string | Button title of the Tab. |
 
+### SCSS template
+
+```scss
+div.stpg-tabgroup {
+  > div.stpg-tabgroup-tablist {
+    > button.stpg-tabgroup-tab {
+      &[aria-selected="true"] { }
+      :active { }
+      :focus-visible { }
+      :hover { }
+    }
+  }
+
+  > div.stpg-tabgroup-panel { }
+}
+```
+
 ### Example
 
 ## Text input
@@ -149,6 +230,20 @@ A text input element.
 | onChange     | (value: string) => void                                                                | Callback fired when the elements value changes.                                                                     |
 | onFocus      | () => void \| undefined                                                                | Callback fired when the element gains focus.                                                                        |
 | onKeyPress   | (key: string) => void \| undefined                                                     | Callback fired when a key is pressed while the input is focused.                                                    |
+
+### SCSS template
+
+```scss
+div.stpg-text {
+  > span.stpg-text-extra { }
+  > input.stpg-text-input {
+    ::placeholder { }
+
+    :focus-visible { }
+    :hover {}
+  }
+}
+```
 
 ### Example
 

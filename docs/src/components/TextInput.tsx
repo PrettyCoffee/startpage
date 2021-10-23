@@ -27,10 +27,10 @@ const StyledTextInput = styled(StpgTextInput)`
       width: ${space.largest};
       display: flex;
       justify-content: center;
-      &.left {
+      :first-of-type {
         left: 0;
       }
-      &.right {
+      :last-of-type {
         right: 0;
       }
     }
