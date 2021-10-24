@@ -34,10 +34,10 @@ export const useStorage = <ValueType>(
 
   const setStorage = useCallback(
     (value: ValueType) => {
-      STORAGE.setItem(key, JSON.stringify(value))
+      STORAGE.setItem(prefix + key, JSON.stringify(value))
       setValue(value)
     },
-    [key]
+    [prefix, key]
   )
 
   return [value, setStorage]
