@@ -14,6 +14,7 @@ const pre = styled.pre`
     padding-bottom: 3px;
     border-radius: ${space.medium};
     box-shadow: 0 4px 0 ${inverted ? color.fg.shade : "#111"};
+    position: relative;
     * {
       font-family: Fira Code;
       font-weight: 500;

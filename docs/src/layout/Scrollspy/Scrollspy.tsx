@@ -4,18 +4,9 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { useLocation } from "react-router"
 
+import { Aside } from "../PageLayout"
 import { getSections, Section } from "./getSections"
 import { useScrollPosition } from "./useScrollPosition"
-
-const Wrapper = styled.aside`
-  ${({ theme: { space } }) => css`
-    grid-area: scrollspy;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: calc(${space.large} * 3);
-  `}
-`
 
 const NavList = styled.ul`
   ${({ theme: { space } }) => css`
@@ -31,6 +22,7 @@ const NavItem = styled.li<NavItemProps>`
   ${({ theme: { space, color }, active }) => css`
     list-style: none;
     cursor: pointer;
+    white-space: nowrap;
 
     &.H2 {
       padding-left: ${space.medium};
@@ -84,7 +76,7 @@ export const Scrollspy = () => {
   )
 
   return (
-    <Wrapper>
+    <Aside>
       <NavList>
         {sections.map(section => (
           <NavItem
@@ -97,6 +89,6 @@ export const Scrollspy = () => {
           </NavItem>
         ))}
       </NavList>
-    </Wrapper>
+    </Aside>
   )
 }

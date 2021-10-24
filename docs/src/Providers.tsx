@@ -30,7 +30,7 @@ const globalStyles = (theme: Theme) => css`
   }
   body {
     margin: 0;
-    overflow: overlay;
+    overflow-x: hidden;
     background-color: ${theme.color.bg.base};
     color: ${theme.color.fg.base};
     font-size: ${theme.space.medium};

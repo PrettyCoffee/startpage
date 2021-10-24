@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { NavLink } from "react-router-dom"
 
 import { Pages } from "../../pages"
+import { Aside } from "../PageLayout"
 import { ExternalLinkIcon } from "./ExternalIcon"
 
 const Icon = styled(FontAwesomeIcon)`
@@ -17,20 +18,11 @@ const Icon = styled(FontAwesomeIcon)`
   `}
 `
 
-const Wrapper = styled.aside`
-  ${({ theme: { space } }) => css`
-    grid-area: sidenav;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: calc(${space.large} * 3);
-  `}
-`
-
 const Nav = styled.nav`
   ${({ theme: { space } }) => css`
     position: sticky;
     top: calc(${space.largest} * 2);
+    width: 100%;
   `}
 `
 
@@ -78,7 +70,7 @@ const Divider = styled.div`
     text-align: right;
     margin: ${space.large} ${space.large} ${space.small} 0;
     border-bottom: ${space.smallest} solid ${color.bg.shade};
-    width: calc(${space.largest} * 4);
+    width: 100%;
   `}
 `
 
@@ -105,7 +97,7 @@ export const Navigation = () => {
   const Packages = Pages.slice(1)
 
   return (
-    <Wrapper>
+    <Aside>
       <Nav>
         <NavList>
           <NavItem key={Start.route}>
@@ -133,6 +125,6 @@ export const Navigation = () => {
           ))}
         </NavList>
       </Nav>
-    </Wrapper>
+    </Aside>
   )
 }

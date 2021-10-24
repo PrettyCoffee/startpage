@@ -7,23 +7,48 @@ import { Header } from "./Header"
 import { Navigation } from "./Navigation/Navigation"
 import { Scrollspy } from "./Scrollspy/Scrollspy"
 
+export const Aside = styled.aside`
+  ${({ theme: { space } }) => css`
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    :first-of-type {
+      grid-area: sidenav;
+      align-items: flex-end;
+      margin-left: ${space.large};
+    }
+    :last-of-type {
+      grid-area: scrollspy;
+      align-items: flex-start;
+      margin-right: ${space.large};
+      @media only screen and (max-width: 1200px) {
+        display: none;
+      }
+    }
+  `}
+`
+
 const Layout = styled.main`
   ${({ theme: { space } }) => css`
+    margin: 0 auto;
+    max-width: 1700px;
+    width: 100%;
     display: grid;
     grid-template-areas: "sidenav main scrollspy";
-    grid-template-columns: 1fr 2fr 1fr;
-    padding: 0 ${space.largest};
+    grid-template-columns: auto 1fr auto;
     box-sizing: border-box;
+    margin-bottom: calc(${space.largest} * 2);
   `}
 `
 
 const Content = styled.div`
   ${({ theme: { space } }) => css`
     grid-area: main;
-    max-width: 1024px;
+    width: calc(100% - 12rem);
     display: flex;
     flex-direction: column;
-    margin-bottom: calc(${space.largest} * 2);
+    overflow-x: auto;
+    margin: 0 calc(${space.large} * 3);
   `}
 `
 

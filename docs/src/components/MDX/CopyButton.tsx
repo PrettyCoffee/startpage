@@ -9,10 +9,11 @@ import { Button } from "../"
 const CopyWrapper = styled.div<{ clicked: boolean }>`
   ${({ theme: { color, space, inverted }, clicked }) => css`
     position: absolute;
-    right: -0.75rem;
-    top: -0.75rem;
+    z-index: 1;
+    right: 0.75rem;
+    top: 0.75rem;
     > button.stpg-button {
-      background-color: transparent;
+      background-color: ${inverted ? color.fg.surface : color.bg.shade};
       color: ${inverted ? color.bg.highlight : color.fg.surface};
       box-shadow: none;
       :hover {
@@ -26,7 +27,11 @@ const CopyWrapper = styled.div<{ clicked: boolean }>`
     css`
       ::before {
         content: "Copied!";
+        color: ${inverted ? color.bg.highlight : color.fg.surface};
+        background-color: ${inverted ? color.fg.highlight : color.bg.base};
+        padding: ${space.small} ${space.medium};
         margin-right: ${space.medium};
+        border-radius: ${space.small};
       }
     `}
   `}

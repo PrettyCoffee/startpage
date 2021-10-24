@@ -11,30 +11,33 @@ type Props = { children: string; className?: string }
 
 const CodeWrapper = styled.div`
   position: relative;
+  overflow-x: auto;
 `
 
 export const PrismWrapper = ({ className, children }: Props) => {
   const [theme] = useTheme()
   const language = className?.replace("language-", "") as "scss"
   return (
-    <CodeWrapper>
+    <>
       <CopyButton code={children} />
-      <Highlight
-        {...defaultProps}
-        theme={getPrismTheme(theme)}
-        code={children}
-        language={language || "tsx"}
-      >
-        {({ tokens, getLineProps, getTokenProps }) =>
-          tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))
-        }
-      </Highlight>
-    </CodeWrapper>
+      <CodeWrapper>
+        <Highlight
+          {...defaultProps}
+          theme={getPrismTheme(theme)}
+          code={children}
+          language={language || "tsx"}
+        >
+          {({ tokens, getLineProps, getTokenProps }) =>
+            tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))
+          }
+        </Highlight>
+      </CodeWrapper>
+    </>
   )
 }
