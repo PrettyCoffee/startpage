@@ -5,7 +5,7 @@ import Highlight, { defaultProps } from "prism-react-renderer"
 
 import { getPrismTheme } from "./prism-theme"
 
-type Props = { children: string, className?: string }
+type Props = { children: string; className?: string }
 
 export const PrismWrapper = ({ className, ...props }: Props) => {
   const [theme] = useTheme()

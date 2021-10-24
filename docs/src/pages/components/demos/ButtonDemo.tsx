@@ -8,13 +8,14 @@ import { Button as StyledButton } from "../../../components"
 import { DemoLayout } from "./DemoLayout"
 
 const Extra = <FontAwesomeIcon icon={faIcons} />
+const handleClick = () => console.log("click!")
 
 export const ButtonDemo = () => (
   <DemoLayout>
-    <Button leftExtra={Extra} rightExtra={Extra}>
+    <Button onClick={handleClick} leftExtra={Extra} rightExtra={Extra}>
       Click me!
     </Button>
-    <StyledButton leftIcon={faIcons} rightIcon={faIcons}>
+    <StyledButton onClick={handleClick} leftIcon={faIcons} rightIcon={faIcons}>
       Click me!
     </StyledButton>
   </DemoLayout>

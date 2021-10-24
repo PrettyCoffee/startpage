@@ -47,9 +47,11 @@ const Content = ({ word }: Props) => (
 )
 
 export const TabDemo = () => {
+  const handleChange = () => console.log("tab change!")
+
   return (
     <DemoLayout>
-      <TabGroup>
+      <TabGroup onChange={handleChange}>
         <Tab title="Tab 1">
           <Content word="foo" />
         </Tab>
@@ -60,7 +62,7 @@ export const TabDemo = () => {
           <Content word="baz" />
         </Tab>
       </TabGroup>
-      <StyledTabGroup>
+      <StyledTabGroup onChange={handleChange}>
         <Tab title="Tab 1">
           <Content word="foo" />
         </Tab>

@@ -11,9 +11,15 @@ const Extra = <FontAwesomeIcon icon={faIcons} />
 
 export const SwitchDemo = () => {
   const [checked, setChecked] = React.useState(false)
+
+  const handleChange = (value: boolean) => {
+    setChecked(value)
+    console.log("value change!")
+  }
+
   const switchProps = {
     checked,
-    onChange: setChecked,
+    onChange: handleChange,
   }
   return (
     <DemoLayout>

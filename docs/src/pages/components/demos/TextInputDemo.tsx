@@ -11,9 +11,17 @@ const Extra = <FontAwesomeIcon icon={faIcons} />
 
 export const TextInputDemo = () => {
   const [value, setValue] = React.useState("")
+
+  const handleChange = (value: string) => {
+    setValue(value)
+    console.log("value change!")
+  }
+  const handleKeyPress = (key: string) => console.log(key)
+
   const switchProps = {
     value,
-    onChange: setValue,
+    onChange: handleChange,
+    onKeyPress: handleKeyPress,
     placeholder: "Placeholder",
   }
   return (

@@ -22,10 +22,20 @@ const options: Option[] = [
 
 export const SelectDemo = () => {
   const [value, setValue] = React.useState<string>()
+
+  const handleOpen = () => console.log("open!")
+  const handleClose = () => console.log("close!")
+  const handleChange = (value: string) => {
+    setValue(value)
+    console.log("value change!")
+  }
+
   const props = {
     value,
     options,
-    onChange: setValue,
+    onOpen: handleOpen,
+    onClose: handleClose,
+    onChange: handleChange,
     placeholder: "Select a value",
   }
   return (

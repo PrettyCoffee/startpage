@@ -12,11 +12,23 @@ export const ModalDemo = () => {
   const [open, setOpen] = React.useState(false)
   const [styledOpen, setStyledOpen] = React.useState(false)
 
-  const onOpen = () => setOpen(true)
-  const onClose = () => setOpen(false)
+  const onOpen = () => {
+    setOpen(true)
+    console.log("open!")
+  }
+  const onClose = () => {
+    setOpen(false)
+    console.log("close!")
+  }
 
-  const styledOnOpen = () => setStyledOpen(true)
-  const styledOnClose = () => setStyledOpen(false)
+  const styledOnOpen = () => {
+    setStyledOpen(true)
+    console.log("open!")
+  }
+  const styledOnClose = () => {
+    setStyledOpen(false)
+    console.log("close!")
+  }
 
   const content = (
     <p>

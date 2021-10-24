@@ -7,11 +7,9 @@ import { TextInputDemo } from "./demos/TextInputDemo"
 
 # @startpage/components
 
-Unstyled react components for your startpage.
+Unstyled React components for your startpage.
 
 ## Button
-
-A button element.
 
 <ButtonDemo />
 
@@ -29,19 +27,43 @@ A button element.
 
 ```scss
 button.stpg-button {
-  > span.stpg-button-extra { }
+  > span.stpg-button-extra {
+  }
 
-  :active { }
-  :focus-visible { }
-  :hover { }
+  :active {
+  }
+  :focus-visible {
+  }
+  :hover {
+  }
 }
 ```
 
-### Example
+### Usage
+
+```
+import { faIcons } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Button } from "@startpage/components"
+
+const Extra = <FontAwesomeIcon icon={faIcons} />
+
+export const ButtonDemo = () => {
+  const handleClick = () => console.log("click!")
+
+  return (
+    <Button
+      leftExtra={Extra}
+      rightExtra={Extra}
+      onClick={handleClick}
+    >
+      Click me!
+    </Button>
+  )
+}
+```
 
 ## Modal
-
-A popup window for e.g. settings.
 
 <ModalDemo />
 
@@ -68,21 +90,69 @@ A popup window for e.g. settings.
 
 ```scss
 div.stpg-modal {
-  > div.stpg-modal-backdrop { }
-  > div.stpg-modal-window { }
-
-  /* Pass those into the Transition object */
-  &.hidden { }
-  &.visible { }
-  &.transition { }
+  > div.stpg-modal-backdrop {
+  }
+  > div.stpg-modal-window {
+    /* Pass those into the Transition object */
+    &.hidden {
+    }
+    &.visible {
+    }
+    &.transition {
+    }
+  }
 }
 ```
 
-### Example
+### Usage
+
+```
+import { useState } from "react"
+
+import { Button, Modal } from "@startpage/components"
+
+const enterTransition = {
+  transition: "transition",
+  from: "hidden",
+  to: "visible",
+}
+
+const leaveTransition = {
+  transition: "transition",
+  from: "visible",
+  to: "hidden",
+}
+
+export const ModalDemo = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleOpen = () => {
+    setOpen(true)
+    console.log("open!")
+  }
+  const handleClose = () => {
+    setOpen(false)
+    console.log("close!")
+  }
+
+  return (
+    <>
+      <Button onClick={handleOpen}>Click me!</Button>
+      <Modal
+        backdrop
+        enterTransition={enterTransition}
+        leaveTransition={leaveTransition}
+        open={open}
+        onClose={handleClose}
+      >
+        {content}
+      </Modal>
+    </>
+  )
+}
+```
 
 ## Select
-
-Element for selecting between several options.
 
 <SelectDemo />
 
@@ -97,7 +167,7 @@ Element for selecting between several options.
 | value       | string \| undefined        | Current value of the element.                                                                         |
 | leftExtra   | ReactFragment \| undefined | Component which is displayed on the left side.                                                        |
 | rightExtra  | ReactFragment \| undefined | Component which is displayed on the right side.                                                       |
-| onBlur      | () => void \| undefined    | Callback fired when the element loses focus.                                                         |
+| onBlur      | () => void \| undefined    | Callback fired when the element loses focus.                                                          |
 | onChange    | (value: string) => void    | Callback fired when the elements value changes.                                                       |
 | onClose     | () => void \| undefined    | Callback fired when the content is collapsed.                                                         |
 | onFocus     | () => void \| undefined    | Callback fired when the element gains focus.                                                          |
@@ -108,30 +178,83 @@ Element for selecting between several options.
 ```scss
 div.stpg-select {
   > button.stpg-select-header {
-    > span.stpg-select-extra { }
+    > span.stpg-select-extra {
+    }
     > span.stpg-select-text {
-      &.placeholder { }
+      &.placeholder {
+      }
     }
 
-    &[aria-expanded="true"] { }
-    :focus-visible { }
-    :hover { }
+    &[aria-expanded="true"] {
+    }
+    :focus-visible {
+    }
+    :hover {
+    }
   }
 
   > ul.stpg-select-options {
     > li {
-      &.active { }
-      &.selected { }
+      &.active {
+      }
+      &.selected {
+      }
     }
   }
 }
 ```
 
-### Example
+### Usage
+
+```
+import { useState } from "react"
+
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Option, Select } from "@startpage/components"
+
+const options: Option[] = [
+  {
+    value: "test1",
+    label: "Test 1",
+  },
+  {
+    value: "test2",
+    label: "Test 2",
+  },
+  {
+    value: "test3",
+    label: "Test 3",
+  },
+]
+
+const Extra = <FontAwesomeIcon icon={faAngleDown} />
+
+export const SelectDemo = () => {
+  const [value, setValue] = useState<string>()
+
+  const handleOpen = () => console.log("open!")
+  const handleClose = () => console.log("close!")
+  const handleChange = (value: string) => {
+    setValue(value)
+    console.log("value change!")
+  }
+
+  return (
+    <Select
+      value={value}
+      options={options}
+      rightExtra={Extra}
+      onOpen={handleOpen}
+      onClose={handleClose}
+      onChange={handleChange}
+      placeholder="Select a value"
+    />
+  )
+}
+```
 
 ## Switch
-
-A component to switch between two states.
 
 <SwitchDemo />
 
@@ -144,7 +267,7 @@ A component to switch between two states.
 | disabled   | boolean \| undefined                  | Disables the element.                           |
 | leftExtra  | ReactFragment \| undefined            | Component which is displayed on the left side.  |
 | rightExtra | ReactFragment \| undefined            | Component which is displayed on the right side. |
-| onBlur     | () => void \| undefined               | Callback fired when the element loses focus.   |
+| onBlur     | () => void \| undefined               | Callback fired when the element loses focus.    |
 | onChange   | (value: boolean) => void \| undefined | Callback fired when the elements value changes. |
 | onFocus    | () => void \| undefined               | Callback fired when the element gains focus.    |
 
@@ -152,20 +275,51 @@ A component to switch between two states.
 
 ```scss
 button.stpg-switch {
-  > span.stpg-switch-extra { }
-  > span.stpg-switch-knob { }
-  > span.stpg-switch-track { }
+  > span.stpg-switch-extra {
+  }
+  > span.stpg-switch-knob {
+  }
+  > span.stpg-switch-track {
+  }
 
-  &[aria-checked="true"] { }
-  :focus-visible > span.stpg-switch-track { }
+  &[aria-checked="true"] {
+  }
+  :focus-visible > span.stpg-switch-track {
+  }
 }
 ```
 
-### Example
+### Usage
+
+```
+import { useState } from "react"
+
+import { faIcons } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Switch } from "@startpage/components"
+
+const Extra = <FontAwesomeIcon icon={faIcons} />
+
+export const SwitchDemo = () => {
+  const [checked, setChecked] = useState(false)
+
+  const handleChange = (value: boolean) => {
+    setChecked(value)
+    console.log("value change!")
+  }
+
+  return (
+    <Switch
+      checked={checked}
+      leftExtra={Extra}
+      rightExtra={Extra}
+      onChange={handleChange}
+    />
+  )
+}
+```
 
 ## TabGroup & Tab
-
-Components to switch between different contents.
 
 <TabDemo />
 
@@ -192,22 +346,50 @@ Components to switch between different contents.
 div.stpg-tabgroup {
   > div.stpg-tabgroup-tablist {
     > button.stpg-tabgroup-tab {
-      &[aria-selected="true"] { }
-      :active { }
-      :focus-visible { }
-      :hover { }
+      &[aria-selected="true"] {
+      }
+      :active {
+      }
+      :focus-visible {
+      }
+      :hover {
+      }
     }
   }
 
-  > div.stpg-tabgroup-panel { }
+  > div.stpg-tabgroup-panel {
+  }
 }
 ```
 
-### Example
+### Usage
+
+```
+import { Tab, TabGroup } from "@startpage/components"
+
+export const TabDemo = () => {
+  const handleChange = () => console.log("tab change!")
+
+  return (
+    <TabGroup
+      defaultIndex={0}
+      onChange={handleChange}
+    >
+      <Tab title="Tab 1">
+        {content}
+      </Tab>
+      <Tab title="Tab 2">
+        {content}
+      </Tab>
+      <Tab title="Tab 3">
+        {content}
+      </Tab>
+    </TabGroup>
+  )
+}
+```
 
 ## Text input
-
-A text input element.
 
 <TextInputDemo />
 
@@ -216,34 +398,69 @@ A text input element.
 | name         | type                                                                                   | description                                                                                                        |
 | ------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | autocomplete | string \| boolean \| undefined                                                         | Enables HTML basic autocomplete, pass a boolean for on / off or a string with the (HTML) type of the autocomplete. |
-| autoFocus    | boolean \| undefined                                                                   | Input will be focused on load if set to true.                                                                       |
+| autoFocus    | boolean \| undefined                                                                   | Input will be focused on load if set to true.                                                                      |
 | className    | string \| undefined                                                                    | Pass your own css classes for unique styling.                                                                      |
-| disabled     | boolean \| undefined                                                                   | Disables the element.                                                                                               |
-| placeholder  | string \| undefined                                                                    | Placeholder which is shown if value is undefined.                                                                   |
-| type         | "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| undefined | Type of the input element, defaults to "text".                                                                        |
-| value        | string \| undefined                                                                    | Current value of the element.                                                                                       |
-| leftExtra    | ReactFragment \| undefined                                                             | Component which is displayed on the left side.                                                                      |
-| rightExtra   | ReactFragment \| undefined                                                             | Component which is displayed on the right side.                                                                     |
+| disabled     | boolean \| undefined                                                                   | Disables the element.                                                                                              |
+| placeholder  | string \| undefined                                                                    | Placeholder which is shown if value is undefined.                                                                  |
+| type         | "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| undefined | Type of the input element, defaults to "text".                                                                     |
+| value        | string \| undefined                                                                    | Current value of the element.                                                                                      |
+| leftExtra    | ReactFragment \| undefined                                                             | Component which is displayed on the left side.                                                                     |
+| rightExtra   | ReactFragment \| undefined                                                             | Component which is displayed on the right side.                                                                    |
 | onBlur       | () => void \| undefined                                                                | Callback fired when the element loses focus.                                                                       |
-| onChange     | (value: string) => void                                                                | Callback fired when the elements value changes.                                                                     |
-| onFocus      | () => void \| undefined                                                                | Callback fired when the element gains focus.                                                                        |
-| onKeyPress   | (key: string) => void \| undefined                                                     | Callback fired when a key is pressed while the input is focused.                                                    |
+| onChange     | (value: string) => void                                                                | Callback fired when the elements value changes.                                                                    |
+| onFocus      | () => void \| undefined                                                                | Callback fired when the element gains focus.                                                                       |
+| onKeyPress   | (key: string) => void \| undefined                                                     | Callback fired when a key is pressed while the input is focused.                                                   |
 
 ### SCSS template
 
 ```scss
 div.stpg-text {
-  > span.stpg-text-extra { }
+  > span.stpg-text-extra {
+  }
   > input.stpg-text-input {
-    ::placeholder { }
+    ::placeholder {
+    }
 
-    :focus-visible { }
-    :hover {}
+    :focus-visible {
+    }
+    :hover {
+    }
   }
 }
 ```
 
-### Example
+### Usage
+
+```
+import { useState } from "react"
+
+import { faIcons } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { TextInput } from "@startpage/components"
+
+const Extra = <FontAwesomeIcon icon={faIcons} />
+
+export const TextInputDemo = () => {
+  const [value, setValue] = useState("")
+
+  const handleChange = (value: string) => {
+    setValue(value)
+    console.log("value change!")
+  }
+  const handleKeyPress = (key: string) => console.log(key)
+
+  return (
+    <TextInput
+      placeholder="Placeholder"
+      value={value}
+      leftExtra={Extra}
+      rightExtra={Extra}
+      onChange={handleChange}
+      onKeyPress={handleKeyPress}
+    />
+  )
+}
+```
 
 ## Note
 
