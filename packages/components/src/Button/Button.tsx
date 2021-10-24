@@ -1,11 +1,17 @@
 import React from "react"
 
-import { ClassNameProp, DisableProp, ExtraProps } from "../fragments/BaseProps"
+import {
+  ClassNameProp,
+  DisableProp,
+  ExtraProps,
+  FocusProps,
+} from "../fragments/BaseProps"
 import { Extra, Wrapper } from "./styles"
 
 export type ButtonProps = ExtraProps &
   ClassNameProp &
-  DisableProp & {
+  DisableProp &
+  FocusProps & {
     /** Callback fired when the element is clicked */
     onClick?: () => void
   }
