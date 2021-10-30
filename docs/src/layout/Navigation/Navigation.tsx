@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { NavLink } from "react-router-dom"
 
 import { Pages } from "../../pages"
-import { Aside } from "../PageLayout"
+import { Aside } from "../Aside"
 import { ExternalLinkIcon } from "./ExternalIcon"
 
 const Icon = styled(FontAwesomeIcon)`
@@ -20,9 +20,10 @@ const Icon = styled(FontAwesomeIcon)`
 
 const Nav = styled.nav`
   ${({ theme: { space } }) => css`
-    position: sticky;
+    position: fixed;
     top: calc(${space.largest} * 2);
-    width: 100%;
+    bottom: 0;
+    overflow-y: auto;
   `}
 `
 

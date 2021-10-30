@@ -4,14 +4,16 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { useLocation } from "react-router"
 
-import { Aside } from "../PageLayout"
+import { Aside } from "../Aside"
 import { getSections, Section } from "./getSections"
 import { useScrollPosition } from "./useScrollPosition"
 
 const NavList = styled.ul`
   ${({ theme: { space } }) => css`
-    position: sticky;
+    position: fixed;
     top: calc(${space.largest} * 2);
+    bottom: 0;
+    overflow-y: auto;
     padding: 0;
   `}
 `
