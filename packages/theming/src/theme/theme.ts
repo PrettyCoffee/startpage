@@ -10,10 +10,4 @@ export interface Theme {
     large: string
     largest: string
   }
-  breakpoints: {
-    mobile: string
-    landscape: string
-    tablet: string
-    laptop: string
-  }
 }

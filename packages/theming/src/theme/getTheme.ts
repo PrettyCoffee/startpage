@@ -18,13 +18,6 @@ const space = {
   largest: "3rem",
 }
 
-const breakpoints = {
-  mobile: "@media only screen and (max-width: 360px)",
-  landscape: "@media only screen and (max-width: 768px)",
-  tablet: "@media only screen and (max-width: 1024px)",
-  laptop: "@media only screen and (max-width: 1440px)",
-}
-
 /**
  * Used to read the predefined themes
  * Available color schemes: atom, dracula, nord, material
@@ -41,5 +34,4 @@ export const getTheme = (
   inverted: inverted || false,
   color: getColorScheme(colorScheme, inverted),
   space: space,
-  breakpoints: breakpoints,
 })
