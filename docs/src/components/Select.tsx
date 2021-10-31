@@ -51,6 +51,7 @@ const StyledSelect = styled(StpgSelect)<{ open: boolean }>`
     }
 
     > .stpg-select-options {
+      z-index: 1;
       box-shadow: 0 0 ${space.small} ${color.bg.shade};
       top: calc(100% + ${space.small});
       > li {

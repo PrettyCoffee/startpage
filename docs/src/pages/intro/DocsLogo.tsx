@@ -8,18 +8,6 @@ const logoLight = new URL("../../../static/logo-light.svg", import.meta.url)
   .href
 const logoDark = new URL("../../../static/logo-dark.svg", import.meta.url).href
 
-const Logo2 = styled.img`
-  ${({ theme: { space } }) => css`
-    height: calc(${space.largest} * 4);
-    margin-top: calc(${space.largest});
-  `}
-`
-
-export const DocsLogo2 = () => {
-  const { theme } = useTheme()
-  return <Logo2 src={theme.inverted ? logoDark : logoLight} />
-}
-
 const Logo = styled.div<{ inverted: boolean }>`
   ${({ theme: { space, color }, inverted }) => css`
     height: calc(${space.largest} * 4);
@@ -46,6 +34,6 @@ const Logo = styled.div<{ inverted: boolean }>`
 `
 
 export const DocsLogo = () => {
-  const {theme} = useTheme()
+  const { theme } = useTheme()
   return <Logo inverted={theme.inverted} />
 }

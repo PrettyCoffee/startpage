@@ -44,13 +44,13 @@ export type BaseColors = {
 }
 
 /**
- * Function to create color schemes for the theme provider
+ * Function to create color schemes
  *
  * @param name the name of your color scheme
  * @param base the base colors which are used to create the gradients
  * @param palette the color palette, defaults to the one from the atom theme
  *
- * @returns a color scheme object
+ * @returns the color scheme object
  */
 
 export const createColorScheme = (

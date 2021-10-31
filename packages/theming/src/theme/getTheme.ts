@@ -23,9 +23,9 @@ const space = {
  * Available color schemes: atom, dracula, nord, material
  *
  * @param colorScheme the name of the predefined color scheme you want to use
- * @param inverted if set to true, the color scheme will be inverted
+ * @param inverted inverts the color scheme
  *
- * @returns a theme
+ * @returns the theme object
  */
 export const getTheme = (
   colorScheme?: ColorSchemeName,

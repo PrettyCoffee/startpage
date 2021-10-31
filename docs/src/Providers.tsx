@@ -1,13 +1,13 @@
 import React from "react"
 
-import {
-  css,
-  Global,
-  Theme,
-  ThemeProvider as EmotionTheme,
-} from "@emotion/react"
+import { css, Global, ThemeProvider as EmotionTheme } from "@emotion/react"
 import { StoragePrefixProvider } from "@startpage/local-storage"
-import { getTheme, ThemeConsumer, ThemeProvider } from "@startpage/theming"
+import {
+  getTheme,
+  ThemeConsumer,
+  ThemeProvider,
+  Theme,
+} from "@startpage/theming"
 
 const globalStyles = (theme: Theme) => css`
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
@@ -27,6 +27,7 @@ const globalStyles = (theme: Theme) => css`
     font-family: Quicksand, sans-serif;
     font-weight: 500;
     box-sizing: border-box;
+    line-height: 1.5;
   }
   body {
     margin: 0;
