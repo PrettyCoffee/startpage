@@ -16,7 +16,7 @@ const Logo2 = styled.img`
 `
 
 export const DocsLogo2 = () => {
-  const [theme] = useTheme()
+  const { theme } = useTheme()
   return <Logo2 src={theme.inverted ? logoDark : logoLight} />
 }
 
@@ -46,6 +46,6 @@ const Logo = styled.div<{ inverted: boolean }>`
 `
 
 export const DocsLogo = () => {
-  const [theme] = useTheme()
+  const {theme} = useTheme()
   return <Logo inverted={theme.inverted} />
 }

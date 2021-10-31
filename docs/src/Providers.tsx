@@ -41,7 +41,7 @@ export const Providers = ({ children }: React.PropsWithChildren<unknown>) => (
   <StoragePrefixProvider prefix="stpg-">
     <ThemeProvider initialTheme={getTheme("nord")} persistTheme={true}>
       <ThemeConsumer>
-        {([theme]) => (
+        {({ theme }) => (
           <EmotionTheme theme={theme}>
             <Global styles={globalStyles(theme)} />
             {children}

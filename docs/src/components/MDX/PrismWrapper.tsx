@@ -15,7 +15,7 @@ const CodeWrapper = styled.div`
 `
 
 export const PrismWrapper = ({ className, children }: Props) => {
-  const [theme] = useTheme()
+  const { theme } = useTheme()
   const language = className?.replace("language-", "") as "scss"
   return (
     <>

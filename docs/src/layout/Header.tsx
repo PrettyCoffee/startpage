@@ -38,7 +38,7 @@ const Logo = styled.img`
 `
 
 export const Header = () => {
-  const [theme, setTheme] = useTheme()
+  const { theme, setTheme } = useTheme()
 
   const handleToggle = () =>
     setTheme(getTheme(theme.color.name, !theme.inverted))
