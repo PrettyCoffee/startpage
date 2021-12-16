@@ -19,8 +19,9 @@ npm i @startpage/<package>
 | bookmarks     | Bookmark management for your startpage       | [docs](https://prettycoffee.github.io/startpage/#/bookmarks)     |
 | components    | Unstyled react components for your startpage | [docs](https://prettycoffee.github.io/startpage/#/components)    |
 | local-storage | Local storage management for your startpage  | [docs](https://prettycoffee.github.io/startpage/#/local-storage) |
+| preset        | Use presets for your startpage.              | [docs](https://prettycoffee.github.io/startpage/#/preset)        |
 | search        | Provides a function to search the web        | [docs](https://prettycoffee.github.io/startpage/#/search)        |
-| theming       | Create and use themes for your startpage     | [docs](https://prettycoffee.github.io/startpage/#/theming)       |
+| theming       | Provide a design system for your startpage.  | [docs](https://prettycoffee.github.io/startpage/#/theming)       |
 
 ### Core concepts
 

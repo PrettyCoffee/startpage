@@ -1,147 +1,6 @@
-import { ColorPreview } from "./ColorPreview/ColorPreview"
-
 # @startpage / theming
 
-Create and use themes for your startpage.
-
-## Design system
-
-The `theming` package relies on a design system based on the `Theme` structure.
-
-<br />
-
-<ColorPreview />
-
-### Theme
-
-| name     | type        | description                                                 |
-| -------- | ----------- | ----------------------------------------------------------- |
-| inverted | boolean     | Indicates whether the current theme is an inverted version. |
-| color    | ColorScheme | All the colors.                                             |
-| space    | Spacing     | All the spacings.                                           |
-
-### ColorScheme
-
-| name      | type          | description                                          |
-| --------- | ------------- | ---------------------------------------------------- |
-| name      | string        | Name of the color scheme.                            |
-| bg        | GreyScale     | Background colors for areas.                         |
-| fg        | GreyScale     | Foreground colors for text and icons.                |
-| primary   | ColorGradient | The most used accent color of your startpage.        |
-| secondary | ColorGradient | The second most used accent color of your startpage. |
-| palette   | ColorPalette  | A palette of colors, e.g. for categorization.        |
-
-#### GreyScale
-
-| name      | type   | description                                                        |
-| --------- | ------ | ------------------------------------------------------------------ |
-| shade     | string | Used for Shadows.                                                  |
-| base      | string | Used for the body background.                                      |
-| surface   | string | Used for surfaces which should stand out from the body background. |
-| highlight | string | Used to highlight surface elements, e.g. when hovering.            |
-
-### Spacing
-
-| name     | type   | default  |
-| -------- | ------ | -------- |
-| smallest | string | 0.125rem |
-| small    | string | 0.5rem   |
-| medium   | string | 1rem     |
-| large    | string | 1.5rem   |
-| largest  | string | 3rem     |
-
-## getTheme
-
-Used to read the predefined themes.
-
-Available color schemes: `atom`, `dracula`, `nord`, `material` (as seen above).
-
-** Note: The color schemes are adapted to fit the `Theme` structure and are therefore not the original values. **
-
-### API
-
-| name        | type                 | description                                              |
-| ----------- | -------------------- | -------------------------------------------------------- |
-| colorScheme | string \| undefined  | The name of the predefined color scheme you want to use. |
-| inverted    | boolean \| undefined | Inverts the color scheme.                                |
-
--> Returns the theme object
-
-### Example
-
-```
-import { getTheme } from "@startpage/theming"
-
-export const theme = getTheme("atom", false)
-```
-
-## createColorScheme
-
-Function to create color schemes.
-
-### API
-
-| name    | type                      | description                                                 |
-| ------- | ------------------------- | ----------------------------------------------------------- |
-| base    | BaseColors                | The base colors which are used to create the gradients.     |
-| name    | string                    | The name of your color scheme.                              |
-| palette | ColorPalette \| undefined | The color palette, defaults to the one from the atom theme. |
-
--> Returns the color scheme object
-
-### Example
-
-```
-import {
-  createColorScheme,
-  BaseColors,
-  ColorPalette
-} from "@startpage/theming"
-
-const base: BaseColors = {
-  bg: "#282c34",
-  fg: "#b0b7c2",
-  primary: "#2490E9",
-  secondary: "#D43542",
-}
-
-const palette: ColorPalette = {
-  red: "#E06C75",
-  green: "#98C379",
-  yellow: "#E5C07B",
-  blue: "#61AFEF",
-  purple: "#C678DD",
-  cyan: "#56B6C2",
-  orange: "#FFBB7C",
-}
-
-export const theme = createColorScheme("my-theme", base, palette)
-```
-
-## getInvertedColorScheme
-
-Inverts the passed color scheme.
-
-### API
-
-| name        | type        | description                          |
-| ----------- | ----------- | ------------------------------------ |
-| colorScheme | ColorScheme | The color scheme you want to invert. |
-
--> Returns the inverted color scheme
-
-### Example
-
-```
-import {
-  getTheme,
-  getInvertedColorScheme
-} from "@startpage/theming"
-
-const colorScheme = getTheme("atom").color
-
-export const invertedColorScheme = getInvertedColorScheme(colorScheme)
-```
+Provide a design system for your startpage.
 
 ## ThemeContext
 
@@ -205,11 +64,11 @@ export const Parent = () => (
 )
 ```
 
-## Customizing Notes
+## Usage
 
-There is a great chance that you feel like the given `Theme` structure is not right what you need.
+To use this package you have to overwrite the `Theme` interface of it.
 
-In this case you can overwrite the type by creating a `/src/@types/startpage.ts` file and use this template inside it:
+You can do so by creating a `/src/@types/theme.ts` file and using this template inside it:
 
 ```
 import "@startpage/theming"
@@ -223,7 +82,10 @@ declare module "@startpage/theming" {
 }
 ```
 
-Note: You only need this when using `Typescript`. If you don't, you should probably start. ;)
+Notes:
+
+- If you want to use a predefined theme to save time, check out the [preset](https://prettycoffee.github.io/startpage/#/preset).
+- You only need this when using `Typescript`. If you don't, you should probably start. ;)
 
 ## Usage with emotion
 
@@ -231,19 +93,23 @@ If you use emotion, you can combine their theming concept with this package.
 
 ### Theme
 
-You can overwrite the `Theme` by creating a `/src/@types/emotion.ts` file with the following content:
+You can overwrite the `Theme` by creating a `/src/@types/theme.ts` file with the following content:
 
 ```
 import "@emotion/react"
+import "@startpage/theming"
 
-import { Theme as StartpageTheme } from "@startpage/theming"
+interface myTheme {
+  /* put your theme structure here */
+}
 
 declare module "@emotion/react" {
-  export interface Theme extends StartpageTheme {}
+  export interface Theme extends myTheme {}
+}
+declare module "@startpage/theming" {
+  export interface Theme extends myTheme {}
 }
 ```
-
-** Note: If you are overwriting the startpage `Theme`, this wont work. However, you can use your own `Theme` here instead for the `StartpageTheme`. **
 
 ### ThemeProvider
 
@@ -266,11 +132,11 @@ const globalStyles = css`
 `
 
 export const Providers = ({ children }: PropsWithChildren<unknown>) => (
-  <ThemeProvider initialTheme={getTheme("nord")}>
+  <ThemeProvider initialTheme={getTheme("nord")} persistTheme={true}>
     <ThemeConsumer>
       {({theme}) => (
         <EmotionTheme theme={theme}>
-          <Global styles={globalStyles(theme)} />
+          <Global styles={globalStyles} />
           {children}
         </EmotionTheme>
       )}

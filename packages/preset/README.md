@@ -1,10 +1,10 @@
-# @startpage/theming
+# @startpage/preset
 
-Create and use themes for your startpage.
-For more information, take a look at the [documentation](https://prettycoffee.github.io/startpage/#/theming).
+Use presets for your startpage.
+For more information, take a look at the [documentation](https://prettycoffee.github.io/startpage/#/preset).
 
 ## Installation
 
 ```
-npm i @startpage/theming
+npm i @startpage/preset
 ```
