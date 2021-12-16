@@ -7,7 +7,7 @@
     "startpage",
     "search"
   ],
-  "author": "PrettyCoffee <jonathan-holz@outlook.com>",
+  "author": "PrettyCoffee <pretty-coffee@outlook.com>",
   "homepage": "https://prettycoffee.github.io/startpage",
   "license": "MIT",
   "main": "lib/index.js",
