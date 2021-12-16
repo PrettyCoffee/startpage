@@ -1,6 +1,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
 import {
   faBookmark,
+  faClone,
   faCubes,
   faDatabase,
   faPaintBrush,
@@ -11,6 +12,7 @@ import Bookmarks from "./bookmarks"
 import Components from "./components"
 import Intro from "./intro"
 import LocalStorage from "./local-storage"
+import Preset from "./preset"
 import Search from "./search"
 import Theming from "./theming"
 
@@ -39,6 +41,12 @@ const PackagePages: PageConfig[] = [
     title: "local-storage",
     content: LocalStorage,
     icon: faDatabase,
+  },
+  {
+    route: "/preset",
+    title: "preset",
+    content: Preset,
+    icon: faClone,
   },
   {
     route: "/search",

@@ -25,12 +25,7 @@ const Wrapper = styled.div`
   width: fit-content;
 `
 
-const availableThemes = [
-  "atom",
-  "dracula",
-  "nord",
-  "material",
-]
+const availableThemes = ["atom", "dracula", "nord", "material"]
 
 const themes = ["atom", "dracula", "nord", "material"]
 
