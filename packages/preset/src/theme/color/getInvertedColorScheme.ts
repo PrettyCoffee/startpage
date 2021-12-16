@@ -1,4 +1,4 @@
-import { ColorScheme } from "./colorsScheme"
+import { ColorScheme } from "./ColorScheme"
 
 /**
  * Inverts the passed color scheme

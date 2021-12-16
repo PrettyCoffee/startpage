@@ -1,4 +1,4 @@
-import { createColorScheme } from "../../colors"
+import { createColorScheme } from "../createColorScheme"
 
 export const atom = createColorScheme(
   "atom",

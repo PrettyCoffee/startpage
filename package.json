@@ -17,6 +17,7 @@
     "@startpage/bookmarks": "file:packages/bookmarks",
     "@startpage/components": "file:packages/components",
     "@startpage/local-storage": "file:packages/local-storage",
+    "@startpage/preset": "file:packages/preset",
     "@startpage/search": "file:packages/search",
     "@startpage/theming": "file:packages/theming",
     "@testing-library/jest-dom": "^5.14.1",

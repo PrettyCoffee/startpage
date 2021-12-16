@@ -3,7 +3,7 @@ import React from "react"
 import { css, ThemeProvider as EmotionThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
 import { Tab } from "@startpage/components"
-import { getTheme, ColorSchemeName } from "@startpage/theming"
+import { getTheme } from "@startpage/preset"
 
 import { TabGroup } from "../../../components"
 import { ThemeToggle } from "../../../components/ThemeToggle"
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   width: fit-content;
 `
 
-const availableThemes: ColorSchemeName[] = [
+const availableThemes = [
   "atom",
   "dracula",
   "nord",

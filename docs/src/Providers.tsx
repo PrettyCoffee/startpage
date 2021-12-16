@@ -2,12 +2,8 @@ import React from "react"
 
 import { css, Global, ThemeProvider as EmotionTheme } from "@emotion/react"
 import { StoragePrefixProvider } from "@startpage/local-storage"
-import {
-  getTheme,
-  ThemeConsumer,
-  ThemeProvider,
-  Theme,
-} from "@startpage/theming"
+import { getTheme } from "@startpage/preset"
+import { ThemeConsumer, ThemeProvider, Theme } from "@startpage/theming"
 
 const globalStyles = (theme: Theme) => css`
   @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
