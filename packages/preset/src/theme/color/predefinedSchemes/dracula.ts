@@ -1,4 +1,4 @@
-import { createColorScheme } from "../../colors"
+import { createColorScheme } from "../createColorScheme"
 
 // https://github.com/dracula/dracula-theme
 export const dracula = createColorScheme(

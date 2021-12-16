@@ -5,7 +5,7 @@ import {
   ColorPalette,
   ColorScheme,
   GreyScale,
-} from "./colorsScheme"
+} from "./ColorScheme"
 
 const defaultPalette: ColorPalette = {
   red: "#E06C75",

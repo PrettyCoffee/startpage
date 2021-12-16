@@ -2,7 +2,8 @@ import React from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import { getTheme, useTheme } from "@startpage/theming"
+import { getTheme } from "@startpage/preset"
+import { useTheme } from "@startpage/theming"
 
 import { ThemeToggle } from "../components/ThemeToggle"
 

@@ -31,6 +31,7 @@
     "@startpage/bookmarks": "../packages/bookmarks",
     "@startpage/components": "../packages/components",
     "@startpage/local-storage": "../packages/local-storage",
+    "@startpage/preset": "../packages/preset",
     "@startpage/search": "../packages/search",
     "@startpage/theming": "../packages/theming"
   },

@@ -1,4 +1,4 @@
-import { createColorScheme } from "../../colors"
+import { createColorScheme } from "../createColorScheme"
 
 //https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 export const material = createColorScheme(

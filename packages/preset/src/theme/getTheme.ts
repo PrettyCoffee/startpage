@@ -1,6 +1,7 @@
-import { getInvertedColorScheme, ColorScheme, ColorSchemeName } from "../colors"
-import { atom, dracula, material, nord } from "./predefinedColors"
-import { Theme } from "./theme"
+import { getInvertedColorScheme } from "./color"
+import { ColorScheme } from "./color/ColorScheme"
+import { atom, dracula, material, nord } from "./color/predefinedSchemes"
+import { StpgTheme } from "./StpgTheme"
 
 const colorSchemes: ColorScheme[] = [atom, nord, dracula, material]
 
@@ -28,9 +29,9 @@ const space = {
  * @returns the theme object
  */
 export const getTheme = (
-  colorScheme?: ColorSchemeName,
+  colorScheme?: string,
   inverted?: boolean
-): Theme => ({
+): StpgTheme => ({
   inverted: inverted || false,
   color: getColorScheme(colorScheme, inverted),
   space: space,

@@ -1,6 +1,6 @@
-import { ColorScheme } from "../colors/colorsScheme"
+import { ColorScheme } from "./color/ColorScheme"
 
-interface Spacing {
+export interface Spacing {
   smallest: string
   small: string
   medium: string
@@ -8,7 +8,7 @@ interface Spacing {
   largest: string
 }
 
-export interface Theme {
+export interface StpgTheme {
   inverted: boolean
   color: ColorScheme
   space: Spacing

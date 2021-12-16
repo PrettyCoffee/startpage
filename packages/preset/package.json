@@ -1,12 +1,10 @@
 {
-  "name": "@startpage/theming",
+  "name": "@startpage/preset",
   "version": "0.1.0-alpha.9",
-  "description": "Create and use themes for your startpage",
+  "description": "Use theme presets in your startpage.",
   "keywords": [
     "react",
     "startpage",
-    "react-context",
-    "react-hooks",
     "theming"
   ],
   "author": "PrettyCoffee <pretty-coffee@outlook.com>",
@@ -34,6 +32,9 @@
     "url": "https://github.com/PrettyCoffee/startpage/issues"
   },
   "dependencies": {
-    "@startpage/local-storage": "file:../local-storage"
+    "color": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/color": "^3.0.2"
   }
 }

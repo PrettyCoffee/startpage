@@ -1,6 +1,4 @@
-export type ColorSchemeName = string
-
-export type ColorPalette = {
+export interface ColorPalette {
   red: string
   green: string
   yellow: string
@@ -10,21 +8,21 @@ export type ColorPalette = {
   orange: string
 }
 
-export type GreyScale = {
+export interface GreyScale {
   shade: string
   base: string
   surface: string
   highlight: string
 }
 
-export type ColorGradient = {
+export interface ColorGradient {
   bg: string
   base: string
   fg: string
 }
 
 export interface ColorScheme {
-  name: ColorSchemeName
+  name: string
 
   bg: GreyScale
   fg: GreyScale
