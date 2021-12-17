@@ -1,6 +1,5 @@
 import { SelectDemo } from "./demos/SelectDemo"
 import { TabDemo } from "./demos/TabDemo"
-import { TextInputDemo } from "./demos/TextInputDemo"
 
 # @startpage / components
 
@@ -174,79 +173,6 @@ export const TabDemo = () => {
         {content}
       </Tab>
     </TabGroup>
-  )
-}
-```
-
-## Text input
-
-<TextInputDemo />
-
-### Props
-
-| name         | type                                                                                   | description                                                                                                        |
-| ------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| autocomplete | string \| boolean \| undefined                                                         | Enables HTML basic autocomplete, pass a boolean for on / off or a string with the (HTML) type of the autocomplete. |
-| autoFocus    | boolean \| undefined                                                                   | Input will be focused on load if set to true.                                                                      |
-| className    | string \| undefined                                                                    | Pass your own css classes for unique styling.                                                                      |
-| disabled     | boolean \| undefined                                                                   | Disables the element.                                                                                              |
-| placeholder  | string \| undefined                                                                    | Placeholder which is shown if value is undefined.                                                                  |
-| type         | "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| undefined | Type of the input element, defaults to "text".                                                                     |
-| value        | string \| undefined                                                                    | Current value of the element.                                                                                      |
-| leftExtra    | ReactFragment \| undefined                                                             | Component which is displayed on the left side.                                                                     |
-| rightExtra   | ReactFragment \| undefined                                                             | Component which is displayed on the right side.                                                                    |
-| onBlur       | () => void \| undefined                                                                | Callback fired when the element loses focus.                                                                       |
-| onChange     | (value: string) => void                                                                | Callback fired when the elements value changes.                                                                    |
-| onFocus      | () => void \| undefined                                                                | Callback fired when the element gains focus.                                                                       |
-| onKeyPress   | (key: string) => void \| undefined                                                     | Callback fired when a key is pressed while the input is focused.                                                   |
-
-### SCSS template
-
-```scss
-div.stpg-text {
-  > span.stpg-text-extra {
-  }
-  > input.stpg-text-input {
-    ::placeholder {
-    }
-
-    :focus-visible {
-    }
-    :hover {
-    }
-  }
-}
-```
-
-### Usage
-
-```
-import { useState } from "react"
-
-import { faIcons } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { TextInput } from "@startpage/components"
-
-const Extra = <FontAwesomeIcon icon={faIcons} />
-
-export const TextInputDemo = () => {
-  const [value, setValue] = useState("")
-
-  const handleChange = (value: string) => {
-    setValue(value)
-    console.log("value change!")
-  }
-  const handleKeyPress = (key: string) => console.log(key)
-
-  return (
-    <TextInput
-      placeholder="Placeholder"
-      value={value}
-      leftExtra={Extra}
-      rightExtra={Extra}
-      onChange={handleChange}
-      onKeyPress={handleKeyPress}
-    />
   )
 }
 ```
