@@ -1,0 +1,17 @@
+import styled from "@emotion/styled"
+
+export const SwitchButton = styled.button`
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+  padding: 0;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+`

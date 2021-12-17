@@ -1,36 +1,10 @@
 import React from "react"
 
-import { css } from "@emotion/react"
-import styled from "@emotion/styled"
+import { ThemeProvider } from "@emotion/react"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+import { getTheme } from "@startpage/preset"
 
 import { Switch } from "./Switch"
-
-const StyledSwitch = styled(Switch)`
-  ${({ theme: { color, inverted } }) => {
-    const fgLight = inverted ? color.bg.highlight : color.fg.highlight
-    const fgDark = inverted ? color.fg.highlight : color.bg.highlight
-    return css`
-      &[aria-checked="true"] {
-        > .stpg-switch-track {
-          background-color: ${color.bg.surface};
-        }
-        > .stpg-switch-knob {
-          background-color: ${color.fg.surface};
-        }
-      }
-      > .stpg-switch-extra {
-        font-size: 1rem;
-        :first-of-type {
-          color: ${fgDark};
-        }
-        :last-of-type {
-          color: ${fgLight};
-        }
-      }
-    `
-  }}
-`
 
 type ThemeToggleProps = {
   inverted: boolean
@@ -38,10 +12,12 @@ type ThemeToggleProps = {
 }
 
 export const ThemeToggle = ({ onChange, inverted }: ThemeToggleProps) => (
-  <StyledSwitch
-    checked={inverted}
-    onChange={onChange}
-    leftIcon={faSun}
-    rightIcon={faMoon}
-  />
+  <ThemeProvider theme={getTheme("atom")}>
+    <Switch
+      checked={inverted}
+      onChange={onChange}
+      leftIcon={faSun}
+      rightIcon={faMoon}
+    />
+  </ThemeProvider>
 )
