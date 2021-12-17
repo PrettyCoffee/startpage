@@ -1,5 +1,4 @@
 import { SelectDemo } from "./demos/SelectDemo"
-import { SwitchDemo } from "./demos/SwitchDemo"
 import { TabDemo } from "./demos/TabDemo"
 import { TextInputDemo } from "./demos/TextInputDemo"
 
@@ -104,71 +103,6 @@ export const SelectDemo = () => {
       onClose={handleClose}
       onChange={handleChange}
       placeholder="Select a value"
-    />
-  )
-}
-```
-
-## Switch
-
-<SwitchDemo />
-
-### Props
-
-| name       | type                                  | description                                     |
-| ---------- | ------------------------------------- | ----------------------------------------------- |
-| checked    | boolean \| undefined                  | Checked state of the switch.                    |
-| className  | string \| undefined                   | Pass your own css classes for unique styling.   |
-| disabled   | boolean \| undefined                  | Disables the element.                           |
-| leftExtra  | ReactFragment \| undefined            | Component which is displayed on the left side.  |
-| rightExtra | ReactFragment \| undefined            | Component which is displayed on the right side. |
-| onBlur     | () => void \| undefined               | Callback fired when the element loses focus.    |
-| onChange   | (value: boolean) => void \| undefined | Callback fired when the elements value changes. |
-| onFocus    | () => void \| undefined               | Callback fired when the element gains focus.    |
-
-### SCSS template
-
-```scss
-button.stpg-switch {
-  > span.stpg-switch-extra {
-  }
-  > span.stpg-switch-knob {
-  }
-  > span.stpg-switch-track {
-  }
-
-  &[aria-checked="true"] {
-  }
-  :focus-visible > span.stpg-switch-track {
-  }
-}
-```
-
-### Usage
-
-```
-import { useState } from "react"
-
-import { faIcons } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Switch } from "@startpage/components"
-
-const Extra = <FontAwesomeIcon icon={faIcons} />
-
-export const SwitchDemo = () => {
-  const [checked, setChecked] = useState(false)
-
-  const handleChange = (value: boolean) => {
-    setChecked(value)
-    console.log("value change!")
-  }
-
-  return (
-    <Switch
-      checked={checked}
-      leftExtra={Extra}
-      rightExtra={Extra}
-      onChange={handleChange}
     />
   )
 }
