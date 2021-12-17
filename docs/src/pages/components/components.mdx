@@ -1,4 +1,3 @@
-import { ButtonDemo } from "./demos/ButtonDemo"
 import { ModalDemo } from "./demos/ModalDemo"
 import { SelectDemo } from "./demos/SelectDemo"
 import { SwitchDemo } from "./demos/SwitchDemo"
@@ -8,62 +7,6 @@ import { TextInputDemo } from "./demos/TextInputDemo"
 # @startpage / components
 
 Unstyled React components for your startpage.
-
-## Button
-
-<ButtonDemo />
-
-### Props
-
-| name       | type                       | description                                     |
-| ---------- | -------------------------- | ----------------------------------------------- |
-| className  | string \| undefined        | Pass your own css classes for unique styling.   |
-| disabled   | boolean \| undefined       | Disables the element.                           |
-| leftExtra  | ReactFragment \| undefined | Component which is displayed on the left side.  |
-| rightExtra | ReactFragment \| undefined | Component which is displayed on the right side. |
-| onBlur     | () => void \| undefined    | Callback fired when the element loses focus.    |
-| onClick    | () => void \| undefined    | Callback fired when the element is clicked.     |
-| onFocus    | () => void \| undefined    | Callback fired when the element gains focus.    |
-
-### SCSS template
-
-```scss
-button.stpg-button {
-  > span.stpg-button-extra {
-  }
-
-  :active {
-  }
-  :focus-visible {
-  }
-  :hover {
-  }
-}
-```
-
-### Usage
-
-```
-import { faIcons } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Button } from "@startpage/components"
-
-const Extra = <FontAwesomeIcon icon={faIcons} />
-
-export const ButtonDemo = () => {
-  const handleClick = () => console.log("click!")
-
-  return (
-    <Button
-      leftExtra={Extra}
-      rightExtra={Extra}
-      onClick={handleClick}
-    >
-      Click me!
-    </Button>
-  )
-}
-```
 
 ## Modal
 
