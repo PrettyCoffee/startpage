@@ -1,5 +1,4 @@
 export { Button } from "./Button"
-export { Modal } from "./Modal"
 export { RowLayout } from "./RowLayout"
 export { ColumnLayout } from "./ColumnLayout"
 export { TabGroup } from "./TabGroup"
