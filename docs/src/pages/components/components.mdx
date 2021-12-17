@@ -1,4 +1,3 @@
-import { ModalDemo } from "./demos/ModalDemo"
 import { SelectDemo } from "./demos/SelectDemo"
 import { SwitchDemo } from "./demos/SwitchDemo"
 import { TabDemo } from "./demos/TabDemo"
@@ -7,95 +6,6 @@ import { TextInputDemo } from "./demos/TextInputDemo"
 # @startpage / components
 
 Unstyled React components for your startpage.
-
-## Modal
-
-<ModalDemo />
-
-### Props
-
-| name            | type                    | description                                       |
-| --------------- | ----------------------- | ------------------------------------------------- |
-| backdrop        | boolean \| undefined    | Adds an layer between modal and page content.     |
-| className       | string \| undefined     | Pass your own css classes for unique styling.     |
-| enterTransition | Transition \| undefined | Transitioning when modal enters the screen.       |
-| leaveTransition | Transition \| undefined | Transitioning when modal leaves the scree.        |
-| open            | boolean \| undefined    | Mounts / unmounts the modal.                      |
-| onClose         | () => void              | Callback fired when a closing event is triggered. |
-
-** Transition **
-
-| name       | type   | description                                         |
-| ---------- | ------ | --------------------------------------------------- |
-| from       | string | CSS class applied before triggering the transition. |
-| to         | string | CSS class applied to trigger the transition.        |
-| transition | string | CSS class applied during the transition.            |
-
-### SCSS template
-
-```scss
-div.stpg-modal {
-  > div.stpg-modal-backdrop {
-  }
-  > div.stpg-modal-window {
-    /* Pass those into the Transition object */
-    &.hidden {
-    }
-    &.visible {
-    }
-    &.transition {
-    }
-  }
-}
-```
-
-### Usage
-
-```
-import { useState } from "react"
-
-import { Button, Modal } from "@startpage/components"
-
-const enterTransition = {
-  transition: "transition",
-  from: "hidden",
-  to: "visible",
-}
-
-const leaveTransition = {
-  transition: "transition",
-  from: "visible",
-  to: "hidden",
-}
-
-export const ModalDemo = () => {
-  const [open, setOpen] = useState(false)
-
-  const handleOpen = () => {
-    setOpen(true)
-    console.log("open!")
-  }
-  const handleClose = () => {
-    setOpen(false)
-    console.log("close!")
-  }
-
-  return (
-    <>
-      <Button onClick={handleOpen}>Click me!</Button>
-      <Modal
-        backdrop
-        enterTransition={enterTransition}
-        leaveTransition={leaveTransition}
-        open={open}
-        onClose={handleClose}
-      >
-        {content}
-      </Modal>
-    </>
-  )
-}
-```
 
 ## Select
 
