@@ -36,6 +36,7 @@
     "@startpage/theming": "../packages/theming"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.7.1",
     "@mdx-js/react": "^1.6.22",
     "@parcel/transformer-mdx": "^2.0.1",
     "@types/mdx-js__react": "^1.5.5",
