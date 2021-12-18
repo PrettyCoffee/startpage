@@ -1,3 +1,5 @@
+import { InjectThemeDemo } from "./InjectThemeDemo"
+
 # @startpage / theming
 
 Provide a design system for your startpage.
@@ -62,6 +64,84 @@ export const Parent = () => (
     <Child />
   </ThemeProvider>
 )
+```
+
+## injectThemeIntoCss
+
+If you want to use the provided theme globaly as [css variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), you can use the `injectThemeIntoCss` function.
+The function writes all non object values of the theme into a css variable.
+
+### API
+
+| name   | type                | description                                                            |
+| ------ | ------------------- | ---------------------------------------------------------------------- |
+| theme  | Theme               | The theme to inject.                                                   |
+| prefix | string \| undefined | Optional prefix which will be added at the start of each css variable. |
+
+### Demo Example
+
+<InjectThemeDemo />
+
+```
+// InjectThemeDemo.ts
+export const InjectThemeDemo = () => {
+  const [clicked, setClicked] = useState(false)
+  const { theme } = useTheme()
+
+  const handleClick = () => {
+    injectThemeIntoCss(theme, "stpg")
+    setClicked(true);
+  }
+
+  return (
+    <RowLayout>
+      <Button onClick={handleClick}>Inject theme</Button>
+      {clicked && "Now take a look into the browser devtools!"}
+    </RowLayout>
+  )
+}
+```
+
+```css
+// stylesheet.css
+.myClass {
+  color: var(--stpg-color-fg-base);
+  background-color: var(--stpg-color-bg-base);
+}
+```
+
+### Real World Example
+
+The above example is more of a demo rather than a real world example.
+The following is a more usable snippet to serve a theme to the application.
+
+```
+// ThemeWrapper.tsx
+export const ThemeWrapper = ({children}: PropsWithChildren<unknown>) => (
+  <ThemeProvider initialTheme={getTheme()}>
+    <ThemeConsumer>
+      {({ theme }) => {
+        // we directly inject the provided theme with the consumer
+        injectThemeIntoCss(theme)
+        return children;
+      }}
+    </ThemeConsumer>
+  </ThemeProvider>
+)
+```
+```
+// App.tsx
+import { ThemeWrapper } from "./ThemeWrapper" 
+
+export const App = () => {
+  
+  // Do stuff
+
+  return (
+  <ThemeWrapper>
+    {/* Put content here */}
+  </ThemeWrapper>
+)}
 ```
 
 ## Usage
