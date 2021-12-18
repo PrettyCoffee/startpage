@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "cra-templates/*"
   ],
   "version": "0.1.0-alpha.12"
 }
