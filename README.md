@@ -12,6 +12,18 @@ Take a look at the [documentation](https://prettycoffee.github.io/startpage/) fo
 npm i @startpage/<package>
 ```
 
+### Creating a new project
+
+If you want to create a new project, you can use one of the startpage `create-react-app` templates:
+
+```
+// base template
+npx create-react-app <your-name> --template startpage
+
+// with emotion js
+npx create-react-app <your-name> --template startpage-emotion
+```
+
 ### Packages
 
 | name          | description                                  |                                                                  |

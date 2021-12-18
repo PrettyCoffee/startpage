@@ -1,0 +1,20 @@
+{
+  "name": "cra-template-startpage-emotion",
+  "version": "0.1.0-alpha.13",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template",
+    "typescript",
+    "startpage"
+  ],
+  "description": "The startpage emotion template for Create React App.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
