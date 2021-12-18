@@ -1,10 +1,10 @@
 import React from "react"
 
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-import { Option } from "@startpage/components"
 import { performSearch, SearchEngineName } from "@startpage/search"
 
 import {
+  Option,
   Button,
   TextInput,
   ColumnLayout,

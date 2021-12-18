@@ -1,6 +1,6 @@
 # @startpage [![license-badge](https://badgen.net/github/license/PrettyCoffee/startpage)](https://github.com/PrettyCoffee/startpage/blob/master/LICENSE)
 
-`@startpage` is a library that provides tools and components to facilitate the process of creating a browser start page.
+`@startpage` is a library that provides tools to facilitate the process of creating a browser start page.
 
 Take a look at the [documentation](https://prettycoffee.github.io/startpage/) for more details.
 
@@ -17,7 +17,6 @@ npm i @startpage/<package>
 | name          | description                                  |                                                                  |
 | ------------- | -------------------------------------------- | ---------------------------------------------------------------- |
 | bookmarks     | Bookmark management for your startpage       | [docs](https://prettycoffee.github.io/startpage/#/bookmarks)     |
-| components    | Unstyled react components for your startpage | [docs](https://prettycoffee.github.io/startpage/#/components)    |
 | local-storage | Local storage management for your startpage  | [docs](https://prettycoffee.github.io/startpage/#/local-storage) |
 | preset        | Use presets for your startpage.              | [docs](https://prettycoffee.github.io/startpage/#/preset)        |
 | search        | Provides a function to search the web        | [docs](https://prettycoffee.github.io/startpage/#/search)        |

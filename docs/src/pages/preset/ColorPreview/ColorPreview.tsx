@@ -2,11 +2,9 @@ import React from "react"
 
 import { css, ThemeProvider as EmotionThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
-import { Tab } from "@startpage/components"
 import { getTheme } from "@startpage/preset"
 
-import { TabGroup } from "../../../components"
-import { ThemeToggle } from "../../../components/ThemeToggle"
+import { TabGroup, Tab, ThemeToggle } from "../../../components"
 import { ColorPanel } from "./ColorPanel"
 
 const ThemeToggleLayout = styled.div`
