@@ -1,7 +1,7 @@
 export { Button } from "./Button"
 export { RowLayout } from "./RowLayout"
 export { ColumnLayout } from "./ColumnLayout"
-export { TabGroup } from "./TabGroup"
+export { TabGroup, Tab } from "./TabGroup"
 export { TextInput } from "./TextInput"
 export { Select } from "./Select"
 export { Switch } from "./Switch"
