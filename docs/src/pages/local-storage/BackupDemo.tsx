@@ -22,6 +22,7 @@ const Link = styled.a`
     font-weight: 700;
     color: ${color.primary.fg};
     text-decoration: none;
+    cursor: pointer;
     :hover {
       color: ${color.primary.base};
       text-decoration: underline;
@@ -59,13 +60,21 @@ export const FileInput = styled.div`
   `}
 `
 
-const Backup = storageBackup(["stpg-theme", "stpg-hook-demo", "stpg-context-demo"])
+const Backup = storageBackup([
+  "stpg-theme",
+  "stpg-hook-demo",
+  "stpg-context-demo",
+])
 
-export const BlobLinkDemo = () => (
-  <Wrapper>
-    <Link href={Backup.createBlobUrl()}>Open blob file</Link>
-  </Wrapper>
-)
+export const BlobLinkDemo = () => {
+  const openBlobInTab = () => window.open(Backup.createBlobUrl(), "_blank")
+
+  return (
+    <Wrapper>
+      <Link onClick={openBlobInTab}>Open blob file</Link>
+    </Wrapper>
+  )
+}
 export const DownloadDemo = () => (
   <Wrapper>
     <Button

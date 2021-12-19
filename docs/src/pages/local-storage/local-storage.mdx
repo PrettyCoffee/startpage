@@ -116,8 +116,8 @@ Provides functions to create, download and restore backups of the local storage.
 
 ### API
 
-| name | type     | description                                       |
-| ---- | -------- | ------------------------------------------------- |
+| name | type                  | description                                                             |
+| ---- | --------------------- | ----------------------------------------------------------------------- |
 | keys | string[] \| undefined | The keys of the storage which should be backed up, defaults to all keys |
 
 -> Returns an object which contains the following functions
@@ -153,7 +153,11 @@ Function to restore a backup into the storage
 
 import { storageBackup } from "@startpage/local-storage"
 
-export const Backup = storageBackup(["stpg-theme", "stpg-hook-demo", "stpg-context-demo"])
+export const Backup = storageBackup([
+  "stpg-theme",
+  "stpg-hook-demo",
+  "stpg-context-demo"
+])
 ```
 
 <BlobLinkDemo />
@@ -163,9 +167,12 @@ export const Backup = storageBackup(["stpg-theme", "stpg-hook-demo", "stpg-conte
 
 import { Backup } from "./Backup"
 
-export const BlobLinkDemo = () => (
-  <a href={Backup.createBlobUrl()}>Open blob file</a>
-)
+export const BlobLinkDemo = () => {
+  const openBlobInTab = () =>
+    window.open(Backup.createBlobUrl(), "_blank")
+
+  return <a onClick={openBlobInTab}>Open blob file</a>
+}
 ```
 
 <DownloadDemo />

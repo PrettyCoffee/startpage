@@ -94,10 +94,10 @@ export const InjectThemeDemo = () => {
   }
 
   return (
-    <RowLayout>
-      <Button onClick={handleClick}>Inject theme</Button>
+    <div>
+      <button onClick={handleClick}>Inject theme</button>
       {clicked && "Now take a look into the browser devtools!"}
-    </RowLayout>
+    </div>
   )
 }
 ```
