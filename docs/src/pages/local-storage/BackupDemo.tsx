@@ -59,7 +59,7 @@ export const FileInput = styled.div`
   `}
 `
 
-const Backup = storageBackup(["theme", "hook-demo", "context-demo"])
+const Backup = storageBackup(["stpg-theme", "stpg-hook-demo", "stpg-context-demo"])
 
 export const BlobLinkDemo = () => (
   <Wrapper>

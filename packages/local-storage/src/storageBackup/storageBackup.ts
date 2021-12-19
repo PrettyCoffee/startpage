@@ -26,11 +26,11 @@ export type Backup = {
 
 /** Provides functions to create, download and restore backups
  *
- * @param keys the keys of the storage which should be backed up
+ * @param keys the keys of the storage which should be backed up, defaults to all keys
  *
  * @returns an object which contains the needed functions
  */
-export const storageBackup = (keys: string[]): Backup => {
+export const storageBackup = (keys = Object.keys(localStorage)): Backup => {
   const createBlobUrl = () => createStorageBlob(keys)
 
   const download = (fileName = "ls-backup.json") =>
