@@ -20,7 +20,7 @@ const Icon = styled(FontAwesomeIcon)`
 
 const Nav = styled.nav`
   ${({ theme: { space } }) => css`
-    position: fixed;
+    position: sticky;
     top: calc(${space.largest} * 2);
     bottom: 0;
     overflow-y: auto;

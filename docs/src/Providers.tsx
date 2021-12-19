@@ -27,7 +27,7 @@ const globalStyles = (theme: Theme) => css`
   }
   body {
     margin: 0;
-    overflow-x: hidden;
+    min-width: 1000px;
     background-color: ${theme.color.bg.base};
     color: ${theme.color.fg.base};
     font-size: ${theme.space.medium};
