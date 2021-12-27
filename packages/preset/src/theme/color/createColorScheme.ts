@@ -27,8 +27,14 @@ const getGreyScale = (base: string): GreyScale => {
   }
 }
 
-const getColorGradient = (base: string): ColorGradient => {
+const getColorGradient = (base: string, isInverted: boolean): ColorGradient => {
   const color = Color(base)
+  if (isInverted)
+    return {
+      bg: color.lighten(0.5).hex(),
+      base: color.hex(),
+      fg: color.darken(0.5).hex(),
+    }
   return {
     bg: color.darken(0.5).hex(),
     base: color.hex(),
@@ -63,8 +69,8 @@ export const createColorScheme = (
   bg: getGreyScale(base.bg),
   fg: getGreyScale(base.fg),
 
-  primary: getColorGradient(base.primary),
-  secondary: getColorGradient(base.secondary),
+  primary: getColorGradient(base.primary, Color(base.bg).isLight()),
+  secondary: getColorGradient(base.secondary, Color(base.bg).isLight()),
 
   palette,
 })
