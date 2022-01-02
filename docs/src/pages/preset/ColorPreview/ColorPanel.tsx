@@ -50,6 +50,7 @@ const Accents = styled.div`
     grid-area: accents;
     > div {
       display: flex;
+      grid-gap: ${space.small};
       flex-direction: column;
       align-items: center;
       width: 5rem;
@@ -66,6 +67,7 @@ const Palette = styled.div`
     grid-area: palette;
     > div {
       display: flex;
+      grid-gap: ${space.small};
       filter: drop-shadow(0 0 ${space.medium} ${color.bg.shade});
       > div {
         margin: 0 ${space.smallest};
