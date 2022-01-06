@@ -28,9 +28,9 @@ export type BookmarkState = {
   addBookmark: (groupLabel: string, bookmark: Bookmark) => void
   /** Removes a bookmark from a group
    * @param groupLabel Name of the group
-   * @param bookmark The bookmark to remove
+   * @param bookmarkLabel The bookmark to remove
    */
-  removeBookmark: (groupLabel: string, bookmark: Bookmark) => void
+  removeBookmark: (groupLabel: string, bookmarkLabel: string) => void
 }
 
 const defaultState: BookmarkState = {

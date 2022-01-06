@@ -10,13 +10,13 @@ Context for storing and managing bookmarks within bookmark groups.
 
 ### BookmarkState
 
-| name           | type                                             | description                     |
-| -------------- | ------------------------------------------------ | ------------------------------- |
-| bookmarkGroups | BookmarkGroup[]                                  | The bookmarks in the provider   |
-| addGroup       | (label: string) => void                          | Adds a bookmark group           |
-| removeGroup    | (label: string) => void                          | Removes a bookmark group        |
-| addBookmark    | (groupLabel: string, bookmark: Bookmark) => void | Adds a bookmark to a group      |
-| removeBookmark | (groupLabel: string, bookmark: Bookmark) => void | Removes a bookmark from a group |
+| name           | type                                                | description                     |
+| -------------- | --------------------------------------------------- | ------------------------------- |
+| bookmarkGroups | BookmarkGroup[]                                     | The bookmarks in the provider   |
+| addGroup       | (label: string) => void                             | Adds a bookmark group           |
+| removeGroup    | (label: string) => void                             | Removes a bookmark group        |
+| addBookmark    | (groupLabel: string, bookmark: Bookmark) => void    | Adds a bookmark to a group      |
+| removeBookmark | (groupLabel: string, bookmarkLabel: string) => void | Removes a bookmark from a group |
 
 ### BookmarkProvider
 

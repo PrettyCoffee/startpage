@@ -49,11 +49,11 @@ export const BookmarkProvider = ({
     setBookmarkGroups(newBookmarks)
   }
 
-  const removeBookmark = (groupLabel: string, bookmark: Bookmark) => {
+  const removeBookmark = (groupLabel: string, bookmarkLabel: string) => {
     const newBookmarks = bookmarkGroups.map(group => {
       if (group.label === groupLabel)
         group.bookmarks = group.bookmarks.filter(
-          elem => elem.label !== bookmark.label
+          elem => elem.label !== bookmarkLabel
         )
       return group
     })
