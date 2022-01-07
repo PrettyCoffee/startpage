@@ -1,11 +1,18 @@
 import { createContext } from "react"
 
+export type BookmarkWithoutId = {
+  label: string
+  url: string
+}
+
 export type Bookmark = {
+  id: string
   label: string
   url: string
 }
 
 export type BookmarkGroup = {
+  id: string
   label: string
   bookmarks: Bookmark[]
 }
@@ -18,19 +25,18 @@ export type BookmarkState = {
    */
   addGroup: (label: string) => void
   /** Removes a bookmark group
-   * @param label Name of the group
+   * @param id Id of the group
    */
-  removeGroup: (label: string) => void
+  removeGroup: (id: string) => void
   /** Adds a bookmark to a group
-   * @param groupLabel Name of the group
+   * @param groupId Id of the group
    * @param bookmark The bookmark to add
    */
-  addBookmark: (groupLabel: string, bookmark: Bookmark) => void
+  addBookmark: (groupId: string, bookmark: BookmarkWithoutId) => void
   /** Removes a bookmark from a group
-   * @param groupLabel Name of the group
-   * @param bookmarkLabel The bookmark to remove
+   * @param bookmarkId Id of the bookmark to remove
    */
-  removeBookmark: (groupLabel: string, bookmarkLabel: string) => void
+  removeBookmark: (bookmarkId: string) => void
 }
 
 const defaultState: BookmarkState = {

@@ -2,14 +2,18 @@ import React from "react"
 
 import { useStorage } from "@startpage/local-storage"
 
-import { Bookmark, BookmarkContext, BookmarkGroup } from "./BookmarkContext"
+import { BookmarkContext, BookmarkWithoutId } from "./BookmarkContext"
+import { createId } from "./utils/createId"
+import { fillBookmarkIds } from "./utils/fillBookmarkIds"
 
-const getGroup = (bookmarks: BookmarkGroup[], label: string) =>
-  bookmarks.find(group => group.label === label)
+export type InitialBookmarkGroup = {
+  label: string
+  bookmarks: BookmarkWithoutId[]
+}
 
 export type BookmarkProviderProps = {
   /** Initial bookmarks which will be used until you change it with the setter */
-  initialBookmarks?: BookmarkGroup[]
+  initialBookmarks?: InitialBookmarkGroup[]
 }
 
 /** Provider for bookmarks.
@@ -21,42 +25,39 @@ export const BookmarkProvider = ({
 }: React.PropsWithChildren<BookmarkProviderProps>) => {
   const [bookmarkGroups, setBookmarkGroups] = useStorage(
     "bookmarks",
-    initialBookmarks
+    fillBookmarkIds(initialBookmarks)
   )
 
   const addGroup = (label: string) => {
-    const group = getGroup(bookmarkGroups, label)
-    if (!group) {
-      const newBookmarks = [...bookmarkGroups]
-      newBookmarks.push({
-        label: label,
-        bookmarks: [],
-      })
-      setBookmarkGroups(newBookmarks)
-    }
-  }
-
-  const removeGroup = (label: string) => {
-    const newBookmarks = bookmarkGroups.filter(group => group.label !== label)
+    const newBookmarks = [...bookmarkGroups]
+    newBookmarks.push({
+      id: createId(),
+      label: label,
+      bookmarks: [],
+    })
     setBookmarkGroups(newBookmarks)
   }
 
-  const addBookmark = (groupLabel: string, bookmark: Bookmark) => {
+  const removeGroup = (id: string) => {
+    const newBookmarks = bookmarkGroups.filter(group => group.id !== id)
+    setBookmarkGroups(newBookmarks)
+  }
+
+  const addBookmark = (groupId: string, bookmark: BookmarkWithoutId) => {
     const newBookmarks = bookmarkGroups.map(group => {
-      if (group.label === groupLabel) group.bookmarks.push(bookmark)
+      if (group.id === groupId)
+        group.bookmarks.push({ id: createId(), ...bookmark })
       return group
     })
     setBookmarkGroups(newBookmarks)
   }
 
-  const removeBookmark = (groupLabel: string, bookmarkLabel: string) => {
-    const newBookmarks = bookmarkGroups.map(group => {
-      if (group.label === groupLabel)
-        group.bookmarks = group.bookmarks.filter(
-          elem => elem.label !== bookmarkLabel
-        )
-      return group
-    })
+  const removeBookmark = (bookmarkId: string) => {
+    const newBookmarks = bookmarkGroups.map(({ id, label, bookmarks }) => ({
+      id,
+      label,
+      bookmarks: bookmarks.filter(({ id }) => id !== bookmarkId),
+    }))
     setBookmarkGroups(newBookmarks)
   }
 

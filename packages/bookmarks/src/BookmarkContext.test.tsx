@@ -5,6 +5,7 @@ import { act, renderHook } from "@testing-library/react-hooks"
 import { BookmarkGroup } from "./BookmarkContext"
 import { BookmarkProvider } from "./BookmarkProvider"
 import { useBookmarks } from "./useBookmarks"
+import { fillBookmarkIds } from "./utils/fillBookmarkIds"
 
 const STORAGE = window.localStorage
 const STORAGE_KEY = "bookmarks"
@@ -19,7 +20,7 @@ const wrapper = ({ children }: React.PropsWithChildren<unknown>) => (
   <BookmarkProvider>{children}</BookmarkProvider>
 )
 
-const Groups: BookmarkGroup[] = [
+const Groups: BookmarkGroup[] = fillBookmarkIds([
   {
     label: "group-0",
     bookmarks: [{ label: "bookmark-0", url: "https://google.com" }],
@@ -31,11 +32,12 @@ const Groups: BookmarkGroup[] = [
       { label: "bookmark-1", url: "https://ddg.com" },
     ],
   },
-]
+])
 
 describe("Test bookmark context", () => {
   it("uses initial value", () => {
     const { result } = renderHook(() => useBookmarks(), { wrapper })
+
     expect(result.current.bookmarkGroups).toMatchObject([])
     expectStorageValue([])
   })
@@ -43,28 +45,32 @@ describe("Test bookmark context", () => {
   it("uses existing value", () => {
     setStorageValue(Groups)
     const { result } = renderHook(() => useBookmarks(), { wrapper })
+
     expect(result.current.bookmarkGroups).toMatchObject(Groups)
     expectStorageValue(Groups)
   })
 
   it("adds a group", () => {
     const label = "group"
-    const expected = [{ label: label, bookmarks: [] }]
+    const expected: BookmarkGroup[] = [{ id: "", label: label, bookmarks: [] }]
     const { result } = renderHook(() => useBookmarks(), { wrapper })
 
     act(() => result.current.addGroup(label))
 
-    expect(result.current.bookmarkGroups).toMatchObject(expected)
+    const received = result.current.bookmarkGroups
+    expected[0].id = received[0].id
+
+    expect(received).toMatchObject(expected)
     expectStorageValue(expected)
   })
 
   it("removes a group", () => {
     setStorageValue(Groups)
-    const label = Groups[0].label
+    const idToRemove = Groups[0].id
     const expected = [Groups[1]]
     const { result } = renderHook(() => useBookmarks(), { wrapper })
 
-    act(() => result.current.removeGroup(label))
+    act(() => result.current.removeGroup(idToRemove))
 
     expect(result.current.bookmarkGroups).toMatchObject(expected)
     expectStorageValue(expected)
@@ -73,7 +79,11 @@ describe("Test bookmark context", () => {
   it("adds a bookmark", () => {
     setStorageValue(Groups)
     const group = Groups[0]
-    const bookmark = { label: "bookmark-0", url: "https://startpage.com" }
+    const bookmark = {
+      id: "",
+      label: "bookmark-0",
+      url: "https://startpage.com",
+    }
     const expected = [
       { ...group, bookmarks: [...group.bookmarks, bookmark] },
       Groups[1],
@@ -81,20 +91,25 @@ describe("Test bookmark context", () => {
 
     const { result } = renderHook(() => useBookmarks(), { wrapper })
 
-    act(() => result.current.addBookmark(group.label, bookmark))
+    act(() => result.current.addBookmark(group.id, bookmark))
 
-    expect(result.current.bookmarkGroups).toMatchObject(expected)
+    const received = result.current.bookmarkGroups
+
+    expected[0].bookmarks[1].id = received[0].bookmarks[1].id
+
+    expect(received).toMatchObject(expected)
     expectStorageValue(expected)
   })
 
   it("removes a bookmark", () => {
     setStorageValue(Groups)
-    const group = Groups[0]
-    const expected = [{ ...group, bookmarks: [] }, Groups[1]]
+    const { id, label, bookmarks } = Groups[0]
+    const idToRemove = bookmarks[0].id
+    const expected = [{ id, label, bookmarks: [] }, Groups[1]]
 
     const { result } = renderHook(() => useBookmarks(), { wrapper })
 
-    act(() => result.current.removeBookmark(group.label, group.bookmarks[0]))
+    act(() => result.current.removeBookmark(idToRemove))
 
     expect(result.current.bookmarkGroups).toMatchObject(expected)
     expectStorageValue(expected)
