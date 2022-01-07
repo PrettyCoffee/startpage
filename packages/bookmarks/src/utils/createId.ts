@@ -1,7 +1,14 @@
-export const createId = () => {
-  const now = Date.now()
-  const random = Math.random() * 10000
-  const num = now * random
+const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-"
+const valueCount = chars.length
 
-  return btoa(num.toString())
+const getRandomChar = () => {
+  const randomInt = (Math.random() * (valueCount - 1)) | 0
+  return chars[randomInt]
+}
+
+export const createId = () => {
+  let id = "",
+    size = 16
+  while (size--) id += getRandomChar()
+  return id
 }
