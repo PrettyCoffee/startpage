@@ -3,8 +3,9 @@ import React from "react"
 import { useStorage } from "@startpage/local-storage"
 
 import { BookmarkContext, BookmarkWithoutId } from "./BookmarkContext"
-import { createId } from "./utils/createId"
 import { fillBookmarkIds } from "./utils/fillBookmarkIds"
+import { getBookmarkActions } from "./utils/getBookmarkActions"
+import { getGroupActions } from "./utils/getGroupActions"
 
 export type InitialBookmarkGroup = {
   label: string
@@ -28,74 +29,15 @@ export const BookmarkProvider = ({
     fillBookmarkIds(initialBookmarks)
   )
 
-  const addGroup = (label: string) => {
-    const newBookmarks = [...bookmarkGroups]
-    newBookmarks.push({
-      id: createId(),
-      label: label,
-      bookmarks: [],
-    })
-    setBookmarkGroups(newBookmarks)
-  }
-
-  const editGroup = (id: string, label: string) => {
-    const newBookmarks = bookmarkGroups.map(group => {
-      if (group.id !== id) return group
-      return {
-        ...group,
-        label,
-      }
-    })
-    setBookmarkGroups(newBookmarks)
-  }
-
-  const removeGroup = (id: string) => {
-    const newBookmarks = bookmarkGroups.filter(group => group.id !== id)
-    setBookmarkGroups(newBookmarks)
-  }
-
-  const addBookmark = (groupId: string, bookmark: BookmarkWithoutId) => {
-    const newBookmarks = bookmarkGroups.map(group => {
-      if (group.id === groupId)
-        group.bookmarks.push({ id: createId(), ...bookmark })
-      return group
-    })
-    setBookmarkGroups(newBookmarks)
-  }
-
-  const editBookmark = (bookmarkId: string, newValues: BookmarkWithoutId) => {
-    const newBookmarks = bookmarkGroups.map(({ bookmarks, ...group }) => ({
-      ...group,
-      bookmarks: bookmarks.map(bookmark => {
-        if (bookmark.id !== bookmarkId) return bookmark
-        return {
-          ...bookmark,
-          ...newValues,
-        }
-      }),
-    }))
-    setBookmarkGroups(newBookmarks)
-  }
-
-  const removeBookmark = (bookmarkId: string) => {
-    const newBookmarks = bookmarkGroups.map(({ id, label, bookmarks }) => ({
-      id,
-      label,
-      bookmarks: bookmarks.filter(({ id }) => id !== bookmarkId),
-    }))
-    setBookmarkGroups(newBookmarks)
-  }
+  const groupActions = getGroupActions(bookmarkGroups, setBookmarkGroups)
+  const bookmarkActions = getBookmarkActions(bookmarkGroups, setBookmarkGroups)
 
   return (
     <BookmarkContext.Provider
       value={{
         bookmarkGroups,
-        addGroup,
-        editGroup,
-        removeGroup,
-        addBookmark,
-        editBookmark,
-        removeBookmark,
+        ...groupActions,
+        ...bookmarkActions,
       }}
     >
       {children}
