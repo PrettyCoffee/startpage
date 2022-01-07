@@ -24,6 +24,11 @@ export type BookmarkState = {
    * @param label Name of the group
    */
   addGroup: (label: string) => void
+  /** Edit a bookmark group
+   * @param id Id of the group
+   * @param label The new label of the group
+   */
+  editGroup: (id: string, label: string) => void
   /** Removes a bookmark group
    * @param id Id of the group
    */
@@ -42,6 +47,7 @@ export type BookmarkState = {
 const defaultState: BookmarkState = {
   bookmarkGroups: [],
   addGroup: () => null,
+  editGroup: () => null,
   removeGroup: () => null,
   addBookmark: () => null,
   removeBookmark: () => null,

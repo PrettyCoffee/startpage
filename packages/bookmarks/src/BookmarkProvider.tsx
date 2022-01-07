@@ -38,6 +38,17 @@ export const BookmarkProvider = ({
     setBookmarkGroups(newBookmarks)
   }
 
+  const editGroup = (id: string, label: string) => {
+    const newBookmarks = bookmarkGroups.map(group => {
+      if (group.id !== id) return group
+      return {
+        ...group,
+        label,
+      }
+    })
+    setBookmarkGroups(newBookmarks)
+  }
+
   const removeGroup = (id: string) => {
     const newBookmarks = bookmarkGroups.filter(group => group.id !== id)
     setBookmarkGroups(newBookmarks)
@@ -66,6 +77,7 @@ export const BookmarkProvider = ({
       value={{
         bookmarkGroups,
         addGroup,
+        editGroup,
         removeGroup,
         addBookmark,
         removeBookmark,
