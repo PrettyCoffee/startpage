@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import {
   BookmarkProvider,
   useBookmarks,
-  BookmarkGroup,
+  InitialBookmarkGroup,
 } from "@startpage/bookmarks"
 
 import { Button, RowLayout } from "../../components"
@@ -26,7 +26,7 @@ export const Child = () => {
   )
 }
 
-const initialState: BookmarkGroup[] = [
+const initialState: InitialBookmarkGroup[] = [
   {
     label: "reddit",
     bookmarks: [

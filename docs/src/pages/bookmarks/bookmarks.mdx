@@ -10,13 +10,15 @@ Context for storing and managing bookmarks within bookmark groups.
 
 ### BookmarkState
 
-| name           | type                                                | description                     |
-| -------------- | --------------------------------------------------- | ------------------------------- |
-| bookmarkGroups | BookmarkGroup[]                                     | The bookmarks in the provider   |
-| addGroup       | (label: string) => void                             | Adds a bookmark group           |
-| removeGroup    | (label: string) => void                             | Removes a bookmark group        |
-| addBookmark    | (groupLabel: string, bookmark: Bookmark) => void    | Adds a bookmark to a group      |
-| removeBookmark | (groupLabel: string, bookmarkLabel: string) => void | Removes a bookmark from a group |
+| name           | type                                                      | description                     |
+| -------------- | --------------------------------------------------------- | ------------------------------- |
+| bookmarkGroups | BookmarkGroup[]                                           | The bookmarks in the provider   |
+| addGroup       | (label: string) => void                                   | Adds a bookmark group           |
+| editGroup      | (groupId: string, label: string) => void                  | Edits a bookmark group          |
+| removeGroup    | (groupId: string) => void                                 | Removes a bookmark group        |
+| addBookmark    | (groupId: string, bookmark: BookmarkWithoutId) => void    | Adds a bookmark to a group      |
+| editBookmark   | (bookmarkId: string, bookmark: BookmarkWithoutId) => void | Edits a bookmark from a group   |
+| removeBookmark | (bookmarkId: string) => void                              | Removes a bookmark from a group |
 
 ### BookmarkProvider
 
@@ -25,9 +27,9 @@ The bookmarks can be accessed by using the `useBookmarks` hook.
 
 #### props
 
-| name             | type                              | description                                                              |
-| ---------------- | --------------------------------- | ------------------------------------------------------------------------ |
-| initialBookmarks | BookmarkGroup[] <br/>\| undefined | Initial bookmarks which will be used until you change it with the setter |
+| name             | type                                     | description                                                              |
+| ---------------- | ---------------------------------------- | ------------------------------------------------------------------------ |
+| initialBookmarks | InitialBookmarkGroup[] <br/>\| undefined | Initial bookmarks which will be used until you change it with the setter |
 
 ### useBookmarks
 
@@ -70,11 +72,11 @@ export const Child = () => {
 ```
 // Parent.tsx
 
-import { BookmarkProvider, BookmarkGroup } from "@startpage/bookmarks"
+import { BookmarkProvider, InitialBookmarkGroup } from "@startpage/bookmarks"
 
 import { Child } from "./Child"
 
-const initialBookmarks: BookmarkGroup[] = [
+const initialBookmarks: InitialBookmarkGroup[] = [
   {
     label: "reddit",
     bookmarks: [

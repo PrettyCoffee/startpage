@@ -24,21 +24,21 @@ export type BookmarkState = {
    * @param label Name of the group
    */
   addGroup: (label: string) => void
-  /** Edit a bookmark group
-   * @param id Id of the group
+  /** Edits a bookmark group
+   * @param groupId Id of the group
    * @param label The new label of the group
    */
-  editGroup: (id: string, label: string) => void
+  editGroup: (groupId: string, label: string) => void
   /** Removes a bookmark group
-   * @param id Id of the group
+   * @param groupId Id of the group
    */
-  removeGroup: (id: string) => void
+  removeGroup: (groupId: string) => void
   /** Adds a bookmark to a group
    * @param groupId Id of the group
    * @param bookmark The bookmark to add
    */
   addBookmark: (groupId: string, bookmark: BookmarkWithoutId) => void
-  /** Edit a bookmark from a group
+  /** Edits a bookmark from a group
    * @param bookmarkId Id of the bookmark to edit
    * @param bookmark The new bookmark values
    */
