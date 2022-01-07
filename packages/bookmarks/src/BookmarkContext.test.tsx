@@ -68,7 +68,7 @@ describe("Test bookmark context", () => {
     setStorageValue(Groups)
     const newLabel = "group-edited"
     const groupToEdit = Groups[0]
-    const expected: BookmarkGroup[] = [{ ...Groups[0] }, { ...Groups[1] }]
+    const expected: BookmarkGroup[] = [...Groups]
     expected[0].label = newLabel
 
     const { result } = renderHook(() => useBookmarks(), { wrapper })
@@ -113,6 +113,27 @@ describe("Test bookmark context", () => {
     expected[0].bookmarks[1].id = received[0].bookmarks[1].id
 
     expect(received).toMatchObject(expected)
+    expectStorageValue(expected)
+  })
+
+  it("edits a bookmark", () => {
+    setStorageValue(Groups)
+    const newValues = {
+      label: "bookmark-edited",
+      url: "https://www.test.com",
+    }
+    const idToEdit = Groups[0].bookmarks[0].id
+    const expected = [...Groups]
+    expected[0].bookmarks[0] = {
+      id: idToEdit,
+      ...newValues,
+    }
+
+    const { result } = renderHook(() => useBookmarks(), { wrapper })
+
+    act(() => result.current.editBookmark(idToEdit, newValues))
+
+    expect(result.current.bookmarkGroups).toMatchObject(expected)
     expectStorageValue(expected)
   })
 

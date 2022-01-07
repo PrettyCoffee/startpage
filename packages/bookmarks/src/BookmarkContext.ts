@@ -38,6 +38,11 @@ export type BookmarkState = {
    * @param bookmark The bookmark to add
    */
   addBookmark: (groupId: string, bookmark: BookmarkWithoutId) => void
+  /** Edit a bookmark from a group
+   * @param bookmarkId Id of the bookmark to edit
+   * @param bookmark The new bookmark values
+   */
+  editBookmark: (bookmarkId: string, bookmark: BookmarkWithoutId) => void
   /** Removes a bookmark from a group
    * @param bookmarkId Id of the bookmark to remove
    */
@@ -50,6 +55,7 @@ const defaultState: BookmarkState = {
   editGroup: () => null,
   removeGroup: () => null,
   addBookmark: () => null,
+  editBookmark: () => null,
   removeBookmark: () => null,
 }
 
