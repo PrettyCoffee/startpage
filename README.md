@@ -4,6 +4,8 @@
 
 Take a look at the [documentation](https://prettycoffee.github.io/startpage/) for more details.
 
+If you want to see how it works in a real world scenario, you can check out the [example project](https://github.com/PrettyCoffee/yet-another-generic-startpage).
+
 ## Getting Started
 
 ### Installation
