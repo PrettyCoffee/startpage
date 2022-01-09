@@ -36,16 +36,16 @@
     "@startpage/theming": "../packages/theming"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "^11.7.1",
+    "@emotion/babel-plugin": "^11.7.2",
     "@mdx-js/react": "^1.6.22",
-    "@parcel/transformer-mdx": "^2.0.1",
+    "@parcel/transformer-mdx": "^2.1.1",
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^17.0.37",
+    "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
     "eslint-plugin-mdx": "^1.16.0",
     "gh-pages": "^3.2.3",
-    "parcel": "^v2.0.1",
+    "parcel": "^v2.1.1",
     "rimraf": "^3.0.2"
   }
 }
