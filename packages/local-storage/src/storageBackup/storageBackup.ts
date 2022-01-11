@@ -36,7 +36,7 @@ export const storageBackup = (keys = Object.keys(localStorage)): Backup => {
   const download = (fileName = "ls-backup.json") =>
     downloadBlob(createBlobUrl(), fileName)
 
-  const restore = (backupFile: File) => injectBackup(backupFile, keys)
+  const restore = (backupFile: File) => injectBackup(keys, backupFile)
 
   return {
     createBlobUrl,

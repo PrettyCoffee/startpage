@@ -1,22 +1,28 @@
 const STORAGE = window.localStorage
 
-const writeBackupIntoStorage = (backup: Record<string, unknown>) => {
+type StoreBackup = Record<string, unknown>
+
+const writeBackupIntoStorage = (backup: StoreBackup) => {
   Object.keys(backup).forEach(key =>
     STORAGE.setItem(key, JSON.stringify(backup[key]))
   )
 }
 
-const keysAreValid = (keys: string[], allowedKeys: string[]) =>
-  !keys.map(key => allowedKeys.includes(key)).includes(false)
+const filterWantedKeys = (keys: string[], backup: StoreBackup) => {
+  const filteredBackup: StoreBackup = {}
+  Object.keys(backup)
+    .filter(key => keys.includes(key))
+    .forEach(key => (filteredBackup[key] = backup[key]))
+  return filteredBackup
+}
 
-export const injectBackup = (backupFile: File, allowedKeys: string[]) =>
+export const injectBackup = (keys: string[], backupFile: File) =>
   backupFile.text().then(content => {
     try {
-      const backup = JSON.parse(content) as Record<string, unknown>
+      const backup = JSON.parse(content) as StoreBackup
 
-      if (!keysAreValid(Object.keys(backup), allowedKeys)) return false
+      writeBackupIntoStorage(filterWantedKeys(keys, backup))
 
-      writeBackupIntoStorage(backup)
       return true
     } catch {
       return false
