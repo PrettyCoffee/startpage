@@ -1,5 +1,7 @@
 import { createContext } from "react"
 
+import { InitialBookmarkGroup } from "./BookmarkProvider"
+
 export type BookmarkWithoutId = {
   label: string
   url: string
@@ -20,6 +22,10 @@ export type BookmarkGroup = {
 export type BookmarkState = {
   /** The bookmarks in the provider */
   bookmarkGroups: BookmarkGroup[]
+  /** Set the bookmarkGroups value
+   * @param bookmarkGroups New bookmark groups
+   */
+  setBookmarkGroups: (bookmarkGroups: InitialBookmarkGroup[]) => void
   /** Add a bookmark group
    * @param label Name of the group
    */
@@ -51,6 +57,7 @@ export type BookmarkState = {
 
 const defaultState: BookmarkState = {
   bookmarkGroups: [],
+  setBookmarkGroups: () => null,
   addGroup: () => null,
   editGroup: () => null,
   removeGroup: () => null,

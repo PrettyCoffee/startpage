@@ -29,6 +29,9 @@ export const BookmarkProvider = ({
     fillBookmarkIds(initialBookmarks)
   )
 
+  const setNewBookmarkGroups = (bookmarkGroups: InitialBookmarkGroup[]) =>
+    setBookmarkGroups(fillBookmarkIds(bookmarkGroups))
+
   const groupActions = getGroupActions(bookmarkGroups, setBookmarkGroups)
   const bookmarkActions = getBookmarkActions(bookmarkGroups, setBookmarkGroups)
 
@@ -36,6 +39,7 @@ export const BookmarkProvider = ({
     <BookmarkContext.Provider
       value={{
         bookmarkGroups,
+        setBookmarkGroups: setNewBookmarkGroups,
         ...groupActions,
         ...bookmarkActions,
       }}
