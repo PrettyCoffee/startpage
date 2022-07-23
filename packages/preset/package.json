@@ -32,9 +32,9 @@
     "url": "https://github.com/PrettyCoffee/startpage/issues"
   },
   "dependencies": {
-    "color": "^4.1.0"
+    "color": "^4.2.3"
   },
   "devDependencies": {
-    "@types/color": "^3.0.2"
+    "@types/color": "^3.0.3"
   }
 }
