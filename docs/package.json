@@ -15,15 +15,15 @@
     "clean:parcel": "rimraf ./.parcel-cache/*"
   },
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
-    "@headlessui/react": "^1.4.2",
-    "prism-react-renderer": "^1.2.1",
-    "react-router-dom": "^5.3.0"
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.6.6",
+    "prism-react-renderer": "^1.3.5",
+    "react-router-dom": "^5.3.3"
   },
   "alias": {
     "react": "../node_modules/react",
@@ -36,16 +36,16 @@
     "@startpage/theming": "../packages/theming"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/babel-plugin": "^11.10.2",
     "@mdx-js/react": "^1.6.22",
-    "@parcel/transformer-mdx": "^2.1.1",
+    "@parcel/transformer-mdx": "^2.7.0",
     "@types/mdx-js__react": "^1.5.5",
-    "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-router-dom": "^5.3.2",
-    "eslint-plugin-mdx": "^1.16.0",
+    "@types/react": "^17.0.48",
+    "@types/react-dom": "^17.0.17",
+    "@types/react-router-dom": "^5.3.3",
+    "eslint-plugin-mdx": "^1.17.1",
     "gh-pages": "^3.2.3",
-    "parcel": "^v2.1.1",
+    "parcel": "^v2.7.0",
     "rimraf": "^3.0.2"
   }
 }
