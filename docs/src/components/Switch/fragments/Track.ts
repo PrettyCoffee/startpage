@@ -1,8 +1,8 @@
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 
-import { CheckedProp } from "../Switch"
 import { SwitchButton } from "./SwitchButton"
+import { CheckedProp } from "../Switch"
 
 export const Track = styled.span<CheckedProp>`
   ${({ theme: { color, space }, checked }) => css`

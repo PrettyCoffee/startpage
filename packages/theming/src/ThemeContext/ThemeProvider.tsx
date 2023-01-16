@@ -2,8 +2,8 @@ import React from "react"
 
 import { useStorage } from "@startpage/local-storage"
 
-import { Theme } from "../Theme"
 import { ThemeContext } from "./ThemeContext"
+import { Theme } from "../Theme"
 
 export type ThemeProviderProps = {
   /** Persists the theme in the local storage. Usefull if you want the theme to be customizable by the user. */

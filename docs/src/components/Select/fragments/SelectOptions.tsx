@@ -1,13 +1,13 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { Listbox } from "@headlessui/react"
 
-import { SelectProps } from "../Select"
 import { SelectOption } from "./SelectOption"
+import { SelectProps } from "../Select"
 
-const StyledOptions = styled(Listbox.Options)`
+const StyledOptions = styled(Listbox.Options)<PropsWithChildren>`
   ${({ theme: { color, space } }) => css`
     position: absolute;
     width: 100%;

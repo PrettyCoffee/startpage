@@ -1,4 +1,4 @@
-import React from "react"
+import React, { PropsWithChildren } from "react"
 
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
@@ -6,7 +6,7 @@ import { Tab } from "@headlessui/react"
 
 import { TabsProp } from "../utils/TabsProp"
 
-const List = styled(Tab.List)`
+const List = styled(Tab.List)<PropsWithChildren>`
   ${({ theme: { color, space } }) => css`
     height: ${space.largest};
     width: max-content;
@@ -17,7 +17,7 @@ const List = styled(Tab.List)`
   `}
 `
 
-const StyledTab = styled(Tab)`
+const StyledTab = styled(Tab)<PropsWithChildren>`
   ${({ theme: { color, space } }) => css`
     height: ${space.largest};
     padding: 0 ${space.medium};

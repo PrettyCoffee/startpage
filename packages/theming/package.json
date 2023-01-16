@@ -34,7 +34,7 @@
     "url": "https://github.com/PrettyCoffee/startpage/issues"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "react": ">=17.0.0"
   },
   "dependencies": {
     "@startpage/local-storage": "file:../local-storage"

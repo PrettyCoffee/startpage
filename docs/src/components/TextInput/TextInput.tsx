@@ -11,12 +11,14 @@ type TextInputProps = {
   onChange: (value: string) => void
   leftIcon?: IconProp
   rightIcon?: IconProp
+  onKeyPress?: (key: string) => void
 }
 
 export const TextInput = ({
   leftIcon,
   rightIcon,
   onChange,
+  onKeyPress,
   ...props
 }: TextInputProps) => {
   const handleChange = (changeEvent: React.ChangeEvent<HTMLInputElement>) =>
@@ -34,6 +36,7 @@ export const TextInput = ({
         hasLeftIcon={Boolean(leftIcon)}
         hasRightIcon={Boolean(rightIcon)}
         onChange={handleChange}
+        onKeyDown={({ key }) => onKeyPress?.(key)}
         {...props}
       />
       {rightIcon && (

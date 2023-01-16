@@ -4,9 +4,9 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled"
 import { useLocation } from "react-router"
 
-import { Aside } from "../Aside"
 import { getSections, Section } from "./getSections"
 import { useScrollPosition } from "./useScrollPosition"
+import { Aside } from "../Aside"
 
 const NavList = styled.ul`
   ${({ theme: { space } }) => css`

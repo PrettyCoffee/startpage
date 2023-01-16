@@ -8,7 +8,11 @@ import { Listbox } from "@headlessui/react"
 
 import { SelectProps } from "../Select"
 
-const HeaderButton = styled(Listbox.Button)<Pick<SelectHeaderProps, "open">>`
+type HeaderButtonProps = Pick<SelectHeaderProps, "open">
+
+const HeaderButton = styled(Listbox.Button)<
+  React.PropsWithChildren<HeaderButtonProps>
+>`
   ${({ theme: { space, color }, open }) => css`
     height: ${space.largest};
     gap: ${space.medium};

@@ -2,8 +2,8 @@ import React from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { IconProps } from "../fragments/BaseProps"
 import { SwitchButton, SwitchIcon, Knob, Track } from "./fragments"
+import { IconProps } from "../fragments/BaseProps"
 
 export interface CheckedProp {
   checked: boolean

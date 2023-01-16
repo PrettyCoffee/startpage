@@ -2,11 +2,12 @@ import React from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import { IconProps } from "../fragments/BaseProps"
 import { BaseButton } from "./BaseButton"
+import { IconProps } from "../fragments/BaseProps"
 
 export type ButtonProps = IconProps & {
   onClick?: () => void
+  onBlur?: () => void
 }
 
 export const Button = ({

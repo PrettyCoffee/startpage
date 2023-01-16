@@ -1,5 +1,5 @@
-import { BookmarkGroup } from ".."
 import { createId } from "./createId"
+import { BookmarkGroup } from ".."
 
 export const getGroupActions = (
   bookmarkGroups: BookmarkGroup[],

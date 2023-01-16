@@ -1,6 +1,6 @@
+import { createId } from "./createId"
 import { BookmarkGroup } from "../BookmarkContext"
 import { InitialBookmarkGroup } from "../BookmarkProvider"
-import { createId } from "./createId"
 
 export const fillBookmarkIds = (
   groups: InitialBookmarkGroup[]

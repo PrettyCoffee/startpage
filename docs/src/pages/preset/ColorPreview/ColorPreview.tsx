@@ -4,8 +4,8 @@ import { css, ThemeProvider as EmotionThemeProvider } from "@emotion/react"
 import styled from "@emotion/styled"
 import { getTheme } from "@startpage/preset"
 
-import { TabGroup, Tab, ThemeToggle } from "../../../components"
 import { ColorPanel } from "./ColorPanel"
+import { TabGroup, Tab, ThemeToggle } from "../../../components"
 
 const ThemeToggleLayout = styled.div`
   ${({ theme: { space } }) => css`
