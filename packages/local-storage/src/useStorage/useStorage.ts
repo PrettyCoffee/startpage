@@ -1,7 +1,10 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback, SetStateAction, Dispatch } from "react"
 
 import { parseStorageItem } from "../fragments/parseStorageItem"
 import { useStoragePrefix } from "../StoragePrefix/StoragePrefixProvider"
+
+const isCallable = (value: unknown): value is CallableFunction =>
+  typeof value === "function"
 
 const STORAGE = window.localStorage
 
@@ -16,6 +19,8 @@ const initiateStorage = <ValueType>(key: string, initialValue: ValueType) => {
   return value
 }
 
+type StateSetter<T> = Dispatch<SetStateAction<T>>
+
 /**Hook for managing your local storage
  * @param ValueType the type of the local storage value
  * @param key the key you want to use in the local storage
@@ -26,16 +31,19 @@ const initiateStorage = <ValueType>(key: string, initialValue: ValueType) => {
 export const useStorage = <ValueType>(
   key: string,
   initialValue: ValueType
-): [ValueType, (value: ValueType) => void] => {
+): [ValueType, StateSetter<ValueType>] => {
   const prefix = useStoragePrefix()
   const [value, setValue] = useState(
     initiateStorage(prefix + key, initialValue)
   )
 
-  const setStorage = useCallback(
-    (value: ValueType) => {
-      STORAGE.setItem(prefix + key, JSON.stringify(value))
-      setValue(value)
+  const setStorage: StateSetter<ValueType> = useCallback(
+    value => {
+      setValue(previous => {
+        const newValue = isCallable(value) ? value(previous) : value
+        STORAGE.setItem(prefix + key, JSON.stringify(newValue))
+        return newValue
+      })
     },
     [prefix, key]
   )

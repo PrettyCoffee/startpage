@@ -75,6 +75,19 @@ describe("Test useStorage", () => {
     expect(result.current[0]).toBe(existingValue)
   })
 
+  it("sets with a function as value", async () => {
+    const initialValue = 1
+    const { result } = renderHook(() => useStorage(storageKey, initialValue))
+
+    expectStorageValue(storageKey, initialValue)
+    expect(result.current[0]).toBe(initialValue)
+
+    act(() => result.current[1](prev => prev + 1))
+
+    expectStorageValue(storageKey, 2)
+    expect(result.current[0]).toBe(2)
+  })
+
   afterEach(() => {
     STORAGE.clear()
   })
